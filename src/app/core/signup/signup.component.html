@@ -48,7 +48,7 @@
 
       <div class="d-flex justify-content-between align-items-center">
         <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
-        <button type="submit" class="btn bg-blue ml-3">Signup <i class="icon-paperplane ml-2"></i></button>
+        <button type="submit" [disabled]="signUpForm.invalid" class="btn bg-blue ml-3">Sign Up <i class="icon-paperplane ml-2"></i></button>
       </div>
     </form>
     <div class="row">
