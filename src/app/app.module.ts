@@ -6,17 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthenticationComponent } from './pages/authentication/authentication.component';
+import { HomeHeaderComponent } from './pages/home-header/home-header.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AuthenticationComponent,
+    HomeHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

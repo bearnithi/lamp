@@ -1,16 +1,2 @@
-<section class="login container-fluid bg-white">
-
-  <div class="row justify-content-center align-items-center bg-white">
-    <div class="col-12 col-md-6 col-lg-6 p-0">
-      <img src="assets/svg/home.svg" class="mw-100 w-100 mw-100 login-img" />
-    </div>
-    <div class="col-12 col-md-6 col-lg-6">
-      <div class="row justify-content-center">
-        <div class="col-9 ">
-          <app-login *ngIf="!showSignup" (signup)="showSignup = $event"></app-login>
-          <app-signup *ngIf="showSignup" (login)="showSignup = $event"></app-signup>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<app-home-header></app-home-header>
+<app-carousel [carouselID]="'homeslider'" [sliders]="sliders"></app-carousel>

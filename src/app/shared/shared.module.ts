@@ -13,6 +13,7 @@ import { SearchComponent } from './search/search.component';
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 
 
@@ -22,7 +23,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SearchComponent,
     StatCardComponent,
     PageHeaderComponent,
-    NavbarComponent],
+    NavbarComponent,
+    CarouselComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -39,7 +41,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatButtonModule,
     StatCardComponent,
     PageHeaderComponent,
-    NavbarComponent
+    NavbarComponent,
+    CarouselComponent
   ]
 })
 export class SharedModule { }
