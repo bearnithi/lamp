@@ -1,1 +1,102 @@
-<p>search works!</p>
+<div class="site-search-module">
+  <div class="container">
+    <div class="site-search-module-inside">
+      <form action="#">
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-2">
+              <select name="propery type" class="form-control input-lg selectpicker">
+                <option selected>Type</option>
+                <option *ngFor="let property of searchFilters.property" [value]="property.name">
+                  {{ property.name}}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-3">
+                <select name="property city" class="form-control input-lg selectpicker">
+                  <option selected>City</option>
+                  <option>Tirunelveli</option>
+                </select>
+              </div>
+            <div class="col-md-3">
+              <select name="propery location" class="form-control input-lg selectpicker">
+                <option selected>Location</option>
+                <option>Tamil Nadu</option>
+              </select>
+            </div>
+            <div class="col-md-2"> <button type="submit" class="btn btn-primary btn-block btn-lg"><i
+                  class="fa fa-search"></i> Search</button> </div>
+            <div class="col-md-2"> <a href="#" id="ads-trigger" class="btn btn-default btn-block"><i
+                  class="fa fa-plus"></i> <span>Advanced</span></a> </div>
+          </div>
+          <div class="row hidden-xs hidden-sm">
+            <div class="col-2">
+              <label>Time of inclusion</label>
+              <select name="timeofinclusion" class="form-control input-lg selectpicker">
+                <option *ngFor="let inclusion of searchFilters.timeOfInclusion" [value]="inclusion">
+                  {{ inclusion}}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label>Min Beds</label>
+              <select name="beds" class="form-control input-lg selectpicker">
+                <option>Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label>Min Baths</label>
+              <select name="beds" class="form-control input-lg selectpicker">
+                <option>Any</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label>Budget</label>
+              <select name="budget" class="form-control input-lg selectpicker">
+                <option *ngFor="let budget of searchFilters.budget" [value]="budget">
+                  {{ budget}}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-2">
+                <label>Age of Asset</label>
+                <select name="ageOfAsset" class="form-control input-lg selectpicker">
+                  <option *ngFor="let ageOfAsset of searchFilters.ageOfAsset" [value]="ageOfAsset">
+                    {{ ageOfAsset}}
+                  </option>
+                </select>
+              </div>
+            <div class="col-md-2">
+              <label>Min Area (Sq Ft)</label>
+              <input type="text" class="form-control input-lg" placeholder="Any">
+            </div>
+            <div class="col-md-2">
+              <label>Max Area (Sq Ft)</label>
+              <input type="text" class="form-control input-lg" placeholder="Any">
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -10,8 +10,8 @@
 
   <!-- The slideshow -->
   <div class="carousel-inner">
-    <div class="carousel-item" *ngFor="let slider of sliders">
-      <img [src]="slider.src" alt="Los Angeles" [attr.width]="slider.width" height="slider.height" />
+    <div class="carousel-item" [ngClass]="{'active': i === 0}" *ngFor="let slider of sliders; let i = index;">
+      <img [src]="slider.src" alt="Los Angeles" [attr.width]="slider.width" [attr.height]="slider.height" />
     </div>
   </div>
 

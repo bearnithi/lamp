@@ -1,2 +1,30 @@
-<app-home-header></app-home-header>
-<app-carousel [carouselID]="'homeslider'" [sliders]="sliders"></app-carousel>
+<section class="main-home bg-white">
+  <app-home-header></app-home-header>
+  <div class="position-relative">
+    <app-carousel [carouselID]="'homeslider'" [sliders]="sliders"></app-carousel>
+
+    <div class="container-fluid">
+      <div class="row mt-3 mb-2">
+        <app-search></app-search>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+        <app-content-header header="New Assets"></app-content-header>
+        <app-product-carousel [sliders]="productSliders"></app-product-carousel>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+        <app-content-header header="E-Auctions coming up"></app-content-header>
+        <app-product-carousel [sliders]="productSliders"></app-product-carousel>
+      </div>
+    </div>
+  </div>
+
+</section>

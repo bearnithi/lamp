@@ -14,7 +14,9 @@ import { StatCardComponent } from './stat-card/stat-card.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CarouselComponent } from './carousel/carousel.component';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductCarouselComponent } from './product-carousel/product-carousel.component';
+import { ContentHeaderComponent } from './content-header/content-header.component';
 
 
 @NgModule({
@@ -24,14 +26,17 @@ import { CarouselComponent } from './carousel/carousel.component';
     StatCardComponent,
     PageHeaderComponent,
     NavbarComponent,
-    CarouselComponent],
+    CarouselComponent,
+    ProductCarouselComponent,
+    ContentHeaderComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    CarouselModule
   ],
   exports: [
     MatFormFieldModule,
@@ -42,7 +47,10 @@ import { CarouselComponent } from './carousel/carousel.component';
     StatCardComponent,
     PageHeaderComponent,
     NavbarComponent,
-    CarouselComponent
+    CarouselComponent,
+    ProductCarouselComponent,
+    SearchComponent,
+    ContentHeaderComponent
   ]
 })
 export class SharedModule { }
