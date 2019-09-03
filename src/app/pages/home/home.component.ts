@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit {
       baths: 2,
       beds: 2,
       area: 1000,
-      parking: 1
+      parking: 1,
+      date: '20/12/2019'
     }, {
       title: 'Flat',
       src: 'assets/images/homesliders/apartment-apartment-building-architecture-323705.jpg',
@@ -63,7 +64,8 @@ export class HomeComponent implements OnInit {
       baths: 3,
       beds: 2,
       area: 2000,
-      parking: 1
+      parking: 1,
+      date: '20/12/2019'
     }, {
       title: 'Home',
       src: 'assets/images/homesliders/apartment-ceiling-chairs-1571460.jpg',
@@ -74,7 +76,8 @@ export class HomeComponent implements OnInit {
       baths: 2,
       beds: 2,
       area: 1000,
-      parking: 1
+      parking: 1,
+      date: '20/12/2019'
     }, {
       title: 'Villa',
       src: 'assets/images/homesliders/architecture-beautiful-exterior-106399.jpg',
@@ -85,7 +88,8 @@ export class HomeComponent implements OnInit {
       baths: 3,
       beds: 4,
       area: 5000,
-      parking: 2
+      parking: 2,
+      date: '20/12/2019'
     }, {
       title: 'Car',
       src: 'assets/images/homesliders/automobile-automotive-car-116675.jpg',
@@ -96,7 +100,8 @@ export class HomeComponent implements OnInit {
       baths: 3,
       beds: 4,
       area: 5000,
-      parking: 2
+      parking: 2,
+      date: '20/12/2019'
     }, {
       title: 'MRI',
       src: 'assets/images/homesliders/care-chair-clean-305567.jpg',
@@ -107,7 +112,8 @@ export class HomeComponent implements OnInit {
       baths: 3,
       beds: 4,
       area: 5000,
-      parking: 2
+      parking: 2,
+      date: '20/12/2019'
     }, {
       title: 'CT',
       src: 'assets/images/homesliders/commerce-connection-data-132700.jpg',
@@ -118,7 +124,8 @@ export class HomeComponent implements OnInit {
       baths: 3,
       beds: 4,
       area: 5000,
-      parking: 2
+      parking: 2,
+      date: '20/12/2019'
     }]
   }
 

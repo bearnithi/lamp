@@ -13,6 +13,9 @@ const routes: Routes = [{
 }, {
   path: 'lender',
   loadChildren: () => import('./lender/lender.module').then((mod) => mod.LenderModule)
+}, {
+  path: 'admin',
+  loadChildren: () => import('./admin/admin.module').then((mod) => mod.AdminModule)
 }];
 
 @NgModule({

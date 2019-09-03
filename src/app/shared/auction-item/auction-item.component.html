@@ -1,0 +1,14 @@
+<div class="property-block"> <a href="#" class="property-featured-image">
+    <div class="overlay" style="line-height:0px"><i class="fa fa-search"></i></div> <img [src]="auctionInfo.src" alt="">
+    <span class="images-count"><i class="fa fa-picture-o"></i> 2</span> <span class="badges">View</span>
+  </a>
+  <div class="property-info">
+    <h4><a href="#">{{auctionInfo.title}}</a></h4>
+    <span class="location"><i class="fa fa-map-marker"></i> {{auctionInfo.location}}</span>
+    <div class="price"><strong>Date: </strong><span>{{auctionInfo.date}}</span></div>
+  </div>
+  <div class="property-amenities clearfix"> <span class="area"><strong>{{auctionInfo.area}}</strong>Area</span> <span
+      class="baths"><strong>{{auctionInfo.baths}}</strong>Baths</span> <span
+      class="beds"><strong>{{auctionInfo.beds}}</strong>Beds</span> <span
+      class="parking"><strong>{{auctionInfo.parking}}</strong>Parking</span> </div>
+</div>

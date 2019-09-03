@@ -1,0 +1,13 @@
+:host ::ng-deep .owl-theme .owl-nav {
+  margin-top: 10px;
+  position: absolute;
+  top: -83px;
+  right: 11px;
+
+  & .owl-prev, & .owl-next {
+    font-size: 14px;
+    padding: 4px 10px;
+    background: #a7a7a7;
+  }
+}
+
