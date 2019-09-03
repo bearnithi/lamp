@@ -30,9 +30,9 @@
   </div> -->
 
 
-<div class="property-block"> <a href="#" class="property-featured-image">
+<div *ngIf="view === 'grid'" class="property-block"> <a href="#" class="property-featured-image">
     <div class="overlay" style="line-height:0px"><i class="fa fa-search"></i></div> <img [src]="productInfo.src" alt="">
-    <span class="images-count"><i class="fa fa-picture-o"></i> 2</span> <span class="badges">Rent</span>
+    <span class="images-count"><i class="fa fa-picture-o"></i> 2</span> <span class="badges">Buy</span>
   </a>
   <div class="property-info">
     <h4><a href="#">{{productInfo.title}}</a></h4>
@@ -43,4 +43,31 @@
       class="baths"><strong>{{productInfo.baths}}</strong>Baths</span> <span
       class="beds"><strong>{{productInfo.beds}}</strong>Beds</span> <span
       class="parking"><strong>{{productInfo.parking}}</strong>Parking</span> </div>
+</div>
+
+<div *ngIf="view === 'list'" class="type-rent row">
+  <div class="col-4 col-md-4">
+    <a href="#" class="property-featured-image">
+      <div class="overlay" style="line-height:211px"><i class="fa fa-search"></i></div> <img
+      [src]="productInfo.src" class="mw-100" alt=""> <span class="images-count"><i
+          class="fa fa-picture-o"></i> 2</span> <span class="badges">Buy</span>
+    </a>
+  </div>
+  <div class="col-8 col-md-8">
+    <div class="property-info">
+      <div class="price"><strong>$</strong><span>{{productInfo.price}}</span></div>
+      <h3><a href="#">{{productInfo.title}}</a></h3>
+      <span class="location"><i class="fa fa-map-marker"></i> {{productInfo.location}}</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod sollicitudin nunc, eget pretium massa.
+        Ut sed adipiscing enim, pellentesque ultrices erat. Integer placerat felis neque, et semper augue ullamcorper
+        in. Pellentesque iaculis leo iaculis aliquet ultrices. Pellentesque iaculis leo iaculis. Pellentesque iaculis
+        leo iaculis aliquet ultrices. Pellentesque iaculis leo iaculis.</p>
+    </div>
+    <div class="property-amenities clearfix">
+      <span class="area"><strong>{{productInfo.area}}</strong>Area</span>
+      <span class="baths"><strong>{{productInfo.baths}}</strong>Baths</span>
+      <span class="beds"><strong>{{productInfo.beds}}</strong>Beds</span>
+      <span class="parking"><strong>{{productInfo.parking}}</strong>Parking</span>
+    </div>
+  </div>
 </div>

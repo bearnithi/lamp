@@ -13,18 +13,18 @@
               </select>
             </div>
             <div class="col-md-3">
-                <select name="property city" class="form-control input-lg selectpicker">
-                  <option selected>City</option>
-                  <option>Tirunelveli</option>
-                </select>
-              </div>
+              <select name="property city" class="form-control input-lg selectpicker">
+                <option selected>City</option>
+                <option>Tirunelveli</option>
+              </select>
+            </div>
             <div class="col-md-3">
               <select name="propery location" class="form-control input-lg selectpicker">
                 <option selected>Location</option>
                 <option>Tamil Nadu</option>
               </select>
             </div>
-            <div class="col-md-2"> <button type="submit" class="btn btn-primary btn-block btn-lg"><i
+            <div class="col-md-2"> <button type="submit" class="btn btn-block bg-teal"><i
                   class="fa fa-search"></i> Search</button> </div>
             <div class="col-md-2"> <a href="#" id="ads-trigger" class="btn btn-default btn-block"><i
                   class="fa fa-plus"></i> <span>Advanced</span></a> </div>
@@ -79,21 +79,18 @@
               </select>
             </div>
             <div class="col-md-2">
-                <label>Age of Asset</label>
-                <select name="ageOfAsset" class="form-control input-lg selectpicker">
-                  <option *ngFor="let ageOfAsset of searchFilters.ageOfAsset" [value]="ageOfAsset">
-                    {{ ageOfAsset}}
-                  </option>
-                </select>
-              </div>
-            <div class="col-md-2">
-              <label>Min Area (Sq Ft)</label>
-              <input type="text" class="form-control input-lg" placeholder="Any">
+              <label>Age of Asset</label>
+              <select name="ageOfAsset" class="form-control input-lg selectpicker">
+                <option *ngFor="let ageOfAsset of searchFilters.ageOfAsset" [value]="ageOfAsset">
+                  {{ ageOfAsset}}
+                </option>
+              </select>
             </div>
             <div class="col-md-2">
-              <label>Max Area (Sq Ft)</label>
+              <label>Area (Sq Ft)</label>
               <input type="text" class="form-control input-lg" placeholder="Any">
             </div>
+
           </div>
         </div>
       </form>

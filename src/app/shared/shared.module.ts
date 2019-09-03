@@ -50,7 +50,8 @@ import { ContentHeaderComponent } from './content-header/content-header.componen
     CarouselComponent,
     ProductCarouselComponent,
     SearchComponent,
-    ContentHeaderComponent
+    ContentHeaderComponent,
+    PropertyItemComponent
   ]
 })
 export class SharedModule { }

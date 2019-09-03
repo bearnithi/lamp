@@ -25,6 +25,13 @@
         <app-product-carousel [sliders]="productSliders"></app-product-carousel>
       </div>
     </div>
+
+    <div class="row mt-3 mb-2">
+      <div class="col-12">
+          <app-content-header header="Sales Concluded"></app-content-header>
+        <app-property-item *ngFor="let product of productSliders" [view]="'list'" [productInfo]="product"></app-property-item>
+      </div>
+    </div>
   </div>
 
 </section>
