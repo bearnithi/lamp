@@ -11,6 +11,15 @@
               <div class="card">
                 <div class="card-body">
                   <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label>Profile Image</label>
+                        <input type="file" />
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="row">
                     <div class="col-12 col-md-4 col-lg-4">
                       <div class="form-group">
                         <label>First Name</label>
@@ -117,7 +126,12 @@
                     <div class="col-12 col-md-4 col-lg-4">
                       <div class="form-group">
                         <label>State</label>
-                        <input type="text" formControlName="state" class="form-control" placeholder="Wingham Street">
+                        <select formControlName="city" class="form-control">
+                          <option value="" style="display: none">Select</option>
+                          <option value="TN">Tamil Nadu</option>
+                          <option value="UP">Utter Pradesh</option>
+
+                        </select>
                         <div *ngIf="control.state.touched && control.state.errors" class="error-message">
                           <div *ngIf="control.state.errors.required">State is required</div>
                         </div>
@@ -125,23 +139,21 @@
                     </div>
 
                     <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>City</label>
-                          <input type="text" formControlName="city" class="form-control" placeholder="John">
-                          <div class="form-group">
-                              <label>Iam a</label>
-                              <select formControlName="city" class="form-control">
-                                <option value="" style="display: none">Select</option>
-                                <option value="Chennai">Chennai</option>
-                                <option value="Tirunelveli">Tirunelveli</option>
+                      <div class="form-group">
+                        <label>City</label>
 
-                              </select>
-                          </div>
-                          <div *ngIf="control.city.touched && control.city.errors" class="error-message">
-                            <div *ngIf="control.city.errors.required">City is required</div>
-                          </div>
+                        <select formControlName="city" class="form-control">
+                          <option value="" style="display: none">Select</option>
+                          <option value="Chennai">Chennai</option>
+                          <option value="Tirunelveli">Tirunelveli</option>
+
+                        </select>
+
+                        <div *ngIf="control.city.touched && control.city.errors" class="error-message">
+                          <div *ngIf="control.city.errors.required">City is required</div>
                         </div>
                       </div>
+                    </div>
 
                   </div>
                 </div>
@@ -157,7 +169,7 @@
                 <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
                 <div class="d-flex">
                   <button type="button" class="btn bg-grey ml-3"
-                  (click)="router.navigate(['admin','associate'])">Back</button>
+                    (click)="router.navigate(['admin','associate'])">Back</button>
                   <button type="submit" [disabled]="addAssociateForm.invalid" class="btn bg-blue ml-3">Save
                     Associate</button>
                 </div>
