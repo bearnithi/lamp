@@ -8,6 +8,8 @@ import { ConsultantMasterComponent } from './masters/consultant-master/consultan
 import { AddAssociteComponent } from './masters/associate-master/add-associte/add-associte.component';
 import { AddLenderComponent } from './masters/lender-master/add-lender/add-lender.component';
 import { AddConsultantComponent } from './masters/consultant-master/add-consultant/add-consultant.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
 
 const ADMIN_ROUTES = [{
   path: '',
@@ -46,7 +48,16 @@ const ADMIN_ROUTES = [{
   },{
     path: 'add-consultant',
     component: AddConsultantComponent
-  },]
+  },{
+    path: 'products',
+    component: ProductListComponent
+  }, {
+    path: 'add-product/:type',
+    component: AddProductComponent
+  }, {
+    path: 'add-product',
+    component: AddProductComponent
+  }]
 }];
 
 @NgModule({

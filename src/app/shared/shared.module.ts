@@ -28,6 +28,18 @@ import { EquipmentFeaturesComponent } from './features/equipment-features/equipm
 import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-features.component';
 import { SoldItemComponent } from './sold-item/sold-item.component';
 import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
+import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
+import { SalesChartComponent } from './sales-chart/sales-chart.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { AddPropertyComponent } from './add-product/add-property/add-property.component';
+import { MachineryComponent } from './add-product/machinery/machinery.component';
+import { EquipmentsComponent } from './add-product/equipments/equipments.component';
+import { VehiclesComponent } from './add-product/vehicles/vehicles.component';
+import { JewelleryComponent } from './add-product/jewellery/jewellery.component';
+import { StockLotsComponent } from './add-product/stock-lots/stock-lots.component';
+import { TakeOverComponent } from './add-product/take-over/take-over.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -48,9 +60,22 @@ import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
     EquipmentFeaturesComponent,
     VehicleFeaturesComponent,
     SoldItemComponent,
-    SoldCarouselComponent],
+    SoldCarouselComponent,
+    NewsAnnouncementsComponent,
+    SalesChartComponent,
+    ProductListComponent,
+    AddProductComponent,
+    AddPropertyComponent,
+    MachineryComponent,
+    EquipmentsComponent,
+    VehiclesComponent,
+    JewelleryComponent,
+    StockLotsComponent,
+    TakeOverComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,
@@ -78,7 +103,11 @@ import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
     UserInfoComponent,
     ConfirmDialogComponent,
     SoldItemComponent,
-    SoldCarouselComponent
+    SoldCarouselComponent,
+    NewsAnnouncementsComponent,
+    SalesChartComponent,
+    ProductListComponent,
+    AddProductComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
