@@ -13,6 +13,8 @@ import { AddAssociteComponent } from './masters/associate-master/add-associte/ad
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddLenderComponent } from './masters/lender-master/add-lender/add-lender.component';
 import { AddConsultantComponent } from './masters/consultant-master/add-consultant/add-consultant.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { AddProductComponent } from './products/add-product/add-product.component';
 
 
 
@@ -25,7 +27,9 @@ import { AddConsultantComponent } from './masters/consultant-master/add-consulta
     AuctionMasterComponent,
     AddAssociteComponent,
     AddLenderComponent,
-    AddConsultantComponent],
+    AddConsultantComponent,
+    ProductListComponent,
+    AddProductComponent],
   imports: [
     CommonModule,
     CoreModule,

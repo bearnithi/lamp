@@ -11,7 +11,11 @@ export class AdminMainComponent implements OnInit {
 
   ngOnInit() {
     this.menu = {
-      group: {
+      home: {
+        name: 'Dashboard',
+        link: '/admin/admin-dashboard'
+      },
+      group: [{
         name: 'Masters',
         items: [{
           name: 'Lenders',
@@ -23,7 +27,22 @@ export class AdminMainComponent implements OnInit {
           name: 'Consultant',
           link: '/admin/consultant'
         }]
-      }
+      }, {
+        name: 'Products',
+        items: [{
+          name: 'List Products',
+          link: '/admin/products'
+        }, {
+          name: 'Add Product',
+          link: '/admin/add-product'
+        }, {
+          name: 'Assign Consultant',
+          link: '/admin/consultant'
+        }, {
+          name: 'Assign Associate',
+          link: '/admin/consultant'
+        }]
+      }]
     }
   }
 
