@@ -65,10 +65,12 @@
                       <div class="col-12 col-md-4 col-lg-4">
                         <div class="form-group">
                           <label>Mobile</label>
-                          <input type="text" formControlName="mobileNo" class="form-control" placeholder="882348521">
-                          <div *ngIf="control.mobileNo.touched && control.mobileNo.errors" class="error-message">
-                            <div *ngIf="control.mobileNo.errors.required">Mobile Number is required</div>
-                          </div>
+                        <input type="text" formControlName="mobileNo" class="form-control" placeholder="882348521"
+                          maxlength="10" minlength="10">
+                        <div *ngIf="control.mobileNo.touched && control.mobileNo.errors" class="error-message">
+                          <div *ngIf="control.mobileNo.errors.required">Mobile Number is required</div>
+                          <div *ngIf="control.mobileNo.errors.pattern">Mobile Number should contain only numbers</div>
+                        </div>
                         </div>
                       </div>
 
@@ -79,6 +81,7 @@
                           <div *ngIf="control.email.touched && control.email.errors && control.email.errors"
                             class="error-message">
                             <div *ngIf="control.email.errors.required">Email Id is required</div>
+                            <div *ngIf="control.email.errors.email">Email Id is invalid</div>
                           </div>
                         </div>
                       </div>
@@ -136,7 +139,7 @@
                       <div class="col-12 col-md-4 col-lg-4">
                         <div class="form-group">
                           <label>State</label>
-                          <select formControlName="city" class="form-control">
+                          <select formControlName="state" class="form-control">
                             <option value="" style="display: none">Select</option>
                             <option value="TN">Tamil Nadu</option>
                             <option value="UP">Utter Pradesh</option>
@@ -174,8 +177,7 @@
                   <div class="d-flex">
                     <button type="button" class="btn bg-grey ml-3"
                       (click)="location.back()">Back</button>
-                    <button type="submit" [disabled]="addLenderForm.invalid" class="btn bg-blue ml-3">Save
-                      Associate</button>
+                    <button type="submit" [disabled]="addLenderForm.invalid" class="btn bg-blue ml-3">Save</button>
                   </div>
 
                 </div>

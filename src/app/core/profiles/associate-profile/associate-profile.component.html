@@ -44,7 +44,7 @@
                         <div class="form-group">
                           <label>Middle Name</label>
                           <input type="text" formControlName="middleName" class="form-control" placeholder="Kevin">
-                          <div *ngIf="control.middleName.touched && control.firstName.errors" class="error-message">
+                          <div *ngIf="control.middleName.touched && control.middleName.errors" class="error-message">
                             <div *ngIf="control.middleName.errors.required">Middle Name is required</div>
                           </div>
                         </div>
@@ -136,7 +136,7 @@
                       <div class="col-12 col-md-4 col-lg-4">
                         <div class="form-group">
                           <label>State</label>
-                          <select formControlName="city" class="form-control">
+                          <select formControlName="state" class="form-control">
                             <option value="" style="display: none">Select</option>
                             <option value="TN">Tamil Nadu</option>
                             <option value="UP">Utter Pradesh</option>
@@ -174,8 +174,7 @@
                   <div class="d-flex">
                     <button type="button" class="btn bg-grey ml-3"
                       (click)="location.back()">Back</button>
-                    <button type="submit" [disabled]="addAssociateForm.invalid" class="btn bg-blue ml-3">Save
-                      Associate</button>
+                    <button type="submit" [disabled]="addAssociateForm.invalid" class="btn bg-blue ml-3">Save</button>
                   </div>
 
                 </div>

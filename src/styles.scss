@@ -1,1 +1,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.error-message {
+  margin-top: 5px;
+  margin-left: 5px;
+  color: #fd4040;
+}
+
+.ng-invalid.ng-touched {
+  border-color: #fd4040;
+}

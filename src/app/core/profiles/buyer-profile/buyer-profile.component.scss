@@ -1,0 +1,59 @@
+.account-info__img-label {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+
+  &:hover{
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.account-info__img{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.camera__icon{
+  display: none;
+  font-size: 25px;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  text-shadow: 5px 5px 20px black;
+  color: #fff;
+  transform: translate(-50%, -50%);
+
+  &:hover{
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.account-info__img {
+  &:hover + .account-info__img-label {
+    display: block;
+    text-shadow: 3px 3px 1rem black;
+  }
+}
+
+.account-info__img:hover{
+  filter: blur(2px);
+  cursor: pointer;
+  & + .camera__icon{
+    display: block;
+  }
+}
+
+.upload_img_input {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}

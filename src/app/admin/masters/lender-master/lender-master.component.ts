@@ -30,7 +30,7 @@ export class LenderMasterComponent implements OnInit {
   }
 
   edit(userInfo: any) {
-    this.router.navigate(['admin', 'add-associate', 'edit']);
+    this.router.navigate(['admin', 'add-lender', 'edit']);
   }
 
   confirmDelete(userInfo: any) {

@@ -30,7 +30,7 @@ export class ConsultantMasterComponent implements OnInit {
   }
 
   edit(userInfo: any) {
-    this.router.navigate(['admin', 'add-associate', 'edit']);
+    this.router.navigate(['admin', 'add-consultant', 'edit']);
   }
 
   confirmDelete(userInfo: any) {

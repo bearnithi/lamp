@@ -1,188 +1,357 @@
 <div class="page-content pt-0">
-    <div class="content-wrapper">
-      <div class="content">
-        <section class="add-associate container">
-          <div class="row">
-            <div class="col-12">
-              <form [formGroup]="addLenderForm" (ngSubmit)="registration()">
+  <div class="content-wrapper">
+    <div class="content">
+      <section class="add-associate container">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="addLenderForm" (ngSubmit)="registration()">
 
-                <app-content-header [header]="'Basic Information'"></app-content-header>
+              <app-content-header [header]="'Bank Information'"></app-content-header>
 
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row justify-content-center">
-                      <div class="col-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row justify-content-center">
+                    <div class="col-4">
 
-                        <div class="form-group text-center">
-                          <img for="profilepic" (click)="fileInput.click()" class="mw-100 account-info__img"
-                            src="{{profilPicData || './assets/images/default-profile.jpg'}}">
-                          <label for="profilepic" class="camera__icon"><i class="fa fa-camera"
-                              aria-hidden="true"></i></label>
+                      <div class="form-group text-center">
+                        <img for="profilepic" (click)="fileInput.click()" class="mw-100 account-info__img"
+                          src="{{profilPicData || './assets/images/default-profile.jpg'}}">
+                        <label for="profilepic" class="camera__icon"><i class="fa fa-camera"
+                            aria-hidden="true"></i></label>
 
-                          <input #fileInput
-                            class="btn btn-primary btn-semi-circle text-warning p-1 u-text-small mt-2 upload_img_input"
-                            formControlName="profileImage" type="file" accept="image/*"
-                            (change)="handleFileUpload($event)" id="profilepic">
+                        <input #fileInput
+                          class="btn btn-primary btn-semi-circle text-warning p-1 u-text-small mt-2 upload_img_input"
+                          formControlName="profileImage" type="file" accept="image/*"
+                          (change)="handleFileUpload($event)" id="profilepic">
 
+                      </div>
+
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Name of the Bank</label>
+                        <input type="text" formControlName="bankName" class="form-control" placeholder="John">
+
+                        <div *ngIf="control.bankName.touched && control.bankName.errors" class="error-message">
+                          <div *ngIf="control.bankName.errors.required">First Name is required</div>
                         </div>
-
-
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>First Name</label>
-                          <input type="text" formControlName="firstName" class="form-control" placeholder="John">
-
-                          <div *ngIf="control.firstName.touched && control.firstName.errors" class="error-message">
-                            <div *ngIf="control.firstName.errors.required">First Name is required</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Middle Name</label>
-                          <input type="text" formControlName="middleName" class="form-control" placeholder="Kevin">
-                          <div *ngIf="control.middleName.touched && control.firstName.errors" class="error-message">
-                            <div *ngIf="control.middleName.errors.required">Middle Name is required</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Last Name</label>
-                          <input type="text" formControlName="lastName" class="form-control" placeholder="Doe">
-                          <div *ngIf="control.lastName.touched && control.lastName.errors" class="error-message">
-                            <div *ngIf="control.lastName.errors.required">Last Name is required</div>
-                          </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" formControlName="department" class="form-control" placeholder="Kevin">
+                        <div *ngIf="control.department.touched && control.department.errors" class="error-message">
+                          <div *ngIf="control.department.errors.required">Middle Name is required</div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="row">
-
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Mobile</label>
-                          <input type="text" formControlName="mobileNo" class="form-control" placeholder="882348521">
-                          <div *ngIf="control.mobileNo.touched && control.mobileNo.errors" class="error-message">
-                            <div *ngIf="control.mobileNo.errors.required">Mobile Number is required</div>
-                          </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Email Id</label>
+                        <input type="email" formControlName="email" class="form-control" placeholder="test@gmail.com">
+                        <div *ngIf="control.email.touched && control.email.errors && control.email.errors"
+                          class="error-message">
+                          <div *ngIf="control.email.errors.required">Email Id is required</div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Email Id</label>
-                          <input type="email" formControlName="email" class="form-control" placeholder="test@gmail.com">
-                          <div *ngIf="control.email.touched && control.email.errors && control.email.errors"
-                            class="error-message">
-                            <div *ngIf="control.email.errors.required">Email Id is required</div>
-                          </div>
+              <app-content-header [header]="'Single Point of Contact - Information'"></app-content-header>
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control" placeholder="John">
+
+                        <div *ngIf="control.firstName.touched && control.firstName.errors" class="error-message">
+                          <div *ngIf="control.firstName.errors.required">First Name is required</div>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Middle Name</label>
+                        <input type="text" formControlName="middleName" class="form-control" placeholder="Kevin">
+                        <div *ngIf="control.middleName.touched && control.middleName.errors" class="error-message">
+                          <div *ngIf="control.middleName.errors.required">Middle Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" placeholder="Doe">
+                        <div *ngIf="control.lastName.touched && control.lastName.errors" class="error-message">
+                          <div *ngIf="control.lastName.errors.required">Last Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Password</label>
-                          <input type="password" formControlName="password" class="form-control"
-                            placeholder="Your password">
-                          <div *ngIf="control.password.touched && control.password.errors" class="error-message">
-                            <div *ngIf="control.password.errors.required">Password is required</div>
-                            <div *ngIf="control.password.errors.patten">Password should contain more than 8 characters
-                            </div>
+                  <div class="row">
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="text" formControlName="mobileNo" class="form-control" placeholder="882348521"
+                          maxlength="10" minlength="10">
+                        <div *ngIf="control.mobileNo.touched && control.mobileNo.errors" class="error-message">
+                          <div *ngIf="control.mobileNo.errors.required">Mobile Number is required</div>
+                          <div *ngIf="control.mobileNo.errors.pattern">Mobile Number should contain only numbers</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Email Id</label>
+                        <input type="email" formControlName="email" class="form-control" placeholder="test@gmail.com">
+                        <div *ngIf="control.email.touched && control.email.errors && control.email.errors"
+                          class="error-message">
+                          <div *ngIf="control.email.errors.required">Email Id is required</div>
+                          <div *ngIf="control.email.errors.email">Email Id is invalid</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" class="form-control"
+                          placeholder="Your password">
+                        <div *ngIf="control.password.touched && control.password.errors" class="error-message">
+                          <div *ngIf="control.password.errors.required">Password is required</div>
+                          <div *ngIf="control.password.errors.patten">Password should contain more than 8 characters
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <app-content-header [header]="'Address Details'"></app-content-header>
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Address 1</label>
-                          <input type="text" formControlName="address1" class="form-control" placeholder="John">
+              <app-content-header [header]="'Address Details'"></app-content-header>
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Address 1</label>
+                        <input type="text" formControlName="address1" class="form-control" placeholder="John">
 
-                          <div *ngIf="control.address1.touched && control.address1.errors" class="error-message">
-                            <div *ngIf="control.address1.errors.required">Address is required</div>
-                          </div>
+                        <div *ngIf="control.address1.touched && control.address1.errors" class="error-message">
+                          <div *ngIf="control.address1.errors.required">Address is required</div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Address 2</label>
-                          <input type="text" formControlName="address2" class="form-control" placeholder="Wingham Street">
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Address 2</label>
+                        <input type="text" formControlName="address2" class="form-control" placeholder="Wingham Street">
 
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Street</label>
+                        <input type="text" formControlName="street" class="form-control" placeholder="Doe">
+                        <div *ngIf="control.street.touched && control.street.errors" class="error-message">
+                          <div *ngIf="control.street.errors.required">Street is required</div>
                         </div>
                       </div>
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>Street</label>
-                          <input type="text" formControlName="street" class="form-control" placeholder="Doe">
-                          <div *ngIf="control.street.touched && control.street.errors" class="error-message">
-                            <div *ngIf="control.street.errors.required">Street is required</div>
-                          </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>State</label>
+                        <select formControlName="state" class="form-control">
+                          <option value="" style="display: none">Select</option>
+                          <option value="TN">Tamil Nadu</option>
+                          <option value="UP">Utter Pradesh</option>
+
+                        </select>
+                        <div *ngIf="control.state.touched && control.state.errors" class="error-message">
+                          <div *ngIf="control.state.errors.required">State is required</div>
                         </div>
                       </div>
                     </div>
 
-                    <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>City</label>
 
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>State</label>
-                          <select formControlName="city" class="form-control">
-                            <option value="" style="display: none">Select</option>
-                            <option value="TN">Tamil Nadu</option>
-                            <option value="UP">Utter Pradesh</option>
+                        <select formControlName="city" class="form-control">
+                          <option value="" style="display: none">Select</option>
+                          <option value="Chennai">Chennai</option>
+                          <option value="Tirunelveli">Tirunelveli</option>
 
-                          </select>
-                          <div *ngIf="control.state.touched && control.state.errors" class="error-message">
-                            <div *ngIf="control.state.errors.required">State is required</div>
-                          </div>
+                        </select>
+
+                        <div *ngIf="control.city.touched && control.city.errors" class="error-message">
+                          <div *ngIf="control.city.errors.required">City is required</div>
                         </div>
                       </div>
+                    </div>
 
-                      <div class="col-12 col-md-4 col-lg-4">
-                        <div class="form-group">
-                          <label>City</label>
+                  </div>
+                </div>
+              </div>
 
-                          <select formControlName="city" class="form-control">
-                            <option value="" style="display: none">Select</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Tirunelveli">Tirunelveli</option>
+              <app-content-header [header]="'Web Administrator Details'"></app-content-header>
+              <div formGroupName="webAdministratorDetails" class="card">
+                <div class="card-body">
 
-                          </select>
+                  <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control" placeholder="John">
 
-                          <div *ngIf="control.city.touched && control.city.errors" class="error-message">
-                            <div *ngIf="control.city.errors.required">City is required</div>
-                          </div>
+                        <div *ngIf="webAdminControls.firstName.touched && webAdminControls.firstName.errors" class="error-message">
+                          <div *ngIf="webAdminControls.firstName.errors.required">First Name is required</div>
                         </div>
                       </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Middle Name</label>
+                        <input type="text" formControlName="middleName" class="form-control" placeholder="Kevin">
+                        <div *ngIf="webAdminControls.middleName.touched && webAdminControls.middleName.errors" class="error-message">
+                          <div *ngIf="webAdminControls.middleName.errors.required">Middle Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" placeholder="Doe">
+                        <div *ngIf="webAdminControls.lastName.touched && webAdminControls.lastName.errors" class="error-message">
+                          <div *ngIf="webAdminControls.lastName.errors.required">Last Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
+                  <div class="row">
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="text" formControlName="mobileNo" class="form-control" placeholder="882348521"
+                          maxlength="10" minlength="10">
+                        <div *ngIf="webAdminControls.mobileNo.touched && webAdminControls.mobileNo.errors" class="error-message">
+                          <div *ngIf="webAdminControls.mobileNo.errors.required">Mobile Number is required</div>
+                          <div *ngIf="webAdminControls.mobileNo.errors.pattern">Mobile Number should contain only numbers</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Email Id</label>
+                        <input type="email" formControlName="email" class="form-control" placeholder="test@gmail.com">
+                        <div *ngIf="webAdminControls.email.touched && webAdminControls.email.errors"
+                          class="error-message">
+                          <div *ngIf="webAdminControls.email.errors.required">Email Id is required</div>
+                          <div *ngIf="webAdminControls.email.errors.email">Email Id is invalid</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div class="d-flex justify-content-between align-items-center">
-                  <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
-                  <div class="d-flex">
-                    <button type="button" class="btn bg-grey ml-3"
-                      (click)="location.back()">Back</button>
-                    <button type="submit" [disabled]="addLenderForm.invalid" class="btn bg-blue ml-3">Save
-                      Associate</button>
+              <app-content-header [header]="'Network Admin Details'"></app-content-header>
+              <div formGroupName="networkAdminDetails" class="card">
+                <div class="card-body">
+
+                  <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" formControlName="firstName" class="form-control" placeholder="John">
+
+                        <div *ngIf="networkAdminControls.firstName.touched && networkAdminControls.firstName.errors" class="error-message">
+                          <div *ngIf="networkAdminControls.firstName.errors.required">First Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Middle Name</label>
+                        <input type="text" formControlName="middleName" class="form-control" placeholder="Kevin">
+                        <div *ngIf="networkAdminControls.middleName.touched && networkAdminControls.middleName.errors" class="error-message">
+                          <div *ngIf="networkAdminControls.middleName.errors.required">Middle Name is required</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" formControlName="lastName" class="form-control" placeholder="Doe">
+                        <div *ngIf="networkAdminControls.lastName.touched && networkAdminControls.lastName.errors" class="error-message">
+                          <div *ngIf="networkAdminControls.lastName.errors.required">Last Name is required</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
+                  <div class="row">
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="text" formControlName="mobileNo" class="form-control" placeholder="882348521"
+                          maxlength="10" minlength="10">
+                        <div *ngIf="networkAdminControls.mobileNo.touched && networkAdminControls.mobileNo.errors" class="error-message">
+                          <div *ngIf="networkAdminControls.mobileNo.errors.required">Mobile Number is required</div>
+                          <div *ngIf="networkAdminControls.mobileNo.errors.pattern">Mobile Number should contain only numbers</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Email Id</label>
+                        <input type="email" formControlName="email" class="form-control" placeholder="test@gmail.com">
+                        <div *ngIf="networkAdminControls.email.touched && networkAdminControls.email.errors && networkAdminControls.email.errors"
+                          class="error-message">
+                          <div *ngIf="networkAdminControls.email.errors.required">Email Id is required</div>
+                          <div *ngIf="networkAdminControls.email.errors.email">Email Id is invalid</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </form>
-            </div>
+              </div>
+
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
+                <div class="d-flex">
+                  <button type="button" class="btn bg-grey ml-3" (click)="location.back()">Back</button>
+                  <button type="submit" [disabled]="addLenderForm.invalid" class="btn bg-blue ml-3">Save</button>
+                </div>
+
+              </div>
+            </form>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   </div>
+</div>

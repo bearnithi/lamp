@@ -38,10 +38,12 @@ export class LenderProfileComponent implements OnInit {
     this.addLenderForm = this.fb.group({
       userType: ['Lender'],
       profileImage: [''],
+      bankName: ['', Validators.required],
+      department: ['', Validators.required],
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
-      mobileNo: ['', Validators.required],
+      mobileNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [
         Validators.required,
@@ -51,11 +53,34 @@ export class LenderProfileComponent implements OnInit {
       address2: [''],
       street: ['', Validators.required],
       state: ['', Validators.required],
-      city: ['', Validators.required]
+      city: ['', Validators.required],
+      webAdministratorDetails: this.fb.group({
+        firstName: ['', Validators.required],
+        middleName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        mobileNo: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+      }),
+      networkAdminDetails: this.fb.group({
+        firstName: ['', Validators.required],
+        middleName: ['', Validators.required],
+        lastName: ['', Validators.required],
+        mobileNo: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+      })
     });
   }
 
   get control(): any { return this.addLenderForm.controls; }
+
+  get webAdminControls(): any {
+    return this.control.webAdministratorDetails.controls;
+  };
+
+  get networkAdminControls(): any {
+    return this.control.networkAdminDetails.controls;
+  };
+
 
   handleFileUpload(e) {
     const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
