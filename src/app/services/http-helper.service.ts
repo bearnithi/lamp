@@ -11,14 +11,14 @@ import feathersRestClient from '@feathersjs/rest-client';
 export class HttpHelperService {
 
 
-  constructor() { 
-    
+  constructor() {
+
   }
 
-  getInstance(){
+  getInstance() {
 
     return axios.create({
-      baseURL:"http://192.168.2.189:43030",
+      baseURL: "http://192.168.2.189:43030",
       timeout: 3000,
       headers: {
         "X-Initialized-At": Date.now().toString()
@@ -26,19 +26,19 @@ export class HttpHelperService {
     });
   }
 
-  feathersInstance(){
+  feathersInstance() {
 
-    
+
     const client = feathers();
-    const restclient = feathersRestClient("http://192.168.2.189:43030") 
+    const restclient = feathersRestClient("http://192.168.2.189:43030")
     client.configure(restclient.axios(axios));
     client.configure(feathersAuthClient({
-      storage:window.localStorage as any
+      storage: window.localStorage as any
     }));
-    
-    return client
-    
-    }
+
+    return client;
+
+  }
 
 
 }

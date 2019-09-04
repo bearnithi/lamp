@@ -121,40 +121,40 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-12 col-md-4 col-lg-4">
-              <div class="form-group">
-                <label>State</label>
-                <select formControlName="state" class="form-control">
-                  <option value="" style="display: none">Select</option>
-                  <option value="TN">Tamil Nadu</option>
-                  <option value="UP">Utter Pradesh</option>
 
-                </select>
-                <div *ngIf="control.state.touched && control.state.errors" class="error-message">
-                  <div *ngIf="control.state.errors.required">State is required</div>
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>State</label>
+                  <select formControlName="state" class="form-control">
+                    <option value="" style="display: none">Select</option>
+                    <option value="TN">Tamil Nadu</option>
+                    <option value="UP">Utter Pradesh</option>
+
+                  </select>
+                  <div *ngIf="control.state.touched && control.state.errors" class="error-message">
+                    <div *ngIf="control.state.errors.required">State is required</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>City</label>
+
+                  <select formControlName="city" class="form-control">
+                    <option value="" style="display: none">Select</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+
+                  </select>
+
+                  <div *ngIf="control.city.touched && control.city.errors" class="error-message">
+                    <div *ngIf="control.city.errors.required">City is required</div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <div class="col-12 col-md-4 col-lg-4">
-              <div class="form-group">
-                <label>City</label>
-
-                <select formControlName="city" class="form-control">
-                  <option value="" style="display: none">Select</option>
-                  <option value="Chennai">Chennai</option>
-                  <option value="Tirunelveli">Tirunelveli</option>
-
-                </select>
-
-                <div *ngIf="control.city.touched && control.city.errors" class="error-message">
-                  <div *ngIf="control.city.errors.required">City is required</div>
-                </div>
-              </div>
-            </div>
-
           </div>
 
         </div>

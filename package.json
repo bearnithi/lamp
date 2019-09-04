@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@feathersjs/authentication": "^4.3.0",
     "@feathersjs/authentication-client": "^4.3.0",
     "@feathersjs/client": "^4.3.0",
     "@feathersjs/feathers": "^4.3.0",

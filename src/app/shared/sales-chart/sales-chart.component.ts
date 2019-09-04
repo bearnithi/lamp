@@ -338,7 +338,7 @@ export class SalesChartComponent implements OnInit {
 
     _MonthlySalesAreaChart('#monthly-sales-stats', 100, '#4DB6AC');
 
-    this.lineChart();
+   // this.lineChart();
   }
 
   lineChart() {
