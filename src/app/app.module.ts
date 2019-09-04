@@ -26,7 +26,7 @@ import { StoreService } from './services/store.service';
     CoreModule,
     SharedModule
   ],
-  providers: [HttpHelperService, StoreService],
+  providers: [HttpHelperService, StoreService,HttpHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

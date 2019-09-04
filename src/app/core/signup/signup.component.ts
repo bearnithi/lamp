@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, Form } from '@angular/forms';
 
 import axios from "axios";
 import { AxiosInstance } from "axios";
+import { HttpHelperService } from 'src/app/services/http-helper.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,14 +14,17 @@ import { AxiosInstance } from "axios";
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   private axiosClient: AxiosInstance;
-  submitted = false;
+  submitted : boolean = false;
+  showLoader : boolean = false;
+  hasMessage : boolean = false;
+  formMessage : string = "";
 
   @Output() login = new EventEmitter<boolean>();
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private httpHelper:HttpHelperService) { }
 
   ngOnInit() {
     this.signUpForm = this.fb.group({
-      userType: ['', Validators.required],
+      role: ['', Validators.required],
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -45,13 +49,38 @@ export class SignupComponent implements OnInit {
 
 
   registration(form: Form) {
-    this.axiosClient.post('http://192.168.2.189:43030/users', form['value'])
-      .then( (response) => {
-        console.log(response);
-      })
-      .catch( (error) => {
-        console.log(error);
-      });
+    this.showLoader = true;
+    this.hasMessage = false;
+    let qry = { query: {"email":this.signUpForm.value.email}}
+
+    this.httpHelper.feathersInstance().service('users').find(qry)
+    .then(res => {
+      var isUserExist = res.data.length;
+      if(isUserExist == 0){
+            this.httpHelper.getInstance().post('/users', form['value'])
+            .then((response) => {
+              this.showLoader = false;
+              this.hasMessage = true;
+              this.formMessage = "User registered successfully"
+              setTimeout(() => {
+                this.login.emit(false)
+              }, 1000);
+            })
+            .catch((error) => {
+              this.showLoader = false;
+              this.hasMessage = true;
+              this.formMessage = "Unexpected error occured";
+            });
+      }
+      else{
+        this.showLoader = false;
+        this.hasMessage = true;
+        this.formMessage = "User Already Exists"
+      }
+    })
+ 
+
+    
   }
 
 }
