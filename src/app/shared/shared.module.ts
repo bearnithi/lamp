@@ -26,6 +26,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
 import { HomeFeaturesComponent } from './features/home-features/home-features.component';
 import { EquipmentFeaturesComponent } from './features/equipment-features/equipment-features.component';
 import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-features.component';
+import { SoldItemComponent } from './sold-item/sold-item.component';
+import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-fe
     ConfirmDialogComponent,
     HomeFeaturesComponent,
     EquipmentFeaturesComponent,
-    VehicleFeaturesComponent],
+    VehicleFeaturesComponent,
+    SoldItemComponent,
+    SoldCarouselComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -72,7 +76,9 @@ import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-fe
     PropertyItemComponent,
     AuctionCarouselComponent,
     UserInfoComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    SoldItemComponent,
+    SoldCarouselComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

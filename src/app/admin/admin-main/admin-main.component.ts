@@ -15,13 +15,13 @@ export class AdminMainComponent implements OnInit {
         name: 'Masters',
         items: [{
           name: 'Lenders',
-          link: '/admin/admin-dashboard/lenders'
+          link: '/admin/lender'
         }, {
           name: 'Associate',
-          link: '/admin/admin-dashboard/associate'
+          link: '/admin/associate'
         }, {
           name: 'Consultant',
-          link: 'consultant'
+          link: '/admin/consultant'
         }]
       }
     }

@@ -6,6 +6,8 @@ import { AssociateMasterComponent } from './masters/associate-master/associate-m
 import { LenderMasterComponent } from './masters/lender-master/lender-master.component';
 import { ConsultantMasterComponent } from './masters/consultant-master/consultant-master.component';
 import { AddAssociteComponent } from './masters/associate-master/add-associte/add-associte.component';
+import { AddLenderComponent } from './masters/lender-master/add-lender/add-lender.component';
+import { AddConsultantComponent } from './masters/consultant-master/add-consultant/add-consultant.component';
 
 const ADMIN_ROUTES = [{
   path: '',
@@ -30,9 +32,21 @@ const ADMIN_ROUTES = [{
     path: 'lender',
     component: LenderMasterComponent
   }, {
+    path: 'add-lender/:type',
+    component: AddLenderComponent
+  },{
+    path: 'add-lender',
+    component: AddLenderComponent
+  },{
     path: 'consultant',
     component: ConsultantMasterComponent
-  }]
+  }, {
+    path: 'add-consultant/:type',
+    component: AddConsultantComponent
+  },{
+    path: 'add-consultant',
+    component: AddConsultantComponent
+  },]
 }];
 
 @NgModule({

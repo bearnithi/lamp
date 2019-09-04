@@ -11,6 +11,8 @@ import { ConsultantMasterComponent } from './masters/consultant-master/consultan
 import { AuctionMasterComponent } from './masters/auction-master/auction-master.component';
 import { AddAssociteComponent } from './masters/associate-master/add-associte/add-associte.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddLenderComponent } from './masters/lender-master/add-lender/add-lender.component';
+import { AddConsultantComponent } from './masters/consultant-master/add-consultant/add-consultant.component';
 
 
 
@@ -21,7 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AssociateMasterComponent,
     ConsultantMasterComponent,
     AuctionMasterComponent,
-    AddAssociteComponent],
+    AddAssociteComponent,
+    AddLenderComponent,
+    AddConsultantComponent],
   imports: [
     CommonModule,
     CoreModule,

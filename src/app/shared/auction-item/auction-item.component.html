@@ -5,7 +5,9 @@
   <div class="property-info">
     <h4><a href="#">{{auctionInfo.title}}</a></h4>
     <span class="location"><i class="fa fa-map-marker"></i> {{auctionInfo.location}}</span>
-    <div class="price"><strong>Date: </strong><span>{{auctionInfo.date}}</span></div>
+    <div class="price"><strong>E-Auction Date: </strong><span>{{auctionInfo.date}}</span></div>
+    <div class="mt-1"><strong>Lender: </strong><span>{{auctionInfo.lender || 'Indian Bank'}}</span></div>
+    <div><strong>Status: </strong><span>{{auctionInfo.status || 'Active'}}</span></div>
   </div>
   <div class="property-amenities clearfix"> <span class="area"><strong>{{auctionInfo.area}}</strong>Area</span> <span
       class="baths"><strong>{{auctionInfo.baths}}</strong>Baths</span> <span

@@ -3,13 +3,12 @@
   {{ data.message }}
 </div>
 <div mat-dialog-actions class="border-top border-light">
-  <div class="d-flex p-2 flex-row">
-      <div class="p-2"><button class="btn btn-primary" (click)="dialogRef.close(true)"
-         color="primary">
-         Yes
-        </button></div>
-        <div class="p-2"><button class="btn btn-primary" (click)="dialogRef.close(false)">
-          No
-        </button></div>
+  <div class="d-flex p-2 flex-row w-100 justify-content-end">
+    <div class="p-2"><button class="btn btn-primary" (click)="dialogRef.close(true)" color="primary">
+        Yes
+      </button></div>
+    <div class="p-2"><button class="btn btn-primary" (click)="dialogRef.close(false)">
+        No
+      </button></div>
   </div>
 </div>

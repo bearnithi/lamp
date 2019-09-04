@@ -1,4 +1,4 @@
-<div class="page-content pt-0">
+<!-- <div class="page-content pt-0">
   <div class="content-wrapper">
     <div class="content">
       <section class="add-associate container">
@@ -10,12 +10,22 @@
 
               <div class="card">
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label>Profile Image</label>
-                        <input type="file" />
+                  <div class="row justify-content-center">
+                    <div class="col-4">
+
+                      <div class="form-group text-center">
+                        <img for="profilepic" (click)="fileInput.click()" class="mw-100 account-info__img"
+                          src="{{profilPicData || './assets/images/default-profile.jpg'}}">
+                        <label for="profilepic" class="camera__icon"><i class="fa fa-camera"
+                            aria-hidden="true"></i></label>
+
+                        <input #fileInput
+                          class="btn btn-primary btn-semi-circle text-warning p-1 u-text-small mt-2 upload_img_input"
+                          formControlName="profileImage" type="file" accept="image/*"
+                          (change)="handleFileUpload($event)" id="profilepic">
+
                       </div>
+
 
                     </div>
                   </div>
@@ -181,4 +191,6 @@
       </section>
     </div>
   </div>
-</div>
+</div> -->
+
+<app-associate-profile [isEdit]="isEdit" (formData)="registration($event)"></app-associate-profile>

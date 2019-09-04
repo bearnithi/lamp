@@ -1,0 +1,15 @@
+<div class="property-block"> <a href="#" class="property-featured-image">
+    <div class="overlay" style="line-height:0px"><i class="fa fa-search"></i></div> <img [src]="soldInfo.src" alt="">
+    <span class="images-count"><i class="fa fa-picture-o"></i> 2</span> <span class="badges">SOLD</span>
+  </a>
+  <div class="property-info">
+    <h4><a href="#">{{soldInfo.title}}</a></h4>
+    <span class="location"><i class="fa fa-map-marker"></i> {{soldInfo.location}}</span>
+    <div class="price"><strong>Sold For: </strong><span>Rs. {{soldInfo.price}}</span></div>
+    <div class="mt-1"><strong>Sold On: </strong><span>{{soldInfo.date}}</span></div>
+  </div>
+  <div class="property-amenities clearfix"> <span class="area"><strong>{{soldInfo.area}}</strong>Area</span> <span
+      class="baths"><strong>{{soldInfo.baths}}</strong>Baths</span> <span
+      class="beds"><strong>{{soldInfo.beds}}</strong>Beds</span> <span
+      class="parking"><strong>{{soldInfo.parking}}</strong>Parking</span> </div>
+</div>

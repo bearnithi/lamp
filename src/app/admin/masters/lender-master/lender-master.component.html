@@ -1,1 +1,26 @@
-<p>lender-master works!</p>
+<div class="page-content pt-0">
+    <div class="content-wrapper">
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h1 class="p-2 m-2">Lender</h1>
+            </div>
+            <div class="col-4 text-right">
+              <button class="btn bg-teal mr-2"
+              (click)="router.navigate(['admin','add-lender','add'])">Add Lender</button>
+            </div>
+          </div>
+
+          <section class="lender-list container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <app-user-info (edit)="edit(userInfo)" (delete)="confirmDelete(userInfo)"
+                *ngFor="let userInfo of users" [userInfo]="userInfo"></app-user-info>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>

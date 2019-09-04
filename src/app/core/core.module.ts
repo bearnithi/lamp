@@ -5,10 +5,22 @@ import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { AssociateProfileComponent } from './profiles/associate-profile/associate-profile.component';
+import { LenderProfileComponent } from './profiles/lender-profile/lender-profile.component';
+import { BuyerProfileComponent } from './profiles/buyer-profile/buyer-profile.component';
+import { BorrowerProfileComponent } from './profiles/borrower-profile/borrower-profile.component';
+import { ConsultantProfileComponent } from './profiles/consultant-profile/consultant-profile.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, HeaderComponent, SignupComponent],
+  declarations: [LoginComponent,
+    HeaderComponent,
+    SignupComponent,
+    AssociateProfileComponent,
+    LenderProfileComponent,
+    BuyerProfileComponent,
+    BorrowerProfileComponent,
+    ConsultantProfileComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -17,7 +29,12 @@ import { SignupComponent } from './signup/signup.component';
   exports: [
     LoginComponent,
     SignupComponent,
-    HeaderComponent
+    HeaderComponent,
+    AssociateProfileComponent,
+    LenderProfileComponent,
+    BuyerProfileComponent,
+    BorrowerProfileComponent,
+    ConsultantProfileComponent
   ]
 })
 export class CoreModule { }
