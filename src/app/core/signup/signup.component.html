@@ -28,7 +28,7 @@
           <div class="form-group">
             <label>First Name</label>
             <input type="text" formControlName="firstName" class="form-control" placeholder="John">
-  
+
             <div *ngIf="control.firstName.touched && control.firstName.errors" class="error-message">
                 <div *ngIf="control.firstName.errors.required">First Name is required</div>
             </div>

@@ -6,7 +6,8 @@ import {
   MatInputModule,
   MatRadioModule,
   MatSelectModule,
-  MatButtonModule
+  MatButtonModule,
+  MatDialogModule
 } from '@angular/material';
 import { PropertyItemComponent } from './property-item/property-item.component';
 import { SearchComponent } from './search/search.component';
@@ -21,6 +22,10 @@ import { AuctionItemComponent } from './auction-item/auction-item.component';
 import { AuctionCarouselComponent } from './auction-carousel/auction-carousel.component';
 import { RouterModule } from '@angular/router';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { HomeFeaturesComponent } from './features/home-features/home-features.component';
+import { EquipmentFeaturesComponent } from './features/equipment-features/equipment-features.component';
+import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-features.component';
 
 
 @NgModule({
@@ -35,7 +40,11 @@ import { UserInfoComponent } from './user-info/user-info.component';
     ContentHeaderComponent,
     AuctionItemComponent,
     AuctionCarouselComponent,
-    UserInfoComponent],
+    UserInfoComponent,
+    ConfirmDialogComponent,
+    HomeFeaturesComponent,
+    EquipmentFeaturesComponent,
+    VehicleFeaturesComponent],
   imports: [
     CommonModule,
     MatFormFieldModule,
@@ -43,6 +52,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
     MatRadioModule,
     MatSelectModule,
     MatButtonModule,
+    MatDialogModule,
     CarouselModule,
     RouterModule
   ],
@@ -61,7 +71,11 @@ import { UserInfoComponent } from './user-info/user-info.component';
     ContentHeaderComponent,
     PropertyItemComponent,
     AuctionCarouselComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    ConfirmDialogComponent
+  ],
+  entryComponents: [
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule { }

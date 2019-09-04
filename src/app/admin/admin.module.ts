@@ -10,6 +10,7 @@ import { AssociateMasterComponent } from './masters/associate-master/associate-m
 import { ConsultantMasterComponent } from './masters/consultant-master/consultant-master.component';
 import { AuctionMasterComponent } from './masters/auction-master/auction-master.component';
 import { AddAssociteComponent } from './masters/associate-master/add-associte/add-associte.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -25,6 +26,7 @@ import { AddAssociteComponent } from './masters/associate-master/add-associte/ad
     CommonModule,
     CoreModule,
     SharedModule,
+    ReactiveFormsModule,
     AdminRoutingModule
   ]
 })

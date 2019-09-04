@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
         Validators.required,
         Validators.pattern('(?=\\D*\\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}')
       ]]
-    })
+    });
 
     this.axiosClient = axios.create({
       timeout: 3000,
@@ -41,15 +41,15 @@ export class SignupComponent implements OnInit {
   }
 
 
-  get control() { return this.signUpForm.controls; }
+  get control(): any { return this.signUpForm.controls; }
 
 
   registration(form: Form) {
     this.axiosClient.post('http://192.168.2.189:43030/users', form['value'])
-      .then(function (response) {
+      .then( (response) => {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch( (error) => {
         console.log(error);
       });
   }

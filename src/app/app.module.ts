@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { HomeHeaderComponent } from './pages/home-header/home-header.component';
 import { SharedModule } from './shared/shared.module';
+import { HttpHelperService } from './services/http-helper.service';
+import { StoreService } from './services/store.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { SharedModule } from './shared/shared.module';
     CoreModule,
     SharedModule
   ],
-  providers: [],
+  providers: [HttpHelperService, StoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

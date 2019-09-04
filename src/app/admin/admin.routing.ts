@@ -5,6 +5,7 @@ import { AdminMainComponent } from './admin-main/admin-main.component';
 import { AssociateMasterComponent } from './masters/associate-master/associate-master.component';
 import { LenderMasterComponent } from './masters/lender-master/lender-master.component';
 import { ConsultantMasterComponent } from './masters/consultant-master/consultant-master.component';
+import { AddAssociteComponent } from './masters/associate-master/add-associte/add-associte.component';
 
 const ADMIN_ROUTES = [{
   path: '',
@@ -15,8 +16,17 @@ const ADMIN_ROUTES = [{
   },
   {
     path: 'associate',
-    component: AssociateMasterComponent
-  }, {
+    component: AssociateMasterComponent,
+  },
+  {
+    path: 'add-associate/:type',
+    component: AddAssociteComponent
+  },
+  {
+    path: 'add-associate',
+    component: AddAssociteComponent
+  },
+  {
     path: 'lender',
     component: LenderMasterComponent
   }, {

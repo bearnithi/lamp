@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-info',
@@ -7,9 +7,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserInfoComponent implements OnInit {
   @Input() userInfo: any = {};
+  @Output() edit = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  editUser(e) {
+    e.preventDefault();
+    this.edit.emit(true);
+  }
+
+  deleteUser(e) {
+    e.preventDefault();
+    this.delete.emit(true);
   }
 
 }
