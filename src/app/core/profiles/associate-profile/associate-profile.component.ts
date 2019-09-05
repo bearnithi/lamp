@@ -50,7 +50,7 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
 
   createForm() {
     this.addAssociateForm = this.fb.group({
-      userType: ['Associate'],
+      role: ['Associate'],
       profileImage: [''],
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],

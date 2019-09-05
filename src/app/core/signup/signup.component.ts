@@ -14,13 +14,13 @@ import { HttpHelperService } from 'src/app/services/http-helper.service';
 export class SignupComponent implements OnInit {
   signUpForm: FormGroup;
   private axiosClient: AxiosInstance;
-  submitted : boolean = false;
-  showLoader : boolean = false;
-  hasMessage : boolean = false;
-  formMessage : string = "";
+  submitted: boolean = false;
+  showLoader: boolean = false;
+  hasMessage: boolean = false;
+  formMessage: string = "";
 
   @Output() login = new EventEmitter<boolean>();
-  constructor(private fb: FormBuilder,private httpHelper:HttpHelperService) { }
+  constructor(private fb: FormBuilder, private httpHelper: HttpHelperService) { }
 
   ngOnInit() {
     this.signUpForm = this.fb.group({
@@ -48,39 +48,35 @@ export class SignupComponent implements OnInit {
   get control(): any { return this.signUpForm.controls; }
 
 
-  registration(form: Form) {
+  registration() {
     this.showLoader = true;
     this.hasMessage = false;
-    let qry = { query: {"email":this.signUpForm.value.email}}
+    const qry = { query: { email: this.signUpForm.value.email } };
 
     this.httpHelper.feathersInstance().service('users').find(qry)
-    .then(res => {
-      var isUserExist = res.data.length;
-      if(isUserExist == 0){
-            this.httpHelper.getInstance().post('/users', form['value'])
+      .then(res => {
+        const isUserExist = res.data.length;
+        if (isUserExist === 0) {
+          this.httpHelper.getInstance().post('/users', this.signUpForm.value)
             .then((response) => {
               this.showLoader = false;
               this.hasMessage = true;
-              this.formMessage = "User registered successfully"
+              this.formMessage = 'User registered successfully';
               setTimeout(() => {
-                this.login.emit(false)
+                this.login.emit(false);
               }, 1000);
             })
             .catch((error) => {
               this.showLoader = false;
               this.hasMessage = true;
-              this.formMessage = "Unexpected error occured";
+              this.formMessage = 'Unexpected error occured';
             });
-      }
-      else{
-        this.showLoader = false;
-        this.hasMessage = true;
-        this.formMessage = "User Already Exists"
-      }
-    })
- 
-
-    
+        } else {
+          this.showLoader = false;
+          this.hasMessage = true;
+          this.formMessage = 'User Already Exists';
+        }
+      });
   }
 
 }

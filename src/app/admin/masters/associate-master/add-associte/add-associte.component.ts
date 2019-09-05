@@ -10,10 +10,13 @@ import { HttpHelperService } from 'src/app/services/http-helper.service';
 })
 export class AddAssociteComponent implements OnInit {
   public isEdit: boolean;
+  showLoader: boolean;
+  formMessage: string;
 
   constructor(
     public router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private httpHelper: HttpHelperService) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -21,9 +24,20 @@ export class AddAssociteComponent implements OnInit {
     });
   }
 
-  registration() {
+  registration(formData) {
+    this.showLoader = true;
+    this.httpHelper.getInstance().post('/associates', formData)
+      .then((response) => {
+        this.showLoader = false;
+        this.formMessage = 'User registered successfully';
+      })
+      .catch((error) => {
+        this.showLoader = false;
+        this.formMessage = 'Unexpected error occured';
+      });
 
   }
+
 
 
 

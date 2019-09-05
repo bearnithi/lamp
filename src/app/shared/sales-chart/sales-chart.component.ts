@@ -34,7 +34,7 @@ export class SalesChartComponent implements OnInit {
         var d3Container = d3.select(element),
           margin = { top: 20, right: 35, bottom: 40, left: 35 },
           width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right,
-          height = height - margin.top - margin.bottom;
+          height: any = height - margin.top - margin.bottom;
 
         // Date and time format
         var parseDate = d3.time.format('%Y-%m-%d').parse,
@@ -62,9 +62,9 @@ export class SalesChartComponent implements OnInit {
 
         // Area
         var area = d3.svg.area()
-          .x(function (d) { return x(d.date); })
+          .x((d) => { return x(d.date); })
           .y0(height)
-          .y1(function (d) { return y(d.value); })
+          .y1((d) => { return y(d.value); })
           .interpolate('monotone')
 
 
@@ -94,22 +94,22 @@ export class SalesChartComponent implements OnInit {
         // Load data
         // ------------------------------
 
-        d3.json('assets/json/monthly_sales.json', function (error, data) {
+        d3.json('assets/json/monthly_sales.json', (error, data) => {
 
           // Show what's wrong if error
           if (error) return console.error(error);
 
           // Pull out values
-          data.forEach(function (d) {
+          data.forEach((d) => {
             d.date = parseDate(d.date);
             d.value = +d.value;
           });
 
           // Get the maximum value in the given array
-          var maxY = d3.max(data, function (d) { return d.value; });
+          var maxY = d3.max(data, (d) => { return d.value; });
 
           // Reset start data for animation
-          var startData = data.map(function (datum) {
+          var startData = data.map((datum) => {
             return {
               date: datum.date,
               value: 0
@@ -121,10 +121,10 @@ export class SalesChartComponent implements OnInit {
           // ------------------------------
 
           // Horizontal
-          x.domain(d3.extent(data, function (d, i) { return d.date; }));
+          x.domain(d3.extent(data, (d, i) => { return d.date; }));
 
           // Vertical
-          y.domain([0, d3.max(data, function (d) { return d.value; })]);
+          y.domain([0, d3.max(data, (d) => { return d.value; })]);
 
 
 
@@ -143,7 +143,7 @@ export class SalesChartComponent implements OnInit {
 
           // Add extra subticks for hidden hours
           horizontalAxis.selectAll('.d3-axis-subticks')
-            .data(x.ticks(d3.time.days), function (d) { return d; })
+            .data(x.ticks(d3.time.days), (d) => { return d; })
             .enter()
             .append('line')
             .attr('class', 'd3-axis-subticks')
@@ -165,9 +165,9 @@ export class SalesChartComponent implements OnInit {
             .style('fill', color)
             .transition() // begin animation
             .duration(1000)
-            .attrTween('d', function () {
+            .attrTween('d', () => {
               var interpolator = d3.interpolateArray(startData, data);
-              return function (t) {
+              return (t) => {
                 return area(interpolator(t));
               }
             });
@@ -237,12 +237,12 @@ export class SalesChartComponent implements OnInit {
             .style('pointer-events', 'all')
             .attr('width', width)
             .attr('height', height)
-            .on('mouseover', function () {
+            .on('mouseover', () => {
               focusPointer.style('display', null);
               focusLine.style('display', null)
               focusText.style('display', null);
             })
-            .on('mouseout', function () {
+            .on('mouseout', () => {
               focusPointer.style('display', 'none');
               focusLine.style('display', 'none');
               focusText.style('display', 'none');
@@ -251,7 +251,7 @@ export class SalesChartComponent implements OnInit {
 
 
           // Display tooltip on mousemove
-          function mousemove() {
+          var mousemove = () => {
 
             // Define main variables
             var mouse = d3.mouse(this),
@@ -294,7 +294,7 @@ export class SalesChartComponent implements OnInit {
           // Since D3 doesn't support SVG resize by default,
           // we need to manually specify parts of the graph that need to
           // be updated on window resize
-          function monthlySalesAreaResize() {
+          var monthlySalesAreaResize = () => {
 
             // Layout variables
             width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right;
@@ -338,12 +338,12 @@ export class SalesChartComponent implements OnInit {
 
     _MonthlySalesAreaChart('#monthly-sales-stats', 100, '#4DB6AC');
 
-   // this.lineChart();
+    // this.lineChart();
   }
 
   lineChart() {
     // App sales line chart
-    var _AppSalesLinesChart = function (element, height: any) {
+    var _AppSalesLinesChart = function (element, h: any) {
       if (typeof d3 == 'undefined' || typeof d3.tip == 'undefined') {
         console.warn('Warning - d3.min.js is not loaded.');
         return;
@@ -357,10 +357,10 @@ export class SalesChartComponent implements OnInit {
         // ------------------------------
 
         // Define main variables
-        var d3Container = d3.select(element),
-          margin = { top: 5, right: 30, bottom: 30, left: 50 },
-          width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right,
-          height = height - margin.top - margin.bottom;
+        var d3Container = d3.select(element);
+        let margin = { top: 5, right: 30, bottom: 30, left: 50 };
+        let width = d3Container.node().getBoundingClientRect().width - margin.left - margin.right;
+        let height: any = h - margin.top - margin.bottom;
 
         // Tooltip
         var formatted;
@@ -440,7 +440,7 @@ export class SalesChartComponent implements OnInit {
           .on('keyup', function () { altKey = false; });
 
         // Set terms of transition on date change
-        function change() {
+        let change = () => {
           d3.transition()
             .duration(altKey ? 7500 : 500)
             .each(redraw);
@@ -451,14 +451,14 @@ export class SalesChartComponent implements OnInit {
         // Main chart drawing function
         // ------------------------------
 
-        function redraw() {
+        let redraw = () => {
 
           // Construct chart layout
           // ------------------------------
 
           // Create data nests
           var nested = d3.nest()
-            .key(function (d) { return d.type; })
+            .key( (d) => { return d.type; })
             .map(formatted)
 
           // Get value from menu selection
@@ -470,22 +470,22 @@ export class SalesChartComponent implements OnInit {
           var data = nested[series];
 
           // For object constancy we will need to set 'keys', one for each type of data (column name) exclude all others.
-          color.domain(d3.keys(data[0]).filter(function (key) { return (key !== 'date' && key !== 'type'); }));
+          color.domain(d3.keys(data[0]).filter( (key) => { return (key !== 'date' && key !== 'type'); }));
 
           // Setting up color map
-          var linedata = color.domain().map(function (name) {
+          var linedata = color.domain().map( (name) => {
             return {
               name: name,
-              values: data.map(function (d) {
-                return { name: name, date: parseDate(d.date), value: parseFloat(d[name], 10) };
+              values: data.map( (d) => {
+                return { name: name, date: parseDate(d.date), value: parseFloat(d[name]) };
               })
             };
           });
 
           // Draw the line
           var line = d3.svg.line()
-            .x(function (d) { return x(d.date); })
-            .y(function (d) { return y(d.value); })
+            .x( (d) => { return x(d.date); })
+            .y( (d) => { return y(d.value); })
             .interpolate('cardinal');
 
 
@@ -496,16 +496,16 @@ export class SalesChartComponent implements OnInit {
           // Horizontal
           var x = d3.time.scale()
             .domain([
-              d3.min(linedata, function (c) { return d3.min(c.values, function (v) { return v.date; }); }),
-              d3.max(linedata, function (c) { return d3.max(c.values, function (v) { return v.date; }); })
+              d3.min(linedata,  (c) => { return d3.min(c.values,  (v) => { return v.date; }); }),
+              d3.max(linedata,  (c) => { return d3.max(c.values,  (v) => { return v.date; }); })
             ])
             .range([0, width]);
 
           // Vertical
           var y = d3.scale.linear()
             .domain([
-              d3.min(linedata, function (c) { return d3.min(c.values, function (v) { return v.value; }); }),
-              d3.max(linedata, function (c) { return d3.max(c.values, function (v) { return v.value; }); })
+              d3.min(linedata,  (c) => { return d3.min(c.values,  (v) => { return v.value; }); }),
+              d3.max(linedata,  (c) => { return d3.max(c.values,  (v) => { return v.value; }); })
             ])
             .range([height, 0]);
 

@@ -12,18 +12,19 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   @Output() signup = new EventEmitter<boolean>();
   showLoader: boolean;
+  submitted: boolean;
+  hasMessage: boolean;
+  formMessage: string;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private httpHelper:HttpHelperService) { }
-    submitted : boolean = false;
-  hasMessage : boolean = false;
-  formMessage : string = "";
+    private httpHelper: HttpHelperService) { }
+
 
   ngOnInit() {
-    this.loginForm  = this.fb.group({
-      email: ['',[Validators.required, Validators.email]],
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
@@ -32,26 +33,25 @@ export class LoginComponent implements OnInit {
     this.hasMessage = false;
     this.showLoader = true;
     this.httpHelper.feathersInstance().authenticate({
-      strategy:'local',
-      email:this.loginForm.value.email,
-      password:this.loginForm.value.password
-    }).then((response)=>{
+      strategy: 'local',
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
+    }).then((response) => {
       this.showLoader = false;
       this.hasMessage = true;
-      if(response.accessToken != undefined){
+      if (response.accessToken !== undefined) {
         this.formMessage = 'User authenticated successfully'
-      }
-      else{
+      } else {
         this.formMessage = 'Email or password incorrect'
       }
-   
-    }).catch((error)=>{
+
+    }).catch((error) => {
       this.showLoader = false;
       this.hasMessage = true;
       this.formMessage = 'Email or password incorrect'
     })
-    
-   
+
+
 
   }
 

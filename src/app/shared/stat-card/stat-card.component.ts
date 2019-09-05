@@ -158,7 +158,7 @@ export class StatCardComponent implements OnInit {
         }
 
         // Animate on load
-        function withAnimation() {
+        var withAnimation = () => {
           bars
             .attr('height', 0)
             .attr('y', height)
@@ -177,7 +177,7 @@ export class StatCardComponent implements OnInit {
         }
 
         // Load without animateion
-        function withoutAnimation() {
+        var withoutAnimation = () => {
           bars
             .attr('height', function (d) {
               return y(d);
@@ -203,7 +203,7 @@ export class StatCardComponent implements OnInit {
         // Since D3 doesn't support SVG resize by default,
         // we need to manually specify parts of the graph that need to
         // be updated on window resize
-        function barsResize() {
+        var barsResize = () => {
 
           // Layout variables
           width = d3Container.node().getBoundingClientRect().width;

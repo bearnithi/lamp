@@ -11,6 +11,7 @@ import { HomeHeaderComponent } from './pages/home-header/home-header.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpHelperService } from './services/http-helper.service';
 import { StoreService } from './services/store.service';
+import { ValidationService } from './services/validation.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,11 @@ import { StoreService } from './services/store.service';
     CoreModule,
     SharedModule
   ],
-  providers: [HttpHelperService, StoreService,HttpHelperService],
+  providers: [
+    HttpHelperService,
+    StoreService,
+    HttpHelperService,
+    ValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

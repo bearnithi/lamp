@@ -4,7 +4,7 @@
   </div>
 
   <div class="card-body">
-    <form [formGroup]="signUpForm" (ngSubmit)="registration(signUpForm)">
+    <form [formGroup]="signUpForm" (ngSubmit)="registration()">
 
         <div class="row">
             <div class="col-12 col-md-12 col-lg-12">
@@ -88,7 +88,7 @@
             <div  *ngIf="showLoader" ><i class="icon-spinner2 spinner"></i> Processing...</div>
             <div  *ngIf="hasMessage" >{{formMessage}}</div>
         </div>
-     
+
         <button type="submit" [disabled]="control.errors" class="btn bg-blue ml-3">Sign Up <i class="icon-paperplane ml-2"></i></button>
       </div>
     </form>

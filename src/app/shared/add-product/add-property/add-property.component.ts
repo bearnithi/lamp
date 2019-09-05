@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
-import { Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
+import { ValidationService } from 'src/app/services/validation.service';
 @Component({
   selector: 'app-add-property',
   templateUrl: './add-property.component.html',
@@ -23,7 +24,8 @@ export class AddPropertyComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private http: HttpHelperService,
-    public location: Location) { }
+    public location: Location,
+    public validation: ValidationService) { }
 
   ngOnInit() {
     this.createForm();
@@ -63,7 +65,7 @@ export class AddPropertyComponent implements OnInit {
       profileImage: [''],
       propertyName: ['', Validators.required],
       ageOfTheAsset: ['', Validators.required],
-      area: ['', Validators.required],
+      buildingArea: ['', Validators.required],
       carpetArea: ['', Validators.required],
       amenities: ['', Validators.required],
       builders: ['', Validators.required],
@@ -71,10 +73,13 @@ export class AddPropertyComponent implements OnInit {
       marketValue: ['', Validators.required],
       fairRentalValue: ['', Validators.required],
       floorPrice: ['', Validators.required],
-      address1: ['', Validators.required],
-      street: ['', Validators.required],
+      addressLine1: ['', Validators.required],
+      addressLine2: [''],
       state: ['', Validators.required],
-      city: ['', Validators.required]
+      city: ['', Validators.required],
+      buildInYear: ['', Validators.required],
+      builderCity: ['', Validators.required],
+      bhk: ['', Validators.required]
     });
   }
 

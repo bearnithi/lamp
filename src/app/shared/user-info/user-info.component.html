@@ -4,7 +4,7 @@
       <img [src]="userInfo.src" class="rounded-circle" width="50" height="50" alt="">
       <div class="d-flex flex-column ml-2">
         <div class="username">
-          <span class="card-title">{{ userInfo.name }}</span> - <span
+          <span class="card-title">{{ userInfo.firstName + ' ' + userInfo.lastName }}</span> - <span
             class="badge bg-success">{{ userInfo.role }}</span>
         </div>
 
