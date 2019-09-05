@@ -7,6 +7,8 @@ import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { ValidationService } from 'src/app/services/validation.service';
 import { ProductService } from 'src/app/services/product.service';
 import { UUID } from 'angular2-uuid';
+import { GrowlComponent } from '../../growl/growl.component';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-residential-flat',
@@ -23,7 +25,8 @@ export class ResidentialFlatComponent implements OnInit {
     private http: HttpHelperService,
     public location: Location,
     public validation: ValidationService,
-    public productService:ProductService) { }
+    public productService:ProductService,
+    private store:StoreService) { }
 
   ngOnInit() {
     this.createForm();
@@ -58,14 +61,22 @@ export class ResidentialFlatComponent implements OnInit {
     let data = {};
     data['assetType'] = type;
     data['assetId'] = UUID.UUID();
-    data['lenderId'] = "";
-    data['properties'] = this.addResendentialPropertyForm.value;
+    data['assetDetails'] = this.addResendentialPropertyForm.value;
+
     
 
     this.productService.saveProductInfo(data).then((response)=>{
-
-    }).catch((error)=>{
-      
+      this.store.showGrowl.next({
+        text: 'Asset has been saved successfully',
+        title: 'Success',
+        type: 'success'
+      });
+    }).catch((error)=>{ 
+      this.store.showGrowl.next({
+        text: 'Error while creating asset',
+        title: 'Error',
+        type: 'danger'
+      });
     })
   }
 }

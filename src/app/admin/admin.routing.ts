@@ -49,6 +49,9 @@ const ADMIN_ROUTES = [{
     path: 'add-consultant',
     component: AddConsultantComponent
   },{
+    path: 'products/:id',
+    component: ProductListComponent
+  },{
     path: 'products',
     component: ProductListComponent
   }, {
