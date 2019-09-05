@@ -9,6 +9,7 @@ export class UserInfoComponent implements OnInit {
   @Input() userInfo: any = {};
   @Output() edit = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
+  @Output() showProperties = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {

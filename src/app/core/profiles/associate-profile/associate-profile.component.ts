@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewInit {
 
   @Input() isEdit: boolean;
+  @Input() userID: any;
   addAssociateForm: FormGroup;
   fileName: any;
   profileImageName: any;
@@ -31,20 +32,25 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.isEdit) {
-      if (this.addAssociateForm) {
-        this.addAssociateForm.controls.email.disable();
+      if (this.userID) {
+        this.bindUser();
       }
-
     }
   }
 
-  ngAfterViewInit(): void {
-    if (this.isEdit) {
-      if (this.addAssociateForm) {
-        this.addAssociateForm.controls.email.disable();
+  bindUser() {
+    this.http.find('users', { query: { _id: this.userID } }).then((res: any) => {
+      console.log(res.data);
+      if (res.data.length > 0) {
+        this.addAssociateForm.removeControl('password');
+        this.addAssociateForm.removeControl('email');
+        this.addAssociateForm.updateValueAndValidity();
+        this.addAssociateForm.patchValue(res.data[0]);
       }
+    });
+  }
 
-    }
+  ngAfterViewInit(): void {
 
   }
 
@@ -53,7 +59,7 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
       role: ['Associate'],
       profileImage: [''],
       firstName: ['', Validators.required],
-      middleName: ['', Validators.required],
+      middleName: [''],
       lastName: ['', Validators.required],
       mobileNo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -92,6 +98,7 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
   registration() {
     this.formData.emit(this.addAssociateForm.value);
   }
+
 
 
 }

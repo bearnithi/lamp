@@ -15,6 +15,15 @@ export class LoginComponent implements OnInit {
   submitted: boolean;
   hasMessage: boolean;
   formMessage: string;
+  dashboards: any = {
+    Lender: 'lender/lender-dashboard',
+    Admin: 'admin/admin-dashboard',
+    Buyer: 'buyer/buyer-dashboard',
+    Borrower: 'borrower/borrower-dashboard',
+    Associate: 'associate/associate-dashboard',
+    Facilitator: 'facilitator/facilitator-dashboard',
+    Consultant: 'consulatant/consultant-dashboard'
+  };
 
   constructor(
     private fb: FormBuilder,
@@ -40,19 +49,25 @@ export class LoginComponent implements OnInit {
       this.showLoader = false;
       this.hasMessage = true;
       if (response.accessToken !== undefined) {
-        this.formMessage = 'User authenticated successfully'
+        this.formMessage = 'User authenticated successfully';
+        this.navigateToDashboard(response.role);
+        localStorage.setItem('feathers-jwt', response.accessToken);
       } else {
-        this.formMessage = 'Email or password incorrect'
+        this.formMessage = 'Email or password incorrect';
       }
 
     }).catch((error) => {
       this.showLoader = false;
       this.hasMessage = true;
-      this.formMessage = 'Email or password incorrect'
-    })
+      this.formMessage = 'Email or password incorrect';
+    });
 
 
 
+  }
+
+  navigateToDashboard(role: string) {
+    this.router.navigate([this.dashboards[role]]);
   }
 
 }

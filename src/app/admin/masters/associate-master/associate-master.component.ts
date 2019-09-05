@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-associate-master',
@@ -14,27 +15,15 @@ export class AssociateMasterComponent implements OnInit {
   showLoader: boolean;
   constructor(public router: Router,
     public dialog: MatDialog,
-    public httpHelper: HttpHelperService) { }
+    public httpHelper: HttpHelperService,
+    public store: StoreService) { }
 
   ngOnInit() {
-    this.users = [{
-      name: 'John',
-      role: 'Associate',
-      src: 'http://demo.interface.club/limitless/demo/bs4/Template/global_assets/images/demo/users/face2.jpg'
-    }, {
-      name: 'Kevin Paul',
-      role: 'Associate',
-      src: 'http://demo.interface.club/limitless/demo/bs4/Template/global_assets/images/demo/users/face2.jpg'
-    }, {
-      name: 'Benjamin Clarke',
-      role: 'Associate',
-      src: 'http://demo.interface.club/limitless/demo/bs4/Template/global_assets/images/demo/users/face2.jpg'
-    }];
-
     this.fetchAssociates();
   }
 
   edit(userInfo: any) {
+    this.store.setValue('selected_user', userInfo);
     this.router.navigate(['admin', 'add-associate', 'edit']);
   }
 
@@ -48,6 +37,9 @@ export class AssociateMasterComponent implements OnInit {
 
     dialog.afterClosed().subscribe((isDelete: boolean) => {
       if (isDelete) {
+        this.httpHelper.remove('users', userInfo._id).then((res) => {
+          this.fetchAssociates();
+        });
 
       }
     });
@@ -55,9 +47,9 @@ export class AssociateMasterComponent implements OnInit {
 
   fetchAssociates() {
     this.showLoader = true;
-    const qry = { query: {} };
+    const qry = { query: { role: 'Associate' } };
 
-    this.httpHelper.feathersInstance().service('associates').find(qry)
+    this.httpHelper.feathersInstance().service('users').find(qry)
       .then(res => {
         console.log(res.data);
         this.users = res.data || [];

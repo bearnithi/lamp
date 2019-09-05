@@ -45,6 +45,9 @@ import { ResidentialHouseComponent } from './add-product/residential-house/resid
 import { CommercialBuildingComponent } from './add-product/commercial-building/commercial-building.component';
 import { CarsComponent } from './add-product/cars/cars.component';
 import { LcvComponent } from './add-product/lcv/lcv.component';
+import { GrowlComponent } from './growl/growl.component';
+import { FormLoaderComponent } from './form-loader/form-loader.component';
+
 
 
 @NgModule({
@@ -81,7 +84,9 @@ import { LcvComponent } from './add-product/lcv/lcv.component';
     ResidentialHouseComponent,
     CommercialBuildingComponent,
     CarsComponent,
-    LcvComponent],
+    LcvComponent,
+    GrowlComponent,
+    FormLoaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -117,7 +122,9 @@ import { LcvComponent } from './add-product/lcv/lcv.component';
     NewsAnnouncementsComponent,
     SalesChartComponent,
     ProductListComponent,
-    AddProductComponent
+    AddProductComponent,
+    GrowlComponent,
+    FormLoaderComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

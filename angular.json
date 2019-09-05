@@ -28,8 +28,8 @@
               "src/assets/css/icons/icomoon/styles.min.css",
               "src/assets/css/bootstrap.min.css",
               "src/assets/css/bootstrap_limitless.min.css",
-              "src/assets/css/layout.min.css",
-              "src/assets/css/components.min.css",
+              "src/assets/css/layout.css",
+              "src/assets/css/components.css",
               "src/assets/css/colors.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
               "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
@@ -44,6 +44,8 @@
               "src/assets/js/plugins/forms/styling/switchery.min.js",
               "src/assets/js/plugins/forms/selects/bootstrap_multiselect.js",
               "src/assets/js/plugins/loaders/blockui.min.js",
+              "src/assets/js/plugins/notifications/jgrowl.min.js",
+              "src/assets/js/plugins/notifications/noty.min.js",
               "src/assets/js/app.js",
               "src/assets/js/demo_pages/dashboard.js"
             ]

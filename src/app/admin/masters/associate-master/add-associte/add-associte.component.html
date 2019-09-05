@@ -1,1 +1,2 @@
-<app-associate-profile [isEdit]="isEdit" (formData)="registration($event)"></app-associate-profile>
+<app-associate-profile [isEdit]="isEdit" [userID]="userInfo._id"
+ (formData)="registration($event)"></app-associate-profile>

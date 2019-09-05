@@ -11,7 +11,8 @@ import { Location } from '@angular/common';
 })
 export class ConsultantProfileComponent implements OnInit {
   @Input() isEdit: boolean;
-  addLenderForm: FormGroup;
+  @Input() userID: any;
+  addConsultantForm: FormGroup;
   fileName: any;
   profileImageName: any;
   profilPicData: any;
@@ -28,18 +29,33 @@ export class ConsultantProfileComponent implements OnInit {
     this.createForm();
   }
 
+
   ngOnChanges(changes: SimpleChanges): void {
     if (this.isEdit) {
-      this.addLenderForm.controls.email.disable();
+      if (this.userID) {
+        this.bindUser();
+      }
     }
   }
 
+  bindUser() {
+    this.http.find('users', { query: { _id: this.userID } }).then((res: any) => {
+      console.log(res.data);
+      if (res.data.length > 0) {
+        this.addConsultantForm.removeControl('password');
+        this.addConsultantForm.removeControl('email');
+        this.addConsultantForm.updateValueAndValidity();
+        this.addConsultantForm.patchValue(res.data[0]);
+      }
+    });
+  }
+
   createForm() {
-    this.addLenderForm = this.fb.group({
-      userType: ['Lender'],
+    this.addConsultantForm = this.fb.group({
+      role: ['Consultant'],
       profileImage: [''],
       firstName: ['', Validators.required],
-      middleName: ['', Validators.required],
+      middleName: [''],
       lastName: ['', Validators.required],
       mobileNo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -55,7 +71,7 @@ export class ConsultantProfileComponent implements OnInit {
     });
   }
 
-  get control(): any { return this.addLenderForm.controls; }
+  get control(): any { return this.addConsultantForm.controls; }
 
   handleFileUpload(e) {
     const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
@@ -76,7 +92,7 @@ export class ConsultantProfileComponent implements OnInit {
   }
 
   registration() {
-    this.formData.emit(this.addLenderForm.value);
+    this.formData.emit(this.addConsultantForm.value);
   }
 
 

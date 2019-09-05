@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConsultantAuctionComponent } from './auction-master.component';
+import { GrowlComponent } from './growl.component';
 
-describe('ConsultantAuctionComponent', () => {
-  let component: ConsultantAuctionComponent;
-  let fixture: ComponentFixture<ConsultantAuctionComponent>;
+describe('GrowlComponent', () => {
+  let component: GrowlComponent;
+  let fixture: ComponentFixture<GrowlComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConsultantAuctionComponent ]
+      declarations: [ GrowlComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConsultantAuctionComponent);
+    fixture = TestBed.createComponent(GrowlComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
