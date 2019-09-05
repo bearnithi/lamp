@@ -145,18 +145,6 @@ export class StatCardComponent implements OnInit {
           });
         }
 
-
-
-        // Bar loading animation
-        // ------------------------------
-
-        // Choose between animated or static
-        if (animate) {
-          withAnimation();
-        } else {
-          withoutAnimation();
-        }
-
         // Animate on load
         var withAnimation = () => {
           bars
@@ -187,18 +175,17 @@ export class StatCardComponent implements OnInit {
             })
         }
 
-
-
-        // Resize chart
+        // Bar loading animation
         // ------------------------------
 
-        // Call function on window resize
-        $(window).on('resize', barsResize);
+        // Choose between animated or static
+        if (animate) {
+          withAnimation();
+        } else {
+          withoutAnimation();
+        }
 
-        // Call function on sidebar width change
-        $(document).on('click', '.sidebar-control', barsResize);
-
-        // Resize function
+  // Resize function
         //
         // Since D3 doesn't support SVG resize by default,
         // we need to manually specify parts of the graph that need to
@@ -232,6 +219,19 @@ export class StatCardComponent implements OnInit {
               return x(i);
             });
         }
+
+
+
+        // Resize chart
+        // ------------------------------
+
+        // Call function on window resize
+        $(window).on('resize', barsResize);
+
+        // Call function on sidebar width change
+        $(document).on('click', '.sidebar-control', barsResize);
+
+
       }
     };
 

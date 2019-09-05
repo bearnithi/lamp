@@ -10,9 +10,14 @@ import feathersRestClient from '@feathersjs/rest-client';
 })
 export class HttpHelperService {
 
-
   constructor() {
 
+  }
+
+  getHeaders() {
+    return {
+      headers: { Authorization: localStorage.getItem('feathers-jwt') }
+    };
   }
 
   getInstance() {
@@ -21,7 +26,7 @@ export class HttpHelperService {
       baseURL: "http://192.168.2.189:43030",
       timeout: 3000,
       headers: {
-        "X-Initialized-At": Date.now().toString()
+        "X-Initialized-At": Date.now().toString(),
       }
     });
   }
@@ -36,8 +41,21 @@ export class HttpHelperService {
       storage: window.localStorage as any
     }));
 
+
     return client;
 
+  }
+
+  update(service, condition, data) {
+    return this.feathersInstance().service(service).update(condition, data, this.getHeaders());
+  }
+
+  find(service, condition) {
+    return this.feathersInstance().service(service).find(condition, this.getHeaders());
+  }
+
+  remove(service, condition) {
+    return this.feathersInstance().service(service).remove(condition, this.getHeaders());
   }
 
 

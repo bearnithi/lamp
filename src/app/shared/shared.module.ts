@@ -40,6 +40,8 @@ import { JewelleryComponent } from './add-product/jewellery/jewellery.component'
 import { StockLotsComponent } from './add-product/stock-lots/stock-lots.component';
 import { TakeOverComponent } from './add-product/take-over/take-over.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GrowlComponent } from './growl/growl.component';
+import { FormLoaderComponent } from './form-loader/form-loader.component';
 
 
 @NgModule({
@@ -71,7 +73,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VehiclesComponent,
     JewelleryComponent,
     StockLotsComponent,
-    TakeOverComponent],
+    TakeOverComponent,
+    GrowlComponent,
+    FormLoaderComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -107,7 +111,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NewsAnnouncementsComponent,
     SalesChartComponent,
     ProductListComponent,
-    AddProductComponent
+    AddProductComponent,
+    GrowlComponent,
+    FormLoaderComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

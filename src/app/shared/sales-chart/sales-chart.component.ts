@@ -227,29 +227,6 @@ export class SalesChartComponent implements OnInit {
             .style('font-size', 12);
 
 
-          //
-          // Overlay with events
-          //
-
-          svg.append('rect')
-            .attr('class', 'd3-crosshair-overlay')
-            .style('fill', 'none')
-            .style('pointer-events', 'all')
-            .attr('width', width)
-            .attr('height', height)
-            .on('mouseover', () => {
-              focusPointer.style('display', null);
-              focusLine.style('display', null)
-              focusText.style('display', null);
-            })
-            .on('mouseout', () => {
-              focusPointer.style('display', 'none');
-              focusLine.style('display', 'none');
-              focusText.style('display', 'none');
-            })
-            .on('mousemove', mousemove);
-
-
           // Display tooltip on mousemove
           var mousemove = () => {
 
@@ -278,16 +255,30 @@ export class SalesChartComponent implements OnInit {
             }
           }
 
+          //
+          // Overlay with events
+          //
+
+          svg.append('rect')
+            .attr('class', 'd3-crosshair-overlay')
+            .style('fill', 'none')
+            .style('pointer-events', 'all')
+            .attr('width', width)
+            .attr('height', height)
+            .on('mouseover', () => {
+              focusPointer.style('display', null);
+              focusLine.style('display', null)
+              focusText.style('display', null);
+            })
+            .on('mouseout', () => {
+              focusPointer.style('display', 'none');
+              focusLine.style('display', 'none');
+              focusText.style('display', 'none');
+            })
+            .on('mousemove', mousemove);
 
 
-          // Resize chart
-          // ------------------------------
 
-          // Call function on window resize
-          $(window).on('resize', monthlySalesAreaResize);
-
-          // Call function on sidebar width change
-          $(document).on('click', '.sidebar-control', monthlySalesAreaResize);
 
           // Resize function
           //
@@ -332,6 +323,17 @@ export class SalesChartComponent implements OnInit {
             // Crosshair
             svg.selectAll('.d3-crosshair-overlay').attr('width', width);
           }
+
+          // Resize chart
+          // ------------------------------
+
+          // Call function on window resize
+          $(window).on('resize', monthlySalesAreaResize);
+
+          // Call function on sidebar width change
+          $(document).on('click', '.sidebar-control', monthlySalesAreaResize);
+
+
         });
       }
     };
@@ -458,7 +460,7 @@ export class SalesChartComponent implements OnInit {
 
           // Create data nests
           var nested = d3.nest()
-            .key( (d) => { return d.type; })
+            .key((d) => { return d.type; })
             .map(formatted)
 
           // Get value from menu selection
@@ -470,13 +472,13 @@ export class SalesChartComponent implements OnInit {
           var data = nested[series];
 
           // For object constancy we will need to set 'keys', one for each type of data (column name) exclude all others.
-          color.domain(d3.keys(data[0]).filter( (key) => { return (key !== 'date' && key !== 'type'); }));
+          color.domain(d3.keys(data[0]).filter((key) => { return (key !== 'date' && key !== 'type'); }));
 
           // Setting up color map
-          var linedata = color.domain().map( (name) => {
+          var linedata = color.domain().map((name) => {
             return {
               name: name,
-              values: data.map( (d) => {
+              values: data.map((d) => {
                 return { name: name, date: parseDate(d.date), value: parseFloat(d[name]) };
               })
             };
@@ -484,8 +486,8 @@ export class SalesChartComponent implements OnInit {
 
           // Draw the line
           var line = d3.svg.line()
-            .x( (d) => { return x(d.date); })
-            .y( (d) => { return y(d.value); })
+            .x((d) => { return x(d.date); })
+            .y((d) => { return y(d.value); })
             .interpolate('cardinal');
 
 
@@ -496,16 +498,16 @@ export class SalesChartComponent implements OnInit {
           // Horizontal
           var x = d3.time.scale()
             .domain([
-              d3.min(linedata,  (c) => { return d3.min(c.values,  (v) => { return v.date; }); }),
-              d3.max(linedata,  (c) => { return d3.max(c.values,  (v) => { return v.date; }); })
+              d3.min(linedata, (c) => { return d3.min(c.values, (v) => { return v.date; }); }),
+              d3.max(linedata, (c) => { return d3.max(c.values, (v) => { return v.date; }); })
             ])
             .range([0, width]);
 
           // Vertical
           var y = d3.scale.linear()
             .domain([
-              d3.min(linedata,  (c) => { return d3.min(c.values,  (v) => { return v.value; }); }),
-              d3.max(linedata,  (c) => { return d3.max(c.values,  (v) => { return v.value; }); })
+              d3.min(linedata, (c) => { return d3.min(c.values, (v) => { return v.value; }); }),
+              d3.max(linedata, (c) => { return d3.max(c.values, (v) => { return v.value; }); })
             ])
             .range([height, 0]);
 

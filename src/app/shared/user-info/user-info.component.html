@@ -1,14 +1,22 @@
 <div class="card">
   <div class="card-body">
     <div class="d-flex align-items-center">
-      <img [src]="userInfo.src" class="rounded-circle" width="50" height="50" alt="">
+      <img [src]="userInfo.src || 'assets/images/default-profile.jpg'" class="rounded-circle" width="50" height="50"
+        alt="">
       <div class="d-flex flex-column ml-2">
         <div class="username">
           <span class="card-title">{{ userInfo.firstName + ' ' + userInfo.lastName }}</span> - <span
             class="badge bg-success">{{ userInfo.role }}</span>
         </div>
+        <div class="bank-name" *ngIf="userInfo.role === 'Lender'">
+          <span class="card-title">Bank: {{ userInfo.bankName }}</span>
+        </div>
 
         <div class="card-actions d-flex">
+          <ng-container *ngIf="userInfo.role === 'Lender'">
+            <a href="#" (click)="showProperties.emit(true)" class="ml-1 mr-1"><i class="fa fa-edit"></i> View Properties</a> |
+          </ng-container>
+
           <a href="#" (click)="editUser($event)" class="ml-1 mr-1"><i class="fa fa-edit"></i> Edit</a> |
           <a href="#" (click)="deleteUser($event)" class="ml-1 mr-1"><i class="fa fa-trash"></i> Delete</a>
         </div>

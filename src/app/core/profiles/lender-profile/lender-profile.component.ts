@@ -10,7 +10,9 @@ import { Location } from '@angular/common';
   styleUrls: ['./lender-profile.component.scss']
 })
 export class LenderProfileComponent implements OnInit {
+
   @Input() isEdit: boolean;
+  @Input() userID: any;
   addLenderForm: FormGroup;
   fileName: any;
   profileImageName: any;
@@ -30,18 +32,32 @@ export class LenderProfileComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.isEdit) {
-      this.addLenderForm.controls.email.disable();
+      if (this.userID) {
+        this.bindUser();
+      }
     }
+  }
+
+  bindUser() {
+    this.http.find('users', { query: { _id: this.userID } }).then((res: any) => {
+      console.log(res.data);
+      if (res.data.length > 0) {
+        this.addLenderForm.removeControl('password');
+        this.addLenderForm.removeControl('email');
+        this.addLenderForm.updateValueAndValidity();
+        this.addLenderForm.patchValue(res.data[0]);
+      }
+    });
   }
 
   createForm() {
     this.addLenderForm = this.fb.group({
-      userType: ['Lender'],
+      role: ['Lender'],
       profileImage: [''],
       bankName: ['', Validators.required],
       department: ['', Validators.required],
       firstName: ['', Validators.required],
-      middleName: ['', Validators.required],
+      middleName: [''],
       lastName: ['', Validators.required],
       mobileNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       email: ['', [Validators.required, Validators.email]],
@@ -56,14 +72,14 @@ export class LenderProfileComponent implements OnInit {
       city: ['', Validators.required],
       webAdministratorDetails: this.fb.group({
         firstName: ['', Validators.required],
-        middleName: ['', Validators.required],
+        middleName: [''],
         lastName: ['', Validators.required],
         mobileNo: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
       }),
       networkAdminDetails: this.fb.group({
         firstName: ['', Validators.required],
-        middleName: ['', Validators.required],
+        middleName: [''],
         lastName: ['', Validators.required],
         mobileNo: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]],
