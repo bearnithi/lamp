@@ -46,6 +46,11 @@ export class HttpHelperService {
 
   }
 
+
+  create(service,data){
+    return this.feathersInstance().service(service).create(data, this.getHeaders());
+  }
+  
   update(service, condition, data) {
     return this.feathersInstance().service(service).update(condition, data, this.getHeaders());
   }

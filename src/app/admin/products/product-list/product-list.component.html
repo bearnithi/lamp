@@ -1,1 +1,6 @@
-<app-product-list></app-product-list>
+<div class="row">
+  <div class="col-12">
+    <button class="btn bg-teal pull-right" (click)="addProperty()">Add Property</button>
+    <app-product-list [filter]="filterObj"></app-product-list>
+  </div>
+</div>

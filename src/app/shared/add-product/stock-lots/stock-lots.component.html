@@ -1,7 +1,7 @@
 <section class="add-associate container">
   <div class="row">
     <div class="col-12">
-      <form [formGroup]="addStockLotForm" (ngSubmit)="addProduct()">
+      <form [formGroup]="addStockLotForm" (ngSubmit)="addProduct('Stock-lots')">
 
         <app-content-header [header]="'Basic Information'"></app-content-header>
 
@@ -19,34 +19,26 @@
             </div>
 
             <div class="row">
+              <div class="col-12">
+                  <button type="button" class="pull-right btn btn-danger" (click)="addItem()">Add Item</button>
+              </div>
+            </div>
+            <div class="row">
+               
               <div class="col-12 col-md-12 col-lg-12">
-                <button class="pull-right btn btn-danger">Add Item</button>
-         
-                <table class="table table-bordered table-alternative table-condensed itemsTbl">
-                  <thead>
-                    <tr>
-                      <td>Item Description</td>
-                      <td>Price Per Item</td>
-                      <td>Option</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                    <tr *ngFor="let item of items">
-                      <td>{{item.description}}</td>
-                      <td>{{item.price}}</td>
-                      <td><i class="fa fa-trash"></i></td>
-                    </tr>
+                
 
-                    <tr *ngIf="items.length === 0">
-                        <td colspan="3">
-                            No Data
-                        </td>
-                    </tr>
+                <div formArrayName="items" *ngFor="let item of addStockLotForm.get('items').controls; let i = index;">
+                  <div class="row" [formGroupName]="i">
+                    <div class="col-4"><input formControlName="description" class="form-control"
+                        placeholder="Item Description"></div>
+                    <div class="col-4"><input formControlName="price" class="form-control" placeholder="Item Price">
+                    </div>
+                    <div class="col-4"><i class="fa fa-trash"></i></div>
+                  </div>
 
 
-                  </tbody>
-                </table>
+                </div>
               </div>
             </div>
 

@@ -27,6 +27,12 @@ export class LenderMasterComponent implements OnInit {
     this.router.navigate(['admin', 'add-lender', 'edit']);
   }
 
+
+  showProperties(userInfo:any){
+    this.store.setValue('selected_user', userInfo);
+    this.router.navigate(['admin', 'products', userInfo._id]);
+  }
+
   confirmDelete(userInfo: any) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',

@@ -14,7 +14,7 @@
 
         <div class="card-actions d-flex">
           <ng-container *ngIf="userInfo.role === 'Lender'">
-            <a href="#" (click)="showProperties.emit(true)" class="ml-1 mr-1"><i class="fa fa-edit"></i> View Properties</a> |
+            <a href="#" (click)="$event.preventDefault(); showProperties.emit(true)" class="ml-1 mr-1"><i class="fa fa-edit"></i> View Properties</a> |
           </ng-container>
 
           <a href="#" (click)="editUser($event)" class="ml-1 mr-1"><i class="fa fa-edit"></i> Edit</a> |
