@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private httpHelper: HttpHelperService) { }
+    private httpHelper: HttpHelperService,
+    private authentication: AuthenticationService) { }
 
 
   ngOnInit() {
@@ -51,6 +53,7 @@ export class LoginComponent implements OnInit {
       if (response.accessToken !== undefined) {
         this.formMessage = 'User authenticated successfully';
         this.navigateToDashboard(response.role);
+        this.authentication.setUserInfo(response.name);
         localStorage.setItem('feathers-jwt', response.accessToken);
       } else {
         this.formMessage = 'Email or password incorrect';

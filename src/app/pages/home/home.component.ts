@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpHelperService } from 'src/app/services/http-helper.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,11 @@ export class HomeComponent implements OnInit {
   showSignup: boolean;
   sliders: Array<any> = [];
   productSliders: Array<any> = [];
-  constructor() { }
+  newOffers: Array<any> = [];
+  constructor(private http: HttpHelperService) { }
 
   ngOnInit() {
+    this.fetchNewOffers();
     this.sliders = [{
       width: '100%',
       height: '500px',
@@ -127,6 +130,12 @@ export class HomeComponent implements OnInit {
       parking: 2,
       date: '20/12/2019'
     }]
+  }
+
+  fetchNewOffers() {
+    this.http.find('assets', { query: {$limit: 10, $sort: {'_id': -1}}}).then((res) => {
+      this.newOffers = res.data;
+    });
   }
 
 }

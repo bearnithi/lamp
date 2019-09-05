@@ -12,12 +12,13 @@ import { Location } from '@angular/common';
 export class BuyerProfileComponent implements OnInit {
 
   @Input() isEdit: boolean;
-  addAssociateForm: FormGroup;
+  @Input() userID: any;
+  addBuyerForm: FormGroup;
   fileName: any;
   profileImageName: any;
   profilPicData: any;
   @Output() formData = new EventEmitter<any>();
-
+  properties: Array<any>;
   constructor(
     public router: Router,
     private activatedRoute: ActivatedRoute,
@@ -27,29 +28,42 @@ export class BuyerProfileComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+
+    this.properties = [
+      { name: 'Resential Flat', children: [] },
+      { name: 'Resential House', children: [] },
+      { name: 'Commercial Building', children: [] },
+      { name: 'Cars', children: [] },
+      { name: 'Light Commercial Vehicle', children: [] },
+      { name: 'Machinery', children: [] },
+      { name: 'Equipments', children: [] },
+      { name: 'Stock-Lots', children: [] },
+      { name: 'Takeover Offers', children: [] }
+    ];
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.isEdit) {
-      if (this.addAssociateForm) {
-        this.addAssociateForm.controls.email.disable();
+      if (this.userID) {
+        this.bindUser();
       }
-
     }
   }
 
-  ngAfterViewInit(): void {
-    if (this.isEdit) {
-      if (this.addAssociateForm) {
-        this.addAssociateForm.controls.email.disable();
+  bindUser() {
+    this.http.find('users', { query: { _id: this.userID } }).then((res: any) => {
+      console.log(res.data);
+      if (res.data.length > 0) {
+        this.addBuyerForm.removeControl('password');
+        this.addBuyerForm.removeControl('email');
+        this.addBuyerForm.updateValueAndValidity();
+        this.addBuyerForm.patchValue(res.data[0]);
       }
-
-    }
-
+    });
   }
 
   createForm() {
-    this.addAssociateForm = this.fb.group({
+    this.addBuyerForm = this.fb.group({
       userType: ['Associate'],
       profileImage: [''],
       firstName: ['', Validators.required],
@@ -69,11 +83,18 @@ export class BuyerProfileComponent implements OnInit {
       pan: ['', [Validators.required,
       Validators.pattern('^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$')]],
       aadhar: ['', [Validators.required,
-      Validators.pattern('^\d{4}\s\d{4}\s\d{4}$')]]
+      Validators.pattern('^\d{4}\s\d{4}\s\d{4}$')]],
+      preference: this.fb.group({
+        propertyType: [''],
+        city: [''],
+        budget: ['']
+      })
     });
   }
 
-  get control(): any { return this.addAssociateForm.controls; }
+  get control(): any { return this.addBuyerForm.controls; }
+
+  get preferenceControl(): any { return this.control.preference.controls; }
 
   handleFileUpload(e) {
     const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
@@ -94,7 +115,7 @@ export class BuyerProfileComponent implements OnInit {
   }
 
   registration() {
-    this.formData.emit(this.addAssociateForm.value);
+    this.formData.emit(this.addBuyerForm.value);
   }
 
 }

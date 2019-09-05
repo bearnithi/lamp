@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { HttpHelperService } from './services/http-helper.service';
 import { StoreService } from './services/store.service';
 import { ValidationService } from './services/validation.service';
+import { AuthenticationService } from './services/authentication.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ValidationService } from './services/validation.service';
     HttpHelperService,
     StoreService,
     HttpHelperService,
-    ValidationService],
+    ValidationService,
+    AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,7 +4,7 @@
       <section class="add-associate container">
         <div class="row">
           <div class="col-12">
-            <form [formGroup]="addAssociateForm" (ngSubmit)="registration()">
+            <form [formGroup]="addBuyerForm" (ngSubmit)="registration()">
 
               <app-content-header [header]="'Basic Information'"></app-content-header>
 
@@ -193,7 +193,7 @@
                         <input type="text" formControlName="aadhar" class="form-control" placeholder="Wingham Street">
                         <div *ngIf="control.aadhar.touched && control.aadhar.errors" class="error-message">
                           <div *ngIf="control.aadhar.errors.required">Aadhar is required</div>
-                           <div *ngIf="control.aadhar.errors.pattern">Aadhar card is invalid</div>
+                          <div *ngIf="control.aadhar.errors.pattern">Aadhar card is invalid</div>
                         </div>
                       </div>
                     </div>
@@ -202,11 +202,53 @@
                 </div>
               </div>
 
+              <app-content-header [header]="'Preferences'"></app-content-header>
+              <div formGroupName="preference">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                          <label>Property Type</label>
+                          <select formControlName="propertyType" multiple class="form-control">
+                            <option value="" style="display: none">Select</option>
+                            <option *ngFor="let property of properties"
+                            value="{{ property.name }}">{{ property.name }}</option>
+
+                          </select>
+                          <div *ngIf="preferenceControl.propertyType.touched && preferenceControl.propertyType.errors"
+                            class="error-message">
+                            <div *ngIf="preferenceControl.propertyType.errors.required">Property type is required</div>
+                            <div *ngIf="preferenceControl.propertyType.errors.pattern">Property type is invalid</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                          <label>City</label>
+
+                          <select formControlName="city" class="form-control">
+                            <option value="" style="display: none">Select</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Tirunelveli">Tirunelveli</option>
+                          </select>
+                          <div *ngIf="preferenceControl.city.touched && preferenceControl.city.errors" class="error-message">
+                            <div *ngIf="preferenceControl.city.errors.required">City is required</div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
               <div class="d-flex justify-content-between align-items-center">
                 <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
                 <div class="d-flex">
                   <button type="button" class="btn bg-grey ml-3" (click)="location.back()">Back</button>
-                  <button type="submit" [disabled]="addAssociateForm.invalid" class="btn bg-blue ml-3">Save</button>
+                  <button type="submit" [disabled]="addBuyerForm.invalid" class="btn bg-blue ml-3">Save</button>
                 </div>
 
               </div>

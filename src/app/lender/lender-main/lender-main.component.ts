@@ -6,10 +6,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lender-main.component.scss']
 })
 export class LenderMainComponent implements OnInit {
-
+  menu: any;
   constructor() { }
 
   ngOnInit() {
+    this.menu = {
+      home: {
+        name: 'Dashboard',
+        link: '/lender/lender-dashboard'
+      },
+      group: [{
+        name: 'Products',
+        items: [{
+          name: 'List Products',
+          link: '/lender/products'
+        }, {
+          name: 'Add Product',
+          link: '/lender/add-product'
+        }, {
+          name: 'Assign Consultant',
+          link: '/lender/consultant'
+        }, {
+          name: 'Assign Associate',
+          link: '/lender/consultant'
+        }]
+      }]
+    }
   }
 
 }
