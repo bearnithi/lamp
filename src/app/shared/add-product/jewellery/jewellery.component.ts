@@ -10,6 +10,7 @@ export class JewelleryComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

@@ -1,1 +1,153 @@
-<p>take-over works!</p>
+<section class="add-associate container">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="takeOverDetailForm" (ngSubmit)="addProduct()">
+      
+              <app-content-header [header]="'Basic Information'"></app-content-header>
+      
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+      
+                    <div class="col-12 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label>Industry</label>
+                        <select class="form-control" formControlName="type">
+                          <option>Mechanical Industry</option>
+                          <option>Electrical Industry</option>
+                          <option>Textile Industry</option>
+                          <option>Others</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label>Type</label>
+                        <input type="text" formControlName="type" class="form-control" placeholder="">
+      
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label>Constitution</label>
+                        <input type="text" formControlName="constitution" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                              <label>Location</label>
+                              <input type="text" formControlName="location" class="form-control" placeholder="">
+                            </div>
+                          </div>
+                  </div>
+      
+      
+                  <div class="row">
+      
+                    <div class="col-12 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label>Last Year Turnover</label>
+                        <input type="text" class="form-control" formControlName="lastYearTurnOver">
+      
+                      </div>
+                    </div>
+      
+                    <div class="col-12 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label>Asking Price</label>
+                        <input type="text" class="form-control" formControlName="askingPrice">
+      
+                      </div>
+                    </div>
+      
+      
+      
+                  </div>
+
+                  <div class="row">
+      
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="form-group">
+                            <label>Modality</label>
+                            <input type="text" class="form-control" formControlName="modality">
+          
+                          </div>
+                        </div>
+          
+                        <div class="col-12 col-md-6 col-lg-6">
+                          <div class="form-group">
+                            <label>Lock in Period</label>
+                            <input type="text" class="form-control" formControlName="lockinPeriod">
+          
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row">
+      
+                            <div class="col-12 col-md-4 col-lg-4">
+                              <div class="form-group">
+                                <label>Gap Analysed</label>
+                                <input type="text" class="form-control" formControlName="gapAnalysed">
+              
+                              </div>
+                            </div>
+              
+                            <div class="col-12 col-md-4 col-lg-4">
+                              <div class="form-group">
+                                <label>Negotiable</label>
+                                <select class="form-control" formControlName="negotiable">
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                    </select>
+              
+                              </div>
+                            </div>
+
+                            <div class="col-12 col-md-4 col-lg-4">
+                                    <div class="form-group">
+                                      <label>Funds Commitment</label>
+                                      <input type="text" class="form-control" formControlName="fundsCommitment">
+                    
+                                    </div>
+                                  </div>
+                          </div>
+
+                </div>
+              </div>
+      
+      
+              <app-content-header [header]="'Other Information'"></app-content-header>
+      
+              <div class="card">
+                <div class="card-body">
+      
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <label>Other Details</label>
+                        <textarea formControlName="otherDetails" class="form-control" placeholder=""></textarea>
+      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
+                <div class="d-flex">
+                  <button type="button" class="btn bg-grey ml-3">Back</button>
+                  <button type="submit" [disabled]="takeOverDetailForm.invalid" class="btn bg-blue ml-3">Save</button>
+                </div>
+      
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      

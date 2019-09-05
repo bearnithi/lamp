@@ -1,0 +1,142 @@
+<section class="add-associate container">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="addLcvDetailForm" (ngSubmit)="addProduct()">
+      
+              <app-content-header [header]="'Basic Information'"></app-content-header>
+      
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+      
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Make</label>
+                        <input type="text" formControlName="make" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Model</label>
+                        <input type="text" formControlName="model" class="form-control" placeholder="">
+      
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Variant</label>
+                        <input type="text" formControlName="variant" class="form-control">
+      
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Year</label>
+                        <input type="text" formControlName="year" class="form-control" placeholder="">
+                      </div>
+                    </div>
+      
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>Kilometers Run</label>
+                        <input type="text" formControlName="kmRun" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4">
+                      <div class="form-group">
+                        <label>No of owners</label>
+                        <input type="text" formControlName="noOfOwners" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+      
+              <app-content-header [header]="'Pricing Information'"></app-content-header>
+      
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+      
+                    <div class="col-12 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label>Market Price</label>
+                        <input type="text" formControlName="marketPrice" class="form-control" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6">
+                      <div class="form-group">
+                        <label>Floor Price</label>
+                        <input type="text" formControlName="floorPrice" class="form-control" placeholder="">
+      
+                      </div>
+                    </div>
+      
+                  </div>
+                </div>
+              </div>
+      
+      
+              <app-content-header [header]="'Other Information'"></app-content-header>
+      
+              <div class="card">
+                <div class="card-body">
+      
+                  <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <label>Valued By</label>
+                        <textarea formControlName="valuedBy" class="form-control" placeholder=""></textarea>
+      
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="row">
+      
+                    <div class="col-12 col-md-12 col-lg-12">
+                      <div class="form-group">
+                        <label>Mentions</label>
+                        <textarea formControlName="mentions" class="form-control" placeholder=""></textarea>
+                      </div>
+                    </div>
+      
+                  </div>
+      
+                  <div class="row">
+      
+                          <div class="col-12 col-md-6 col-lg-6">
+                            <div class="form-group">
+                              <label>Insurance Company</label>
+                              <input type="text" formControlName="insuranceCompany" class="form-control" placeholder="">
+                            </div>
+                          </div>
+      
+                          <div class="col-12 col-md-6 col-lg-6">
+                                  <div class="form-group">
+                                    <label>Insurance Validity End Date</label>
+                                    <input type="text" formControlName="insuranceValidityEndDate" class="form-control" placeholder="">
+                                  </div>
+                                </div>
+            
+                        </div>
+                </div>
+              </div>
+      
+              <div class="d-flex justify-content-between align-items-center">
+                <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
+                <div class="d-flex">
+                  <button type="button" class="btn bg-grey ml-3">Back</button>
+                  <button type="submit" [disabled]="addLcvDetailForm.invalid" class="btn bg-blue ml-3">Save</button>
+                </div>
+      
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      

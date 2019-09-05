@@ -40,6 +40,11 @@ import { JewelleryComponent } from './add-product/jewellery/jewellery.component'
 import { StockLotsComponent } from './add-product/stock-lots/stock-lots.component';
 import { TakeOverComponent } from './add-product/take-over/take-over.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ResidentialFlatComponent } from './add-product/residential-flat/residential-flat.component';
+import { ResidentialHouseComponent } from './add-product/residential-house/residential-house.component';
+import { CommercialBuildingComponent } from './add-product/commercial-building/commercial-building.component';
+import { CarsComponent } from './add-product/cars/cars.component';
+import { LcvComponent } from './add-product/lcv/lcv.component';
 
 
 @NgModule({
@@ -71,7 +76,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VehiclesComponent,
     JewelleryComponent,
     StockLotsComponent,
-    TakeOverComponent],
+    TakeOverComponent,
+    ResidentialFlatComponent,
+    ResidentialHouseComponent,
+    CommercialBuildingComponent,
+    CarsComponent,
+    LcvComponent],
   imports: [
     CommonModule,
     FormsModule,

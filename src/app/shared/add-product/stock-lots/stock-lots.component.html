@@ -1,1 +1,164 @@
-<p>stock-lots works!</p>
+<section class="add-associate container">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="addStockLotForm" (ngSubmit)="addProduct()">
+
+        <app-content-header [header]="'Basic Information'"></app-content-header>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label>Nature</label>
+                  <input type="text" formControlName="nature" class="form-control" placeholder="">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <button class="pull-right btn btn-danger">Add Item</button>
+         
+                <table class="table table-bordered table-alternative table-condensed itemsTbl">
+                  <thead>
+                    <tr>
+                      <td>Item Description</td>
+                      <td>Price Per Item</td>
+                      <td>Option</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    <tr *ngFor="let item of items">
+                      <td>{{item.description}}</td>
+                      <td>{{item.price}}</td>
+                      <td><i class="fa fa-trash"></i></td>
+                    </tr>
+
+                    <tr *ngIf="items.length === 0">
+                        <td colspan="3">
+                            No Data
+                        </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+
+
+        <app-content-header [header]="'Location Details'"></app-content-header>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Address Line 1</label>
+                  <input type="text" formControlName="addressLine1" class="form-control" placeholder="John">
+
+                  <div *ngIf="control.addressLine1.touched && control.addressLine1.errors" class="error-message">
+                    <div *ngIf="control.addressLine1.errors.required">Address Line 1 is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Address Line 2</label>
+                  <input type="text" formControlName="addressLine2" class="form-control" placeholder="John">
+
+                  <div *ngIf="control.addressLine2.touched && control.addressLine2.errors" class="error-message">
+                    <div *ngIf="control.addressLine2.errors.required">Address Line 2 is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>State</label>
+                  <select formControlName="state" class="form-control">
+                    <option value="" style="display: none">Select</option>
+                    <option value="TN">Tamil Nadu</option>
+                    <option value="UP">Utter Pradesh</option>
+
+                  </select>
+                  <div *ngIf="control.state.touched && control.state.errors" class="error-message">
+                    <div *ngIf="control.state.errors.required">State is required</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>City</label>
+
+                  <select formControlName="city" class="form-control">
+                    <option value="" style="display: none">Select</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+
+                  </select>
+
+                  <div *ngIf="control.city.touched && control.city.errors" class="error-message">
+                    <div *ngIf="control.city.errors.required">City is required</div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <app-content-header [header]="'Other Information'"></app-content-header>
+
+        <div class="card">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label>Inspection</label>
+                  <textarea formControlName="inspection" class="form-control" placeholder=""></textarea>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label>Terms</label>
+                  <textarea formControlName="terms" class="form-control" placeholder=""></textarea>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
+          <div class="d-flex">
+            <button type="button" class="btn bg-grey ml-3">Back</button>
+            <button type="submit" [disabled]="addStockLotForm.invalid" class="btn bg-blue ml-3">Save</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -6,13 +7,13 @@ import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({
-  selector: 'app-stock-lots',
-  templateUrl: './stock-lots.component.html',
-  styleUrls: ['./stock-lots.component.scss']
+  selector: 'app-cars',
+  templateUrl: './cars.component.html',
+  styleUrls: ['./cars.component.scss']
 })
-export class StockLotsComponent implements OnInit {
+export class CarsComponent implements OnInit {
 
-  addStockLotForm: FormGroup;
+  addCarDetailForm: FormGroup;
 
   constructor( public router: Router,
     private activatedRoute: ActivatedRoute,
@@ -20,27 +21,31 @@ export class StockLotsComponent implements OnInit {
     private http: HttpHelperService,
     public location: Location,
     public validation: ValidationService) { }
-    public items : any = [];
 
   ngOnInit() {
-    this.createForm()
+    this.createForm();
   }
+
 
 
   createForm() {
-    this.addStockLotForm = this.fb.group({
+    this.addCarDetailForm = this.fb.group({
 
-      terms:[''],
-      inspection:[''],
-      addressLine1:[''],
-      addressLine2:[''],
-      state:[''],
-      city:[''],
-      nature:[''],
-
+      make:[''],
+      model:[''],
+      variant:[''],
+      year:[''],
+      kmRun:[''],
+      noOfOwners:[''],
+      marketPrice:[''],
+      floorPrice:[''],
+      valuedBy:[''],
+      mentions:[''],
+      insuranceCompany:[''],
+      insuranceValidityEndDate:['']
     });
   }
 
-  get control(): any { return this.addStockLotForm.controls; }
+  get control(): any { return this.addCarDetailForm.controls; }
 
 }

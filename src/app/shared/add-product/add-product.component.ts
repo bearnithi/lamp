@@ -16,14 +16,15 @@ export class AddProductComponent implements OnInit {
 
   ngOnInit() {
     this.properties = [
-      { name: 'Property', children: [] },
-      { name: 'Plant and Machineries', children: [] },
-      { name: 'Vehicles', children: [] },
-      { name: 'Jewellery', children: [] },
+      { name: 'Resential Flat', children: [] },
+      { name: 'Resential House', children: [] },
+      { name: 'Commercial Building', children: [] },
+      { name: 'Cars', children: [] },
+      { name: 'Light Commercial Vehicle', children: [] },
+      { name: 'Machinery', children: [] },
       { name: 'Equipments', children: [] },
       { name: 'Stock-Lots', children: [] },
-      { name: 'Takeover Offers', children: [] },
-      { name: 'Others', children: [] }
+      { name: 'Takeover Offers', children: [] }
     ];
   }
 

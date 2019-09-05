@@ -17,8 +17,15 @@
             </div>
 
             <ng-container [ngSwitch]="propertyType">
-              <app-add-property *ngSwitchCase="'Property'"></app-add-property>
+              <app-residential-flat *ngSwitchCase="'Resential Flat'"></app-residential-flat>
+              <app-residential-house *ngSwitchCase="'Resential House'"></app-residential-house>
+              <app-cars *ngSwitchCase="'Cars'"></app-cars>
+              <app-commercial-building *ngSwitchCase="'Commercial Building'"></app-commercial-building>
+              <app-lcv *ngSwitchCase="'Light Commercial Vehicle'"></app-lcv>
+              <app-machinery *ngSwitchCase="'Machinery'"></app-machinery>
               <app-equipments *ngSwitchCase="'Equipments'"></app-equipments>
+              <app-take-over *ngSwitchCase="'Takeover Offers'"></app-take-over>
+              <app-stock-lots *ngSwitchCase="'Stock-Lots'"></app-stock-lots>
             </ng-container>
 
           </div>

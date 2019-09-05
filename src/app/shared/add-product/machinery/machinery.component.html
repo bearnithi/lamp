@@ -1,1 +1,199 @@
-<p>machinery works!</p>
+<section class="add-associate container">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="addMachineryDetailForm" (ngSubmit)="addProduct()">
+
+        <app-content-header [header]="'Basic Information'"></app-content-header>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>Type</label>
+                  <select class="form-control" formControlName="type">
+                    <option>Mechanical Industry</option>
+                    <option>Electrical Industry</option>
+                    <option>Textile Industry</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>Model</label>
+                  <input type="text" formControlName="model" class="form-control" placeholder="">
+
+                </div>
+              </div>
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>Manufacturer Name</label>
+                  <input type="text" formControlName="manufacturerName" class="form-control">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" formControlName="description"></textarea>
+
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Purchase Date</label>
+                  <input type="text" class="form-control" formControlName="purchaseDate">
+
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Technical Specification</label>
+                  <input type="text" class="form-control" formControlName="techSpecs">
+
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <app-content-header [header]="'Pricing Information'"></app-content-header>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Invoice Price</label>
+                  <input type="text" formControlName="invoicePrice" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Floor Price</label>
+                  <input type="text" formControlName="floorPrice" class="form-control" placeholder="">
+
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Market Value</label>
+                  <input type="text" formControlName="marketPrice" class="form-control" placeholder="">
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <app-content-header [header]="'Address Details'"></app-content-header>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Address Line 1</label>
+                  <input type="text" formControlName="addressLine1" class="form-control" placeholder="John">
+
+                  <div *ngIf="control.addressLine1.touched && control.addressLine1.errors" class="error-message">
+                    <div *ngIf="control.addressLine1.errors.required">Address Line 1 is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Address Line 2</label>
+                  <input type="text" formControlName="addressLine2" class="form-control" placeholder="John">
+
+                  <div *ngIf="control.addressLine2.touched && control.addressLine2.errors" class="error-message">
+                    <div *ngIf="control.addressLine2.errors.required">Address Line 2 is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>State</label>
+                  <select formControlName="state" class="form-control">
+                    <option value="" style="display: none">Select</option>
+                    <option value="TN">Tamil Nadu</option>
+                    <option value="UP">Utter Pradesh</option>
+
+                  </select>
+                  <div *ngIf="control.state.touched && control.state.errors" class="error-message">
+                    <div *ngIf="control.state.errors.required">State is required</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>City</label>
+
+                  <select formControlName="city" class="form-control">
+                    <option value="" style="display: none">Select</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+
+                  </select>
+
+                  <div *ngIf="control.city.touched && control.city.errors" class="error-message">
+                    <div *ngIf="control.city.errors.required">City is required</div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <app-content-header [header]="'Other Information'"></app-content-header>
+
+        <div class="card">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                  <label>Valued By</label>
+                  <textarea formControlName="valuedBy" class="form-control" placeholder=""></textarea>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+          <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
+          <div class="d-flex">
+            <button type="button" class="btn bg-grey ml-3">Back</button>
+            <button type="submit" [disabled]="addMachineryDetailForm.invalid" class="btn bg-blue ml-3">Save</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
