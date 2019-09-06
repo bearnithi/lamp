@@ -109,23 +109,68 @@
 
             <div class="row">
 
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>Insurance Company</label>
-                        <input type="text" formControlName="insuranceCompany" class="form-control" placeholder="">
-                      </div>
-                    </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Insurance Company</label>
+                  <input type="text" formControlName="insuranceCompany" class="form-control" placeholder="">
+                </div>
+              </div>
 
-                    <div class="col-12 col-md-6 col-lg-6">
-                            <div class="form-group">
-                              <label>Insurance Validity End Date</label>
-                              <input type="text" formControlName="insuranceValidityEndDate" class="form-control" placeholder="">
-                            </div>
-                          </div>
-      
-                  </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Insurance Validity End Date</label>
+                  <input type="text" formControlName="insuranceValidityEndDate" class="form-control" placeholder="">
+                </div>
+              </div>
+
+            </div>
+
+            
           </div>
+
         </div>
+
+
+        <app-content-header [header]="'Product Images'"></app-content-header>
+
+        <div class="card">
+          <div class="card-body">
+
+              <div class="row">
+                  <div class="col-12">
+                      <button type="button" class="pull-right btn btn-danger" (click)="addItem()">Add Item</button>
+                  </div>
+                </div>
+
+        <div class="row">
+
+            <div class="col-12 col-md-12 col-lg-12">
+              
+
+              <div formArrayName="images"
+                *ngFor="let item of addCarDetailForm.get('images').controls; let i = index;">
+                <div class="row imagecontrol" [formGroupName]="i">
+
+                  <div class="col-4">
+                    <input  class="btn btn-semi-circle text-warning p-1 u-text-small mt-2 form-control upload_img_input"
+                      formControlName="file" type="file" accept="image/*" (change)="handleFileUpload($event,i)">
+                  </div>
+
+                  <div class="col-6"><input formControlName="caption" class="form-control"
+                      placeholder="Image Caption"></div>
+
+                  <div class="col-2"><i class="fa fa-trash fa-2x" (click)="deleteItem(i)"></i></div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+</div>
+        </div>
+
 
         <div class="d-flex justify-content-between align-items-center">
           <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
