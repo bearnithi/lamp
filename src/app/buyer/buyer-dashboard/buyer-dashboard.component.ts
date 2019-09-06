@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { HttpHelperService } from 'src/app/services/http-helper.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-buyer-dashboard',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BuyerDashboardComponent implements OnInit {
   cardStats: Array<any>;
-  constructor() { }
+  userInfo: any = {};
+  productList: any;
+  profileSubscription: Subscription;
+  constructor(private authentication: AuthenticationService,
+    private http: HttpHelperService) { }
 
   ngOnInit() {
     this.cardStats = [{
@@ -38,7 +45,33 @@ export class BuyerDashboardComponent implements OnInit {
       id: 'buyers',
       class: 'bg-orange',
       link: '/buyer/products'
-    }]
+    }];
+
+    this.userInfo = this.authentication.getUserInfo();
+    this.authentication.profileUpdated.subscribe((userInfo: any) => {
+      this.userInfo = userInfo;
+      this.fetchProducts();
+    });
+
+    if(this.userInfo) {
+      this.fetchProducts();
+    }
+
+  }
+
+  ngOnDestroy(): void {
+    if (this.profileSubscription) {
+      this.profileSubscription.unsubscribe();
+    }
+
+  }
+
+  fetchProducts() {
+    this.http.find('assets', { query: {
+      assetType: this.userInfo.preference.propertyType
+    } }).then((res) => {
+      this.productList = res.data;
+    });
   }
 
 }

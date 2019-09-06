@@ -9,9 +9,11 @@
   <div class="col-8 col-md-8">
     <div class="property-info">
       <div class="price">
-        <strong>Rs.</strong><span>{{productInfo?.assetDetails?.fairRentalValue | currency: 'INR'}}</span></div>
+        <button *ngIf="role === 'Buyer'" class="btn bg-teal"
+        (click)="addInterest()">I'm Interested</button></div>
       <h3><a href="#">{{productInfo.assetType}}</a></h3>
       <span class="location"><i class="fa fa-map-marker"></i> {{productInfo?.assetDetails?.city}}</span>
+
       <p>{{ productInfo?.assetDetails?.amenties }}</p>
     </div>
     <div class="property-amenities clearfix">

@@ -238,6 +238,16 @@
                         </div>
                       </div>
 
+                      <div class="col-12 col-md-4 col-lg-4">
+                          <div class="form-group">
+                            <label>Budget</label>
+                            <input type="text" formControlName="budget" class="form-control" placeholder="Your Budget">
+                            <div *ngIf="preferenceControl.budget.touched && preferenceControl.budget.errors" class="error-message">
+
+                            </div>
+                          </div>
+                        </div>
+
                     </div>
                   </div>
                 </div>

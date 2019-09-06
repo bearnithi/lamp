@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -105,17 +106,32 @@ export class ProductListComponent implements OnInit {
     this.role = this.authentication.getUserInfo().role;
     this.fetchProducts();
   }
-  fetchProducts() {
-    if (this.filter) {
-      if(Object.keys(this.filter).length > 0) {
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.filter) {
+      if (Object.keys(this.filter).length > 0) {
+        this.fetchProducts();
+      }
+    }
+  }
+
+  fetchProducts() {
+    this.http.find('assets', { query: this.filter }).then((res) => {
+      this.productList = res.data;
+    });
+  }
+
+  searchFilters(searchData) {
+    const propertyFilter = {};
+
+    for (const key in searchData) {
+      if (searchData[key] !== '') {
+        propertyFilter[key] = searchData[key];
       }
     }
 
-
-    this.http.find('assets', {query: this.filter }).then((res) => {
-      this.productList = res.data;
-    });
+    this.filter = propertyFilter;
+    this.fetchProducts();
   }
 
 }

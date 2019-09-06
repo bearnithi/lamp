@@ -1,73 +1,49 @@
 <div class="site-search-module">
   <div class="container">
     <div class="site-search-module-inside">
-      <form action="#">
+      <form [formGroup]="searchForm" (ngSubmit)="searchProperties()">
         <div class="form-group">
           <div class="row align-items-center mb-2">
             <div class="col-md-2">
-              <select name="propery type" class="form-control input-lg selectpicker">
-                <option selected>Type</option>
-                <option *ngFor="let property of searchFilters.property" [value]="property.name">
+              <select formControlName="assetType" name="propery type" class="form-control input-lg selectpicker">
+                <option selected style="display:none">Property Type</option>
+                <option *ngFor="let property of searchFilters.property" [value]="property.code">
                   {{ property.name}}
                 </option>
               </select>
             </div>
             <div class="col-md-3">
-              <select name="propery location" class="form-control input-lg selectpicker">
-                <option selected>State</option>
-                <option>Tamil Nadu</option>
+              <select formControlName="assetDetails.state" name="propery location"
+                class="form-control input-lg selectpicker">
+                <option selected style="display:none">State</option>
+                <option value="">All</option>
+                <option value="TN">Tamil Nadu</option>
               </select>
             </div>
             <div class="col-md-3">
-              <select name="property city" class="form-control input-lg selectpicker">
-                <option selected>City</option>
-                <option>Tirunelveli</option>
+              <select formControlName="assetDetails.city" name="property city"
+                class="form-control input-lg selectpicker">
+                <option selected style="display:none">City</option>
+                <option value="">All</option>
+                <option value="Tirunelveli">Tirunelveli</option>
+                <option value="Chennai">Chennai</option>
               </select>
             </div>
-            <div class="col-md-2"> <button type="submit" class="btn btn-block bg-teal"><i class="fa fa-search"></i>
-                Search</button> </div>
-            <div class="col-md-2"> <a href="#" id="ads-trigger" class="btn bg-grey btn-block"><i class="fa fa-plus"></i>
-                <span>Advanced</span></a> </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-block bg-teal"><i class="fa fa-search"></i>
+                Search</button>
+            </div>
+            <div class="col-md-2"> <a href="#" (click)="$event.preventDefault(); reset()" id="ads-trigger"
+                class="btn bg-grey btn-block"><i class="fa fa-eraser"></i>
+                <span>Clear</span></a> </div>
           </div>
           <div class="row hidden-xs hidden-sm">
             <div class="col-2">
               <label>Time of inclusion</label>
               <select name="timeofinclusion" class="form-control input-lg selectpicker">
                 <option *ngFor="let inclusion of searchFilters.timeOfInclusion" [value]="inclusion">
-                  {{ inclusion}}
+                  {{ inclusion }}
                 </option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label>Min Beds</label>
-              <select name="beds" class="form-control input-lg selectpicker">
-                <option>Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label>Min Baths</label>
-              <select name="beds" class="form-control input-lg selectpicker">
-                <option>Any</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
               </select>
             </div>
             <div class="col-md-2">
@@ -78,19 +54,53 @@
                 </option>
               </select>
             </div>
-            <div class="col-md-2">
-              <label>Age of Asset</label>
-              <select name="ageOfAsset" class="form-control input-lg selectpicker">
-                <option *ngFor="let ageOfAsset of searchFilters.ageOfAsset" [value]="ageOfAsset">
-                  {{ ageOfAsset}}
-                </option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label>Area (Sq Ft)</label>
-              <input type="text" class="form-control input-lg" placeholder="Any">
-            </div>
+            <ng-container *ngIf="searchForm.value.assetType === 'Residential-Flat' ||
+            searchForm.value.assetType === 'Residential-House' ||
+            searchForm.value.assetType === 'Commercial-Building'">
+              <div class="col-md-2">
+                <label>Building Area</label>
+                <input type="text" name="buildingArea" formControlName="assetDetails.buildingArea"
+                  class="form-control input-lg selectpicker" />
+              </div>
+              <div class="col-md-2">
+                <label>Carpet Area</label>
+                <input type="text" name="carpetArea" formControlName="assetDetails.carpetArea"
+                  class="form-control input-lg selectpicker" />
+              </div>
+              <div class="col-md-2">
+                <label>Floor Price</label>
+                <input type="text" name="floorPrice" formControlName="assetDetails.floorPrice"
+                  class="form-control input-lg selectpicker" />
+              </div>
+              <div class="col-md-2">
+                <label>Market Value</label>
+                <input type="text" name="marketValue" formControlName="assetDetails.marketValue"
+                  class="form-control input-lg selectpicker" />
+              </div>
+            </ng-container>
 
+            <ng-container *ngIf="searchForm.value.assetType === 'Cars'">
+              <div class="col-md-2">
+                <label>Make</label>
+                <input type="text" name="make" formControlName="assetDetails.make"
+                  class="form-control input-lg selectpicker" />
+              </div>
+              <div class="col-md-2">
+                <label>Model</label>
+                <input type="text" name="model" formControlName="assetDetails.model"
+                  class="form-control input-lg selectpicker" />
+              </div>
+              <div class="col-md-2">
+                <label>No of Owners</label>
+                <input type="text" name="noOfOwners" formControlName="assetDetails.noOfOwners"
+                  class="form-control input-lg selectpicker" />
+              </div>
+              <div class="col-md-2">
+                <label>Variant</label>
+                <input type="text" name="variant" formControlName="assetDetails.variant"
+                  class="form-control input-lg selectpicker" />
+              </div>
+            </ng-container>
           </div>
         </div>
       </form>
