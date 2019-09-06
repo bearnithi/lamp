@@ -11,33 +11,33 @@ export class BuyerDashboardComponent implements OnInit {
 
   ngOnInit() {
     this.cardStats = [{
-      title: '50',
-      desc: 'Lenders',
-      subdesc: 'Active Lenders',
+      title: '20',
+      desc: 'Interested Properties',
+      subdesc: 'Properties you are willing to buy.',
       id: 'members-online',
       class: 'bg-teal',
-      link: '/admin/lender'
+      link: '/buyer/products'
     }, {
-      title: '80',
-      desc: 'Associates',
-      subdesc: 'Active Associates',
+      title: '50',
+      desc: 'Total Properties',
+      subdesc: 'Total Active Properties for you to buy.',
       id: 'server-load',
       class: 'bg-pink',
-      link: '/admin/associate'
+      link: '/buyer/products'
     }, {
-      title: '20',
-      desc: 'Consultants',
-      subdesc: 'Active Consultants',
+      title: '2',
+      desc: 'Properties Bought',
+      subdesc: 'Properties you have bought.',
       id: 'today-revenue',
       class: 'bg-blue',
-      link: '/admin/consultant'
+      link: '/buyer/products'
     }, {
       title: '250',
-      desc: 'Buyers',
-      subdesc: 'Active Buyers',
+      desc: 'Properties',
+      subdesc: 'All properties including sold.',
       id: 'buyers',
       class: 'bg-orange',
-      link: '/admin/buyers'
+      link: '/buyer/products'
     }]
   }
 

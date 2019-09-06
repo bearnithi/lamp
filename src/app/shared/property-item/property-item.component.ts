@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PropertyItemComponent implements OnInit {
   @Input() productInfo: any = {};
-  @Input() view = 'grid';
+  @Input() isList: boolean;
   constructor() { }
 
   ngOnInit() {

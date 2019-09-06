@@ -2,13 +2,13 @@
     <div class="row">
       <div class="col-12">
         <form [formGroup]="addResendentialPropertyForm" (ngSubmit)="addProduct('Residential-Flat')">
-  
+
           <app-content-header [header]="'Basic Information'"></app-content-header>
-  
+
           <div class="card">
             <div class="card-body">
               <div class="row">
-               
+
                 <div class="col-12 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label>Build in year</label>
@@ -38,17 +38,17 @@
                   <div class="col-12 col-md-6 col-lg-6">
                     <div class="form-group">
                       <label>BHK</label>
-                     
+
                       <input type="text" formControlName="bhk" class="form-control">
                       <div *ngIf="control.bhk.touched && control.carpetArea.errors" class="error-message">
                         <div *ngIf="control.bhk.errors.required">BHK is required</div>
-                        
+
                       </div>
                     </div>
                   </div>
               </div>
-  
-            
+
+
             </div>
           </div>
           <app-content-header [header]="'Pricing'"></app-content-header>
@@ -59,7 +59,7 @@
                   <div class="form-group">
                     <label>Guide Line Value (1 sq.ft)</label>
                     <input type="text" formControlName="guideLineValue" class="form-control" placeholder="John">
-  
+
                     <div *ngIf="control.guideLineValue.touched && control.guideLineValue.errors" class="error-message">
                       <div *ngIf="control.guideLineValue.errors.required">Address is required</div>
                     </div>
@@ -96,7 +96,7 @@
               </div>
             </div>
           </div>
-  
+
           <app-content-header [header]="'Address Details'"></app-content-header>
           <div class="card">
             <div class="card-body">
@@ -105,7 +105,7 @@
                   <div class="form-group">
                     <label>Address Line 1</label>
                     <input type="text" formControlName="addressLine1" class="form-control" placeholder="John">
-  
+
                     <div *ngIf="control.addressLine1.touched && control.addressLine1.errors" class="error-message">
                       <div *ngIf="control.addressLine1.errors.required">Address Line 1 is required</div>
                     </div>
@@ -115,7 +115,7 @@
                     <div class="form-group">
                       <label>Address Line 2</label>
                       <input type="text" formControlName="addressLine2" class="form-control" placeholder="John">
-    
+
                       <div *ngIf="control.addressLine2.touched && control.addressLine2.errors" class="error-message">
                         <div *ngIf="control.addressLine2.errors.required">Address Line 2 is required</div>
                       </div>
@@ -130,25 +130,25 @@
                       <option value="" style="display: none">Select</option>
                       <option value="TN">Tamil Nadu</option>
                       <option value="UP">Utter Pradesh</option>
-  
+
                     </select>
                     <div *ngIf="control.state.touched && control.state.errors" class="error-message">
                       <div *ngIf="control.state.errors.required">State is required</div>
                     </div>
                   </div>
                 </div>
-  
+
                 <div class="col-12 col-md-6 col-lg-6">
                   <div class="form-group">
                     <label>City</label>
-  
+
                     <select formControlName="city" class="form-control">
                       <option value="" style="display: none">Select</option>
                       <option value="Chennai">Chennai</option>
                       <option value="Tirunelveli">Tirunelveli</option>
-  
+
                     </select>
-  
+
                     <div *ngIf="control.city.touched && control.city.errors" class="error-message">
                       <div *ngIf="control.city.errors.required">City is required</div>
                     </div>
@@ -156,7 +156,7 @@
                 </div>
               </div>
             </div>
-  
+
           </div>
 
 
@@ -168,8 +168,8 @@
                   <div class="form-group">
                     <label>Builder Company Name</label>
                     <input type="text" formControlName="builderCompany" class="form-control" placeholder="John">
-  
-                    
+
+
                   </div>
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
@@ -180,8 +180,8 @@
                             <option value="Chennai">Chennai</option>
                             <option value="Tirunelveli">Tirunelveli</option>
                           </select>
-    
-                   
+
+
                     </div>
                   </div>
               </div>
@@ -194,22 +194,21 @@
                 </div>
 
               </div>
-      
-   
+
+
             </div>
-  
+
           </div>
-  
+
           <div class="d-flex justify-content-between align-items-center">
             <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
             <div class="d-flex">
               <button type="button" class="btn bg-grey ml-3">Back</button>
               <button type="submit" [disabled]="addResendentialPropertyForm.invalid" class="btn bg-blue ml-3">Save</button>
             </div>
-  
+
           </div>
         </form>
       </div>
     </div>
   </section>
-  

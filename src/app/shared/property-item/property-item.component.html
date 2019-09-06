@@ -1,73 +1,16 @@
-<!-- <div class="card">
-    <div class="card-img-actions">
-      <img class="card-img-top img-fluid" [src]="productInfo.src" alt="">
-      <div class="card-img-actions-overlay card-img-top">
-        <a class="btn btn-outline bg-white text-white border-white border-2" data-popup="lightbox">
-          I am Interested
-        </a>
-        <a href="#" class="btn btn-outline bg-white text-white border-white border-2 ml-2">
-          Details
-        </a>
-      </div>
-    </div>
-
-    <div class="card-body">
-      <h5 class="card-title">{{productInfo.title}}</h5>
-      <p class="card-text">{{ productInfo.description }}</p>
-    </div>
-
-    <div class="card-footer bg-transparent d-flex justify-content-between">
-      <span class="text-muted">Last updated 3 mins ago</span>
-      <span>
-        <i class="icon-star-full2 font-size-base text-warning-300"></i>
-        <i class="icon-star-full2 font-size-base text-warning-300"></i>
-        <i class="icon-star-full2 font-size-base text-warning-300"></i>
-        <i class="icon-star-full2 font-size-base text-warning-300"></i>
-        <i class="icon-star-half font-size-base text-warning-300"></i>
-        <span class="text-muted ml-2">(12)</span>
-      </span>
-    </div>
-  </div> -->
-
-
-<div *ngIf="view === 'grid'" class="property-block"> <a href="#" class="property-featured-image">
-    <div class="overlay" style="line-height:0px"><i class="fa fa-search"></i></div> <img [src]="productInfo.src" alt="">
+<div *ngIf="!isList" class="property-block"> <a href="#" class="property-featured-image">
+    <div class="overlay" style="line-height:0px"><i class="fa fa-search"></i></div> <img
+    [src]="productInfo.src || 'assets/images/placeholder.png'" alt="">
     <span class="images-count"><i class="fa fa-picture-o"></i> 2</span> <span class="badges">Buy</span>
   </a>
   <div class="property-info">
-    <h4><a href="#">{{productInfo.title}}</a></h4>
-    <span class="location"><i class="fa fa-map-marker"></i> {{productInfo.city}}</span>
-    <div class="price"><strong>Rs.</strong><span>{{productInfo.floorPrice}}</span></div>
+    <h4><a href="#">{{productInfo.assetType}}</a></h4>
+    <span class="location"><i class="fa fa-map-marker"></i> {{productInfo.assetDetails.city}}</span>
+    <div class="price"><strong>Rs.</strong><span>{{productInfo.assetDetails.fairRentalValue | currency: 'INR'}}</span></div>
+    <div class="date-of-inclusion mt-1"><strong>Date: </strong>{{ productInfo.createdDate | date }}</div>
   </div>
-  <div class="property-amenities clearfix"> <span class="area"><strong>{{productInfo.area}}</strong>Area</span> <span
-      class="baths"><strong>{{productInfo.baths}}</strong>Baths</span> <span
-      class="beds"><strong>{{productInfo.beds}}</strong>Beds</span> <span
-      class="parking"><strong>{{productInfo.parking}}</strong>Parking</span> </div>
-</div>
-
-<div *ngIf="view === 'list'" class="type-rent row">
-  <div class="col-4 col-md-4">
-    <a href="#" class="property-featured-image">
-      <div class="overlay" style="line-height:211px"><i class="fa fa-search"></i></div> <img
-      [src]="productInfo.src" class="mw-100" alt=""> <span class="images-count"><i
-          class="fa fa-picture-o"></i> 2</span> <span class="badges">Buy</span>
-    </a>
-  </div>
-  <div class="col-8 col-md-8">
-    <div class="property-info">
-      <div class="price"><strong>$</strong><span>{{productInfo.price}}</span></div>
-      <h3><a href="#">{{productInfo.title}}</a></h3>
-      <span class="location"><i class="fa fa-map-marker"></i> {{productInfo.location}}</span>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod sollicitudin nunc, eget pretium massa.
-        Ut sed adipiscing enim, pellentesque ultrices erat. Integer placerat felis neque, et semper augue ullamcorper
-        in. Pellentesque iaculis leo iaculis aliquet ultrices. Pellentesque iaculis leo iaculis. Pellentesque iaculis
-        leo iaculis aliquet ultrices. Pellentesque iaculis leo iaculis.</p>
-    </div>
-    <div class="property-amenities clearfix">
-      <span class="area"><strong>{{productInfo.area}}</strong>Area</span>
-      <span class="baths"><strong>{{productInfo.baths}}</strong>Baths</span>
-      <span class="beds"><strong>{{productInfo.beds}}</strong>Beds</span>
-      <span class="parking"><strong>{{productInfo.parking}}</strong>Parking</span>
-    </div>
-  </div>
+  <div class="property-amenities clearfix">
+    <span class="area" *ngFor="let fields of productInfo.displayFields | keyvalue">
+      <strong>{{ fields.value }}</strong> {{ fields.key }}
+    </span>
 </div>

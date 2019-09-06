@@ -2,17 +2,16 @@
   <div class="content-wrapper">
     <div class="content">
       <div class="container-fluid">
-        <div class="row align-items-center">
+        <div *ngIf="role === 'Buyer'" class="row align-items-center bg-white mb-3">
           <div class="col-12">
-              <app-content-header header="Products"></app-content-header>
-              <app-search></app-search>
+            <app-content-header header="Products"></app-content-header>
+            <app-search></app-search>
           </div>
 
         </div>
         <div class="row align-items-center">
-          <div class="col-12">
-            <app-property-item *ngFor="let product of productList" [view]="'list'" [productInfo]="product">
-            </app-property-item>
+          <div *ngFor="let product of productList" class="col-12">
+            <app-product-list-item [productInfo]="product"></app-product-list-item>
           </div>
         </div>
       </div>

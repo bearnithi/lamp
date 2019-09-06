@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { StoreService } from 'src/app/services/store.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -9,7 +10,6 @@ import { StoreService } from 'src/app/services/store.service';
   styleUrls: ['./my-profile.component.scss']
 })
 export class MyProfileComponent implements OnInit {
-  public isEdit: boolean;
   showLoader: boolean;
   formMessage: string;
   userInfo: any = {};
@@ -18,30 +18,16 @@ export class MyProfileComponent implements OnInit {
     public router: Router,
     private activatedRoute: ActivatedRoute,
     private httpHelper: HttpHelperService,
-    private store: StoreService) { }
+    private store: StoreService,
+    private authentication: AuthenticationService) { }
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      this.isEdit = params.type === 'edit' || false;
-
-      if (this.isEdit) {
-        this.userInfo = this.store.getValue('user_info');
-      }
-    });
-  }
-
-  addUser(formData) {
-    this.store.showLoader.next(true);
-    this.httpHelper.getInstance().post('/users', formData).then((response) => {
-      this.onSuccess();
-    }).catch((error) => {
-      this.onFailure();
-    });
+    this.userInfo = this.authentication.getUserInfo();
   }
 
   editUser(formData) {
     this.store.showLoader.next(true);
-    this.httpHelper.update('users', this.userInfo._id, formData)
+    this.httpHelper.patch('users', this.userInfo._id, formData)
       .then((response: any) => {
         this.onSuccess();
       }).catch((err) => {
@@ -50,15 +36,7 @@ export class MyProfileComponent implements OnInit {
   }
 
   registration(formData) {
-    this.showLoader = true;
-
-    if (this.isEdit) {
       this.editUser(formData);
-    } else {
-      this.addUser(formData);
-    }
-
-
   }
 
   onSuccess() {

@@ -14,6 +14,7 @@ export class ProductCarouselComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     dots: false,
+    autoWidth:true,
     navSpeed: 700,
     navText: ['<', '>'],
     responsive: {

@@ -64,7 +64,7 @@ export class BuyerProfileComponent implements OnInit {
 
   createForm() {
     this.addBuyerForm = this.fb.group({
-      userType: ['Associate'],
+      role: ['Buyer'],
       profileImage: [''],
       firstName: ['', Validators.required],
       middleName: ['', Validators.required],

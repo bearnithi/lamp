@@ -18,11 +18,12 @@ export class AuthenticationService {
       this.userInfo = res.data[0];
       this.store.setValue('user_info', this.userInfo);
       this.profileUpdated.next(this.userInfo);
+      window.localStorage.setItem('user_info', this.userInfo);
     });
   }
 
   getUserInfo() {
-    return this.userInfo;
+    return this.userInfo ||  window.localStorage.getItem('user_info');;
   }
 
   logout() {

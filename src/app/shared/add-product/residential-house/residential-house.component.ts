@@ -18,13 +18,14 @@ export class ResidentialHouseComponent implements OnInit {
 
   addResendentialPropertyForm: FormGroup;
 
-  constructor( public router: Router,
+  constructor(public router: Router,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private http: HttpHelperService,
     public location: Location,
-    public validation: ValidationService,public productService:ProductService,
-    private store:StoreService) { }
+    public validation: ValidationService,
+    public productService: ProductService,
+    private store: StoreService) { }
 
   ngOnInit() {
     this.createForm();
@@ -35,40 +36,40 @@ export class ResidentialHouseComponent implements OnInit {
     this.addResendentialPropertyForm = this.fb.group({
 
       buildInYear: [''],
-      buildingArea:[''],
-      carpetArea:[''],
-      guideLineValue:[''],
-      marketValue:[''],
-      fairRentalValue:[''],
-      floorPrice:[''],
-      addressLine1:[''],
-      addressLine2:[''],
-      state:[''],
-      city:[''],
-      builderCompany:[''],
-      builderCity:[''],
-      amenties:['']
+      buildingArea: [''],
+      carpetArea: [''],
+      guideLineValue: [''],
+      marketValue: [''],
+      fairRentalValue: [''],
+      floorPrice: [''],
+      addressLine1: [''],
+      addressLine2: [''],
+      state: [''],
+      city: [''],
+      builderCompany: [''],
+      builderCity: [''],
+      amenties: ['']
     });
   }
 
   get control(): any { return this.addResendentialPropertyForm.controls; }
 
 
-  addProduct(type){
+  addProduct(type) {
     let data = {};
     data['assetType'] = type;
     data['assetId'] = UUID.UUID();
     data['assetDetails'] = this.addResendentialPropertyForm.value;
 
-    
 
-    this.productService.saveProductInfo(data).then((response)=>{
+
+    this.productService.saveProductInfo(data).then((response) => {
       this.store.showGrowl.next({
         text: 'Asset has been saved successfully',
         title: 'Success',
         type: 'success'
       });
-    }).catch((error)=>{ 
+    }).catch((error) => {
       this.store.showGrowl.next({
         text: 'Error while creating asset',
         title: 'Error',

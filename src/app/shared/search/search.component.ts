@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -7,19 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
   searchFilters: any = {};
-  constructor() { }
+  search = new EventEmitter<any>();
+  searchForm: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
     this.searchFilters = {
       property: [
-       { name: 'Property', children: []},
-       { name: 'Plant and Machineries', children: []},
-       { name: 'Vehicles', children: []},
-       { name: 'Jewellery', children: []},
-       { name: 'Equipments', children: []},
-       { name: 'Stock-Lots', children: []},
-       { name: 'Takeover Offers', children: []},
-       { name: 'Others', children: []}
+        { name: 'Resential Flat', children: [] },
+        { name: 'Resential House', children: [] },
+        { name: 'Commercial Building', children: [] },
+        { name: 'Cars', children: [] },
+        { name: 'Light Commercial Vehicle', children: [] },
+        { name: 'Machinery', children: [] },
+        { name: 'Equipments', children: [] },
+        { name: 'Stock-Lots', children: [] },
+        { name: 'Takeover Offers', children: [] }
       ],
       timeOfInclusion: ['Last one week', 'Last one month', 'Last 6 month', 'Last One Year', 'All'],
       budget: [
@@ -38,6 +42,14 @@ export class SearchComponent implements OnInit {
         'Working condition'
       ]
     };
+  }
+
+  createForm() {
+    this.searchForm  = this.fb.group({
+      assetType: [''],
+      city: [''],
+      state: ['']
+    });
   }
 
 }

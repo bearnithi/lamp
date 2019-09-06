@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list-buyer.component.scss']
 })
 export class ProductListBuyerComponent implements OnInit {
-
+  filterObj: any = {};
   constructor() { }
 
   ngOnInit() {

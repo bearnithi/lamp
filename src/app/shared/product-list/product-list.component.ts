@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpHelperService } from 'src/app/services/http-helper.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-product-list',
@@ -7,10 +9,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   public productList: any;
-  constructor() { }
+  role: string;
+  constructor(private http: HttpHelperService,
+    private authentication: AuthenticationService) { }
 
   @Input()
-  filter:any;
+  filter: any;
 
   ngOnInit() {
     this.productList = [{
@@ -97,7 +101,21 @@ export class ProductListComponent implements OnInit {
       area: 5000,
       parking: 2,
       date: '20/12/2019'
-    }]
+    }];
+    this.role = this.authentication.getUserInfo().role;
+    this.fetchProducts();
+  }
+  fetchProducts() {
+    if (this.filter) {
+      if(Object.keys(this.filter).length > 0) {
+
+      }
+    }
+
+
+    this.http.find('assets', {query: this.filter }).then((res) => {
+      this.productList = res.data;
+    });
   }
 
 }

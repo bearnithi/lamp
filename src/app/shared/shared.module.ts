@@ -47,6 +47,7 @@ import { CarsComponent } from './add-product/cars/cars.component';
 import { LcvComponent } from './add-product/lcv/lcv.component';
 import { GrowlComponent } from './growl/growl.component';
 import { FormLoaderComponent } from './form-loader/form-loader.component';
+import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 
 
 
@@ -86,7 +87,8 @@ import { FormLoaderComponent } from './form-loader/form-loader.component';
     CarsComponent,
     LcvComponent,
     GrowlComponent,
-    FormLoaderComponent],
+    FormLoaderComponent,
+    ProductListItemComponent],
   imports: [
     CommonModule,
     FormsModule,

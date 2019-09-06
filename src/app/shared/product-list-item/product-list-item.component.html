@@ -1,0 +1,23 @@
+<div class="type-rent row">
+  <div class="col-4 col-md-4">
+    <a href="#" class="property-featured-image">
+      <div class="overlay" style="line-height:211px"><i class="fa fa-search"></i></div> <img
+        [src]="productInfo.src || 'assets/images/placeholder.png'" class="mw-100" alt=""> <span class="images-count"><i
+          class="fa fa-picture-o"></i> 2</span> <span class="badges">Buy</span>
+    </a>
+  </div>
+  <div class="col-8 col-md-8">
+    <div class="property-info">
+      <div class="price">
+        <strong>Rs.</strong><span>{{productInfo?.assetDetails?.fairRentalValue | currency: 'INR'}}</span></div>
+      <h3><a href="#">{{productInfo.assetType}}</a></h3>
+      <span class="location"><i class="fa fa-map-marker"></i> {{productInfo?.assetDetails?.city}}</span>
+      <p>{{ productInfo?.assetDetails?.amenties }}</p>
+    </div>
+    <div class="property-amenities clearfix">
+      <span class="area" *ngFor="let fields of productInfo.displayFields | keyvalue">
+        <strong>{{ fields.value }}</strong> {{ fields.key }}
+      </span>
+    </div>
+  </div>
+</div>

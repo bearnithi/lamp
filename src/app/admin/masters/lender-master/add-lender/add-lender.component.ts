@@ -42,7 +42,7 @@ export class AddLenderComponent implements OnInit {
 
   editUser(formData) {
     this.store.showLoader.next(true);
-    this.httpHelper.update('users', this.userInfo._id, formData)
+    this.httpHelper.patch('users', this.userInfo._id, formData)
       .then((response: any) => {
         this.onSuccess();
       }).catch((err) => {

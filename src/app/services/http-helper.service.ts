@@ -50,10 +50,15 @@ export class HttpHelperService {
   create(service,data){
     return this.feathersInstance().service(service).create(data, this.getHeaders());
   }
-  
+
   update(service, condition, data) {
     return this.feathersInstance().service(service).update(condition, data, this.getHeaders());
   }
+
+  patch(service, condition, data) {
+    return this.feathersInstance().service(service).patch(condition, data, this.getHeaders());
+  }
+
 
   find(service, condition) {
     return this.feathersInstance().service(service).find(condition, this.getHeaders());

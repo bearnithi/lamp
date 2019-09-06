@@ -30,7 +30,8 @@
               <div class="col-12 col-md-4 col-lg-4">
                 <div class="form-group">
                   <label>Area</label>
-                  <input type="text" formControlName="area" class="form-control" placeholder="Doe">
+                  <input type="text" formControlName="area"
+                  (keypress)="validation.allowOnlyNumber($event)" class="form-control" placeholder="Doe">
                   <div *ngIf="control.area.touched && control.area.errors" class="error-message">
                     <div *ngIf="control.area.errors.required">Area is required</div>
                   </div>
@@ -43,7 +44,8 @@
               <div class="col-12 col-md-4 col-lg-4">
                 <div class="form-group">
                   <label>Carpet Area</label>
-                  <input type="text" formControlName="carpetArea" class="form-control">
+                  <input type="text" formControlName="carpetArea"
+                  (keypress)="validation.allowOnlyNumber($event)" class="form-control">
                   <div *ngIf="control.carpetArea.touched && control.carpetArea.errors" class="error-message">
                     <div *ngIf="control.carpetArea.errors.required">Carpet Area is required</div>
                   </div>
@@ -60,7 +62,9 @@
               <div class="col-12 col-md-4 col-lg-4">
                 <div class="form-group">
                   <label>Guide Line Value (1 sq.ft)</label>
-                  <input type="text" formControlName="guideLineValue" class="form-control" placeholder="John">
+                  <input type="text" [value]="addPropertyForm.value.guideLineValue | currency: 'INR'"
+                  formControlName="guideLineValue"
+                  (keypress)="validation.allowOnlyNumber($event)" class="form-control" placeholder="John">
 
                   <div *ngIf="control.guideLineValue.touched && control.guideLineValue.errors" class="error-message">
                     <div *ngIf="control.guideLineValue.errors.required">Address is required</div>
@@ -79,7 +83,9 @@
               <div class="col-12 col-md-4 col-lg-4">
                 <div class="form-group">
                   <label>Fair Rental Price</label>
-                  <input type="text" formControlName="fairRentalValue" class="form-control" placeholder="Doe">
+                  <input type="text" [value]="addPropertyForm.value.fairRentalValue | currency: 'INR'"
+                  formControlName="fairRentalValue"
+                  (keypress)="validation.allowOnlyNumber($event)" class="form-control" placeholder="Doe">
                   <div *ngIf="control.fairRentalValue.touched && control.fairRentalValue.errors" class="error-message">
                     <div *ngIf="control.fairRentalValue.errors.required">Fair Rental Price is required</div>
                   </div>
