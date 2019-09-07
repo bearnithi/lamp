@@ -46,8 +46,8 @@
               "src/assets/js/plugins/forms/selects/bootstrap_multiselect.js",
               "src/assets/js/plugins/loaders/blockui.min.js",
               "src/assets/js/plugins/notifications/jgrowl.min.js",
-              "src/assets/js/plugins/notifications/daterangepicker.js",
-              "src/assets/js/plugins/pickers/.min.js",
+              "src/assets/js/plugins/notifications/noty.min.js",
+              "src/assets/js/plugins/pickers/daterangepicker.js",
               "src/assets/js/app.js",
               "src/assets/js/demo_pages/dashboard.js"
             ]
