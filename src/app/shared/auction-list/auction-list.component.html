@@ -1,0 +1,60 @@
+<div class="table-responsive border-bottom bg-white mb-4">
+  <table class="table text-nowrap">
+    <thead>
+      <tr class="border">
+        <th>Property</th>
+        <th>Bank</th>
+        <th>Price</th>
+        <th>Auction Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let auction of auctionList" class="border-right border-left">
+        <td>
+          <div class="d-flex align-items-center">
+            <div class="mr-3">
+              <a href="#">
+                <img
+                  src="assets/images/brands/facebook.png"
+                  class="rounded-circle"
+                  width="32"
+                  height="32"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div>
+              <a href="#" class="text-default font-weight-semibold">{{
+                auction.assetInfo.assetType
+              }}</a>
+              <div class="text-muted font-size-sm">
+                <span class="badge badge-mark border-blue mr-1"></span>
+                02:00 - 03:00
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span class="text-muted">{{ auction.lenderInfo.bankName }}</span>
+        </td>
+        <!-- <td>
+                    <span class="text-success-600"
+                      ><i class="icon-stats-growth2 mr-2"></i> 2.43%</span
+                    >
+                  </td> -->
+        <td>
+          <h6 class="font-weight-semibold mb-0 text-success-600">
+            {{ auction.assetInfo.assetDetails.floorPrice }}
+          </h6>
+        </td>
+        <td>
+          <h6 class="font-weight-semibold mb-0">
+            {{ auction.auctionInfo.date }}
+          </h6>
+        </td>
+        <td><span class="badge bg-blue">Active</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -10,6 +10,8 @@ import { AddLenderComponent } from './masters/lender-master/add-lender/add-lende
 import { AddConsultantComponent } from './masters/consultant-master/add-consultant/add-consultant.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
+import { AuctionMasterComponent } from './masters/auction-master/auction-master.component';
+import { AddAuctionComponent } from './masters/auction-master/add-auction/add-auction.component';
 
 const ADMIN_ROUTES = [{
   path: '',
@@ -60,6 +62,12 @@ const ADMIN_ROUTES = [{
   }, {
     path: 'add-product',
     component: AddProductComponent
+  }, {
+    path: 'auctions',
+    component: AuctionMasterComponent
+  }, {
+    path: 'add-auction',
+    component: AddAuctionComponent
   }]
 }];
 

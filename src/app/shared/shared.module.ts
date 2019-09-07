@@ -48,6 +48,7 @@ import { LcvComponent } from './add-product/lcv/lcv.component';
 import { GrowlComponent } from './growl/growl.component';
 import { FormLoaderComponent } from './form-loader/form-loader.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
+import { AuctionListComponent } from './auction-list/auction-list.component';
 
 
 
@@ -88,7 +89,8 @@ import { ProductListItemComponent } from './product-list-item/product-list-item.
     LcvComponent,
     GrowlComponent,
     FormLoaderComponent,
-    ProductListItemComponent],
+    ProductListItemComponent,
+    AuctionListComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -126,7 +128,8 @@ import { ProductListItemComponent } from './product-list-item/product-list-item.
     ProductListComponent,
     AddProductComponent,
     GrowlComponent,
-    FormLoaderComponent
+    FormLoaderComponent,
+    AuctionListComponent
   ],
   entryComponents: [
     ConfirmDialogComponent
