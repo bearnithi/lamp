@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { Location } from '@angular/common';
+import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({
   selector: 'app-consultant-profile',
@@ -23,7 +24,8 @@ export class ConsultantProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private http: HttpHelperService,
-    public location: Location) { }
+    public location: Location,
+    public validationService: ValidationService) { }
 
   ngOnInit() {
     this.createForm();
@@ -64,8 +66,7 @@ export class ConsultantProfileComponent implements OnInit {
         Validators.pattern('(?=\\D*\\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}')
       ]],
       address1: ['', Validators.required],
-      address2: [''],
-      street: ['', Validators.required],
+      address2: [''],      
       state: ['', Validators.required],
       city: ['', Validators.required]
     });

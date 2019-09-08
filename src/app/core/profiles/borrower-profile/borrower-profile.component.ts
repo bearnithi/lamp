@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { Location } from '@angular/common';
+import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({
   selector: 'app-borrower-profile',
@@ -11,7 +12,7 @@ import { Location } from '@angular/common';
 })
 export class BorrowerProfileComponent implements OnInit {
   @Input() isEdit: boolean;
-  addLenderForm: FormGroup;
+  borrowerForm: FormGroup;
   fileName: any;
   profileImageName: any;
   profilPicData: any;
@@ -22,7 +23,8 @@ export class BorrowerProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private http: HttpHelperService,
-    public location: Location) { }
+    public location: Location,
+    public validationService: ValidationService) { }
 
   ngOnInit() {
     this.createForm();
@@ -30,12 +32,12 @@ export class BorrowerProfileComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.isEdit) {
-      this.addLenderForm.controls.email.disable();
+      this.borrowerForm.controls.email.disable();
     }
   }
 
   createForm() {
-    this.addLenderForm = this.fb.group({
+    this.borrowerForm = this.fb.group({
       userType: ['Lender'],
       profileImage: [''],
       firstName: ['', Validators.required],
@@ -55,7 +57,7 @@ export class BorrowerProfileComponent implements OnInit {
     });
   }
 
-  get control(): any { return this.addLenderForm.controls; }
+  get control(): any { return this.borrowerForm.controls; }
 
   handleFileUpload(e) {
     const file = e.dataTransfer ? e.dataTransfer.files[0] : e.target.files[0];
@@ -76,7 +78,7 @@ export class BorrowerProfileComponent implements OnInit {
   }
 
   registration() {
-    this.formData.emit(this.addLenderForm.value);
+    this.formData.emit(this.borrowerForm.value);
   }
 
 

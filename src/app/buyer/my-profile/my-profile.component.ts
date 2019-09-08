@@ -22,7 +22,7 @@ export class MyProfileComponent implements OnInit {
     private authentication: AuthenticationService) { }
 
   ngOnInit() {
-    this.userInfo = this.authentication.getUserInfo();
+    this.userInfo = this.authentication.getUserInfo() || {};
   }
 
   editUser(formData) {

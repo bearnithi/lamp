@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { Location } from '@angular/common';
+import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({
   selector: 'app-buyer-profile',
@@ -24,7 +25,8 @@ export class BuyerProfileComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private http: HttpHelperService,
-    public location: Location) { }
+    public location: Location,
+    public validationService: ValidationService) { }
 
   ngOnInit() {
     this.createForm();
@@ -67,7 +69,7 @@ export class BuyerProfileComponent implements OnInit {
       role: ['Buyer'],
       profileImage: [''],
       firstName: ['', Validators.required],
-      middleName: ['', Validators.required],
+      middleName: [''],
       lastName: ['', Validators.required],
       mobileNo: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -77,7 +79,6 @@ export class BuyerProfileComponent implements OnInit {
       ]],
       address1: ['', Validators.required],
       address2: [''],
-      street: ['', Validators.required],
       state: ['', Validators.required],
       city: ['', Validators.required],
       pan: ['', [Validators.required,

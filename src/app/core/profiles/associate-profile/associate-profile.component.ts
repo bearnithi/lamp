@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { Location } from '@angular/common';
+import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({
   selector: 'app-associate-profile',
@@ -24,7 +25,8 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private http: HttpHelperService,
-    public location: Location) { }
+    public location: Location,
+    public validationService: ValidationService) { }
 
   ngOnInit() {
     this.createForm();
@@ -69,7 +71,6 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
       ]],
       address1: ['', Validators.required],
       address2: [''],
-      street: ['', Validators.required],
       state: ['', Validators.required],
       city: ['', Validators.required]
     });
