@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+
 
 @Component({
   selector: 'app-auction-list',
@@ -7,10 +9,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AuctionListComponent implements OnInit {
   @Input() auctionList: Array<any> = [];
-  constructor() { }
-
+  @Output() edit = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<any>();
+  constructor(private authentication: AuthenticationService) { }
+  selectedrole: any;
   ngOnInit() {
-   
+    this.selectedrole = this.authentication.getUserInfo();
+  }
+
+
+  editAuction(data) {
+    this.edit.emit(data);
+  }
+
+  deleteAuction(deletedata) {
+    this.delete.emit(deletedata);
   }
 
 }

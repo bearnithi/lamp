@@ -12,7 +12,7 @@
               <h6>E-Auctions Coming Up</h6>
             </div>
           </div>
-          <app-auction-list [auctionList]="auctionList"></app-auction-list>
+          <app-auction-list [auctionList]="auctionList" (edit)="editAuctionList($event)" (delete)="confirmDelete($event)"></app-auction-list>
           <!-- <app-content-header header="E-Auctions coming up"></app-content-header> -->
         </div>
       </div>

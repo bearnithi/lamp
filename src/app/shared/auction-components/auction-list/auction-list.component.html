@@ -7,6 +7,7 @@
         <th>Price</th>
         <th>Auction Date</th>
         <th>Status</th>
+        <th *ngIf="selectedrole.role==='Admin'">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -15,13 +16,7 @@
           <div class="d-flex align-items-center">
             <div class="mr-3">
               <a href="#">
-                <img
-                  src="assets/images/brands/facebook.png"
-                  class="rounded-circle"
-                  width="32"
-                  height="32"
-                  alt=""
-                />
+                <img src="assets/images/brands/facebook.png" class="rounded-circle" width="32" height="32" alt="" />
               </a>
             </div>
             <div>
@@ -54,6 +49,11 @@
           </h6>
         </td>
         <td><span class="badge bg-blue">Active</span></td>
+        <td *ngIf="selectedrole.role==='Admin'">
+          <i class="fa fa-pencil p-2" style="cursor: pointer;" (click)="editAuction(auction)"></i>Edit
+          <i class="fa fa-trash p-2" style="cursor: pointer;" (click)="deleteAuction(auction)"></i>Delete
+        </td>
+        <!-- <td *ngIf="selectedrole.role==='Admin'"><i class="fa fa-trash"></i> Delete</td> -->
       </tr>
     </tbody>
   </table>

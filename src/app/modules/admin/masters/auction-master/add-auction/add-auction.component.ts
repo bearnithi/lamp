@@ -4,7 +4,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { StoreService } from 'src/app/services/store.service';
 import { Location } from '@angular/common';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
-
+import { MatDialog } from '@angular/material';
+import { ConfirmDialogComponent } from 'src/app/shared/dialog-notification-components/confirm-dialog/confirm-dialog.component';
 @Component({
   selector: "app-add-auction",
   templateUrl: "./add-auction.component.html",
@@ -18,11 +19,12 @@ export class AddAuctionComponent implements OnInit {
   isEdit: boolean;
   selectedAuction: any = {};
   constructor(private fb: FormBuilder,
-              public location: Location,
-              private activatedRoute: ActivatedRoute,
-              private store: StoreService,
-              private httpHelper: HttpHelperService,
-              private router: Router) { }
+    public location: Location,
+    public dialog: MatDialog,
+    private activatedRoute: ActivatedRoute,
+    private store: StoreService,
+    private httpHelper: HttpHelperService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -39,6 +41,7 @@ export class AddAuctionComponent implements OnInit {
 
       if (this.isEdit) {
         this.selectedAuction = this.store.getValue('selected_auction');
+        this.auctionForm.patchValue(this.selectedAuction);
       }
     });
 
@@ -96,7 +99,7 @@ export class AddAuctionComponent implements OnInit {
 
   editAuction() {
     this.store.showLoader.next(true);
-    this.httpHelper.patch('users', this.selectedAuction._id, this.auctionForm.value)
+    this.httpHelper.patch('auctions', this.selectedAuction._id, this.auctionForm.value)
       .then((response: any) => {
         this.onSuccess();
       }).catch((err) => {
