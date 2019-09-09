@@ -1,1 +1,20 @@
-<p>search-filter-machinery works!</p>
+<ng-container [formGroup]="filterGroup">
+  <div class="col-md-3">
+    <label>Type</label>
+    <input type="text" name="make" formControlName="assetDetails.type" class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Manufacturer Name</label>
+    <input type="text" name="noOfOwners" formControlName="assetDetails.manufacturerName"
+      class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Model</label>
+    <input type="text" name="model" formControlName="assetDetails.model" class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Variant</label>
+    <input type="text" name="variant" formControlName="assetDetails.floorPrice"
+      class="form-control input-lg selectpicker" />
+  </div>
+</ng-container>

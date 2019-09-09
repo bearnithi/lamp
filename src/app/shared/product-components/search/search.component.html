@@ -64,6 +64,19 @@
               searchForm.value.assetType === 'LCV'">
               <app-search-filter-cars [filterGroup]="searchForm"></app-search-filter-cars>
             </ng-container>
+
+            <ng-container *ngIf="searchForm.value.assetType === 'Machinery' ||
+              searchForm.value.assetType === 'Equipment'">
+              <app-search-filter-machinery [filterGroup]="searchForm"></app-search-filter-machinery>
+            </ng-container>
+
+            <ng-container *ngIf="searchForm.value.assetType === 'Take-Over'">
+              <app-search-filter-take-over [filterGroup]="searchForm"></app-search-filter-take-over>
+            </ng-container>
+
+            <ng-container *ngIf="searchForm.value.assetType === 'Stock-lots'">
+              <app-search-filter-stock-lots [filterGroup]="searchForm"></app-search-filter-stock-lots>
+            </ng-container>
           </div>
         </div>
       </form>
