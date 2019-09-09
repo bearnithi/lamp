@@ -1,0 +1,72 @@
+<div class="site-search-module">
+  <div class="container">
+    <div class="site-search-module-inside">
+      <form [formGroup]="searchForm" (ngSubmit)="searchProperties()">
+        <div class="form-group">
+          <div class="row align-items-center mb-2">
+            <div class="col-md-2">
+              <select formControlName="assetType" name="propery type" class="form-control input-lg selectpicker">
+                <option selected style="display:none">Property Type</option>
+                <option *ngFor="let property of searchFilters.property" [value]="property.code">
+                  {{ property.name}}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select formControlName="assetDetails.state" name="propery location"
+                class="form-control input-lg selectpicker">
+                <option selected style="display:none">State</option>
+                <option value="">All</option>
+                <option value="TN">Tamil Nadu</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <select formControlName="assetDetails.city" name="property city"
+                class="form-control input-lg selectpicker">
+                <option selected style="display:none">City</option>
+                <option value="">All</option>
+                <option value="Tirunelveli">Tirunelveli</option>
+                <option value="Chennai">Chennai</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-block bg-teal"><i class="fa fa-search"></i>
+                Search</button>
+            </div>
+            <div class="col-md-2"> <a href="#" (click)="$event.preventDefault(); reset()" id="ads-trigger"
+                class="btn bg-grey btn-block"><i class="fa fa-eraser"></i>
+                <span>Clear</span></a> </div>
+          </div>
+          <div class="row hidden-xs hidden-sm">
+            <div class="col-2">
+              <label>Time of inclusion</label>
+              <select name="timeofinclusion" class="form-control input-lg selectpicker">
+                <option *ngFor="let inclusion of searchFilters.timeOfInclusion" [value]="inclusion">
+                  {{ inclusion }}
+                </option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <label>Budget</label>
+              <select name="budget" class="form-control input-lg selectpicker">
+                <option *ngFor="let budget of searchFilters.budget" [value]="budget">
+                  {{ budget}}
+                </option>
+              </select>
+            </div>
+            <ng-container *ngIf="searchForm.value.assetType === 'Residential-Flat' ||
+            searchForm.value.assetType === 'Residential-House' ||
+            searchForm.value.assetType === 'Commercial-Building'">
+              <app-search-filter-home [filterGroup]="searchForm"></app-search-filter-home>
+            </ng-container>
+
+            <ng-container *ngIf="searchForm.value.assetType === 'Cars' ||
+              searchForm.value.assetType === 'LCV'">
+              <app-search-filter-cars [filterGroup]="searchForm"></app-search-filter-cars>
+            </ng-container>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

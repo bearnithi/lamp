@@ -12,16 +12,16 @@ const routes: Routes = [{
   component: AuthenticationComponent
 }, {
   path: 'lender',
-  loadChildren: () => import('./lender/lender.module').then((mod) => mod.LenderModule)
+  loadChildren: () => import('./modules/lender/lender.module').then((mod) => mod.LenderModule)
 }, {
   path: 'admin',
-  loadChildren: () => import('./admin/admin.module').then((mod) => mod.AdminModule)
+  loadChildren: () => import('./modules/admin/admin.module').then((mod) => mod.AdminModule)
 }, {
   path: 'buyer',
-  loadChildren: () => import('./buyer/buyer.module').then((mod) => mod.BuyerModule)
+  loadChildren: () => import('./modules/buyer/buyer.module').then((mod) => mod.BuyerModule)
 }, {
   path: 'associate',
-  loadChildren: () => import('./associate/associate.module').then((mod) => mod.AssociateModule)
+  loadChildren: () => import('./modules/associate/associate.module').then((mod) => mod.AssociateModule)
 }];
 
 @NgModule({

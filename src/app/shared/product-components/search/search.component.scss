@@ -1,0 +1,40 @@
+.selectpicker{
+	font-weight:400;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.input-lg .selectpicker{
+	padding-top:12px;
+	padding-bottom:11px;
+}
+.bootstrap-select.form-control{
+	margin-bottom:20px!important;
+}
+.bootstrap-select.margin-0{
+	margin-bottom:0px!important;
+}
+
+
+.site-search-module{
+  // position: absolute;
+  // z-index: 8;
+  // height: 190px;
+  // bottom: 5px;
+  // left: 0;
+  width: 100%;
+}
+.site-search-module-inside{
+	// padding:15px 15px 0;
+	// height:175px;
+	// background:#f8f8f8;
+	// border-top:3px solid rgba(0,0,0,.8);
+	// border-radius:15px 15px 0 0
+}
+.site-search-module-inside .btn{
+	padding-top:14px;
+	padding-bottom:12px;
+}
+.site-search-module-inside .selectpicker.btn{
+	padding-top:12px;
+}
+

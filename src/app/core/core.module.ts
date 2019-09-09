@@ -5,11 +5,15 @@ import { SharedModule } from '../shared/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
-import { AssociateProfileComponent } from './profiles/associate-profile/associate-profile.component';
-import { LenderProfileComponent } from './profiles/lender-profile/lender-profile.component';
-import { BuyerProfileComponent } from './profiles/buyer-profile/buyer-profile.component';
-import { BorrowerProfileComponent } from './profiles/borrower-profile/borrower-profile.component';
-import { ConsultantProfileComponent } from './profiles/consultant-profile/consultant-profile.component';
+
+import {
+  AssociateProfileComponent,
+  LenderProfileComponent,
+  BuyerProfileComponent,
+  BorrowerProfileComponent,
+  ConsultantProfileComponent,
+  AdminProfileComponent
+ } from './profiles';
 
 
 @NgModule({
@@ -20,7 +24,8 @@ import { ConsultantProfileComponent } from './profiles/consultant-profile/consul
     LenderProfileComponent,
     BuyerProfileComponent,
     BorrowerProfileComponent,
-    ConsultantProfileComponent],
+    ConsultantProfileComponent,
+    AdminProfileComponent],
   imports: [
     CommonModule,
     SharedModule,

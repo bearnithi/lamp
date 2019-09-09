@@ -1,0 +1,22 @@
+<ng-container [formGroup]="filterGroup">
+  <div class="col-md-3">
+    <label>Building Area</label>
+    <input type="text" name="buildingArea" formControlName="assetDetails.buildingArea"
+      (keypress)="validation.allowOnlyNumber($event)" maxlength="4" class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Carpet Area</label>
+    <input type="text" name="carpetArea" formControlName="assetDetails.carpetArea"
+      (keypress)="validation.allowOnlyFloatNumber($event)" class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Floor Price</label>
+    <input type="text" name="floorPrice" formControlName="assetDetails.floorPrice"
+      (keypress)="validation.allowOnlyFloatNumber($event)" class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Market Value</label>
+    <input type="text" name="marketValue" formControlName="assetDetails.marketValue"
+      (keypress)="validation.allowOnlyFloatNumber($event)" class="form-control input-lg selectpicker" />
+  </div>
+</ng-container>

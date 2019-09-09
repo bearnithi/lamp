@@ -1,0 +1,20 @@
+<ng-container [formGroup]="filterGroup">
+  <div class="col-md-3">
+    <label>Make</label>
+    <input type="text" name="make" formControlName="assetDetails.make" class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Model</label>
+    <input type="text" name="model" formControlName="assetDetails.model" class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>No of Owners</label>
+    <input type="text" name="noOfOwners" formControlName="assetDetails.noOfOwners"
+      class="form-control input-lg selectpicker" />
+  </div>
+  <div class="col-md-3">
+    <label>Variant</label>
+    <input type="text" name="variant" formControlName="assetDetails.variant"
+      class="form-control input-lg selectpicker" />
+  </div>
+</ng-container>
