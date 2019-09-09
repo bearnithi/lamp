@@ -49,6 +49,7 @@ import { GrowlComponent } from './growl/growl.component';
 import { FormLoaderComponent } from './form-loader/form-loader.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { AuctionListComponent } from './auction-list/auction-list.component';
+import { AddressGroupComponent } from './formgroups/address-group/address-group.component';
 
 
 
@@ -90,7 +91,8 @@ import { AuctionListComponent } from './auction-list/auction-list.component';
     GrowlComponent,
     FormLoaderComponent,
     ProductListItemComponent,
-    AuctionListComponent],
+    AuctionListComponent,
+    AddressGroupComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -129,7 +131,8 @@ import { AuctionListComponent } from './auction-list/auction-list.component';
     AddProductComponent,
     GrowlComponent,
     FormLoaderComponent,
-    AuctionListComponent
+    AuctionListComponent,
+    AddressGroupComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

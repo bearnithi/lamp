@@ -19,6 +19,8 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
   profileImageName: any;
   profilPicData: any;
   @Output() formData = new EventEmitter<any>();
+  states: Array<any> = [];
+  cities: Array<any> = [];
 
   constructor(
     public router: Router,
@@ -30,6 +32,8 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
 
   ngOnInit() {
     this.createForm();
+    this.fetchState();
+    this.listenForCity();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -38,6 +42,18 @@ export class AssociateProfileComponent implements OnInit, OnChanges, AfterViewIn
         this.bindUser();
       }
     }
+  }
+
+  fetchState() {
+    this.http.getLocalInstance().get('/assets/json/statecity.json').then((res: any) => {
+      this.states = res.data.states;
+    });
+  }
+
+  listenForCity() {
+    this.addAssociateForm.controls.state.valueChanges.subscribe((selectedState: any) => {
+      this.cities = this.states.find((state) => state.state === selectedState).districts;
+    });
   }
 
   bindUser() {

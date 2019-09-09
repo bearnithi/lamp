@@ -26,7 +26,17 @@ export class HttpHelperService {
       baseURL: "http://192.168.2.189:43030",
       timeout: 3000,
       headers: {
-        "X-Initialized-At": Date.now().toString(),
+        'X-Initialized-At': Date.now().toString(),
+      }
+    });
+  }
+
+  getLocalInstance() {
+    return axios.create({
+      baseURL: '/',
+      timeout: 3000,
+      headers: {
+        'X-Initialized-At': Date.now().toString(),
       }
     });
   }
