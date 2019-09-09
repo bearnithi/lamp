@@ -61,7 +61,11 @@ export class SearchComponent implements OnInit {
       'assetDetails.make': [''],
       'assetDetails.model': [''],
       'assetDetails.noOfOwners': [''],
-      'assetDetails.variant': ['']
+      'assetDetails.variant': [''],
+      'assetDetails.type': [''],
+      'assetDetails.manufacturerName': [''],
+      'assetDetails.industry': [''],
+      'assetDetails.location': ['']
     });
   }
 

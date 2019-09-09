@@ -1,1 +1,15 @@
-<p>search-filter-take-over works!</p>
+<ng-container [formGroup]="filterGroup">
+    <div class="col-md-3">
+      <label>Type</label>
+      <input type="text" name="make" formControlName="assetDetails.type" class="form-control input-lg selectpicker" />
+    </div>
+    <div class="col-md-3">
+      <label>Industry</label>
+      <input type="text" name="industry" formControlName="assetDetails.industry"
+        class="form-control input-lg selectpicker" />
+    </div>
+    <div class="col-md-3">
+      <label>Location</label>
+      <input type="text" name="location" formControlName="assetDetails.location" class="form-control input-lg selectpicker" />
+    </div>
+  </ng-container>
