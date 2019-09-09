@@ -4,6 +4,7 @@ import { LenderDashboardComponent } from './lender-dashboard/lender-dashboard.co
 import { LenderMainComponent } from './lender-main/lender-main.component';
 import { ProductListLenderComponent } from './products/product-list-lender/product-list-lender.component';
 import { AddProductLenderComponent } from './products/add-product-lender/add-product-lender.component';
+import { MyProfileComponent } from './my-profile/my-profile.component';
 
 const LENDER_ROUTES = [{
   path: '',
@@ -23,6 +24,9 @@ const LENDER_ROUTES = [{
   },  {
     path: 'add-product/:id',
     component: AddProductLenderComponent
+  }, {
+    path: 'my-profile',
+    component: MyProfileComponent
   }]
 }];
 

@@ -6,11 +6,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-associate-my-profile',
-  templateUrl: './associate-my-profile.component.html',
-  styleUrls: ['./associate-my-profile.component.scss']
+  selector: 'app-my-profile',
+  templateUrl: './my-profile.component.html',
+  styleUrls: ['./my-profile.component.scss']
 })
-export class AssociateMyProfileComponent implements OnInit {
+export class MyProfileComponent implements OnInit {
   showLoader: boolean;
   formMessage: string;
   userInfo: any = {};
