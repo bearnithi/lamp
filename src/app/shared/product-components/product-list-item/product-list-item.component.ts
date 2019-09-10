@@ -57,7 +57,10 @@ export class ProductListItemComponent implements OnInit {
   }
 
   activities() {
+  }
 
+  navigateProductdetails(keyval) {
+    this.store.getproductdetails(keyval);
   }
 
 }

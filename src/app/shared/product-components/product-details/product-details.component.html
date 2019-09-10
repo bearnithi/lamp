@@ -1,1 +1,68 @@
-<p>product-details works!</p>
+<div class="single-property">
+    <h2 class="page-title">{{selectedProduct?.assetType}} <span
+            class="location">{{selectedProduct?.assetDetails.state }} - {{ selectedProduct?.assetDetails.city}}</span>
+    </h2>
+    <div class="price"><strong>Rs.</strong><span>{{selectedProduct?.assetDetails.floorPrice | currency:'INR'}}</span>
+    </div>
+    <div class="property-amenities clearfix">
+        <span *ngFor="let productkey of selectedProduct?.displayFields | keyvalue" class="area">
+            <!-- <pre>{{productkey}} </pre> -->
+            <strong>{{productkey.key}}</strong>{{productkey.value}}</span>
+        <!-- <span
+            class="area"><strong>5000</strong>Area</span> <span class="baths"><strong>3</strong>Baths</span> <span
+            class="beds"><strong>3</strong>Beds</span> <span class="parking"><strong>1</strong>Parking</span>  -->
+    </div>
+    <div class="property-slider">
+        <div id="property-images" class="flexslider">
+            <ul class="slides">
+                <app-carousel [carouselID]="'homeslider'" [sliders]="sliders"></app-carousel>
+            </ul>
+        </div>
+    </div>
+    <div class="tabs">
+        <ul class="nav nav-tabs">
+            <li class="active"> <a data-toggle="tab" href="#description"> Description </a> </li>
+            <li> <a data-toggle="tab" href="#amenities"> Additional Amenities </a> </li>
+        </ul>
+        <div class="tab-content">
+            <div id="description" class="tab-pane active">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula dapibus mauris, quis
+                    ullamcorper enim aliquet sed. Maecenas quis eget tellus dui. Vivamus condimentum egestas.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod sollicitudin nunc, eget
+                    pretium massa. Ut sed adipiscing enim, pellentesque ultrices erat. Integer placerat felis neque, et
+                    semper augue ullamcorper in. Pellentesque iaculis leo iaculis aliquet ultrices. Suspendisse potenti.
+                    Aenean ac magna faucibus, consectetur ligula vel, feugiat est. Nullam imperdiet semper neque eget
+                    euismod. Nunc commodo volutpat semper.</p>
+            </div>
+            <div id="amenities" class="tab-pane">
+                <div class="additional-amenities">
+                    <span *ngFor="let amentie of amenties" class="available">
+                        <i class="fa fa-check-square"></i> {{amentie}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <h3>Agent</h3>
+    <div class="agent">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt="Mia Kennedy">
+            </div>
+            <div class="col-md-8">
+                <h4><a href="agent-single.html">Mia Keneddy</a></h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi vehicula dapibus mauris, quis
+                    ullamcorper enim aliquet sed. Maecenas quis eget tellus dui. Vivamus condimentum egestas.</p>
+                <div class="agent-contacts clearfix">
+                    <a href="#" class="btn btn-primary pull-right btn-sm">Contact Agent</a>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

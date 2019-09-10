@@ -16,6 +16,7 @@ import { AddConsultantComponent } from './masters/consultant-master/add-consulta
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { AddAuctionComponent } from './masters/auction-master/add-auction/add-auction.component';
+import { ProductDetailsPageComponent } from './products/product-details-page/product-details-page.component';
 
 
 
@@ -31,7 +32,8 @@ import { AddAuctionComponent } from './masters/auction-master/add-auction/add-au
     AddConsultantComponent,
     ProductListComponent,
     AddProductComponent,
-    AddAuctionComponent],
+    AddAuctionComponent,
+    ProductDetailsPageComponent],
   imports: [
     CommonModule,
     CoreModule,

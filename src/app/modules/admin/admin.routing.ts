@@ -12,6 +12,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { AuctionMasterComponent } from './masters/auction-master/auction-master.component';
 import { AddAuctionComponent } from './masters/auction-master/add-auction/add-auction.component';
+import { ProductDetailsPageComponent } from './products/product-details-page/product-details-page.component';
 
 const ADMIN_ROUTES = [{
   path: '',
@@ -71,7 +72,11 @@ const ADMIN_ROUTES = [{
   }, {
     path: 'add-auction/:type',
     component: AddAuctionComponent
-  }]
+  }, {
+    path: 'product-details',
+    component: ProductDetailsPageComponent
+  }
+]
 }];
 
 @NgModule({

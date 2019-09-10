@@ -185,7 +185,9 @@ import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component
     AddressGroupComponent,
     ContactFormGroupComponent,
     SoldListComponent,
-    ProductTeamAssignComponent
+    ProductTeamAssignComponent,
+    ProductDetailsComponent,
+    ContactFormGroupComponent
   ],
   entryComponents: [
     ConfirmDialogComponent,

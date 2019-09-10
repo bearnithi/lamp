@@ -8,6 +8,7 @@ export class StoreService {
   store: any = {};
   showGrowl = new Subject<any>();
   showLoader = new Subject<boolean>();
+  showproductdetails = new Subject<any>();
   constructor() { }
 
   setValue(key, value) {
@@ -16,5 +17,9 @@ export class StoreService {
 
   getValue(key) {
     return this.store[key];
+  }
+
+  getproductdetails(value) {
+    this.showproductdetails.next(value);
   }
 }

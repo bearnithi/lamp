@@ -8,6 +8,7 @@
   </div>
   <div class="col-8 col-md-8 d-flex flex-column justify-content-between">
     <div class="property-info">
+
       <div class="price bg-white">
         <button *ngIf="role === 'Buyer'" class="btn bg-teal mr-1"
         (click)="addInterest()">I'm Interested</button>
@@ -18,7 +19,8 @@
         <button *ngIf="role === 'Buyer' || role==='Associate' || role === 'Consultant'" class="btn bg-teal mr-1"
         (click)="activities()">Activity</button>
       </div>
-      <h3><a href="#">{{productInfo.assetType}}</a></h3>
+      <h3><a href="#"  (click)="$event.preventDefault(); navigateProductdetails(productInfo)">{{productInfo.assetType}}</a></h3>
+
       <span class="location"><i class="fa fa-map-marker"></i> {{productInfo?.assetDetails?.city}}</span>
 
       <p>{{ productInfo?.assetDetails?.amenties }}</p>
