@@ -9,6 +9,8 @@ export class StoreService {
   showGrowl = new Subject<any>();
   showLoader = new Subject<boolean>();
   showproductdetails = new Subject<any>();
+  showAction = new Subject<any>();
+  showActivity = new Subject<any>();
   constructor() { }
 
   setValue(key, value) {

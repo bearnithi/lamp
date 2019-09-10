@@ -10,28 +10,25 @@ export class LenderMainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.menu = {
-      home: {
+    this.menu = [
+      {
         name: 'Dashboard',
         link: '/lender/lender-dashboard'
       },
-      group: [{
-        name: 'Products',
-        items: [{
-          name: 'List Products',
-          link: '/lender/products'
-        }, {
-          name: 'Add Product',
-          link: '/lender/add-product'
-        }, {
-          name: 'Assign Consultant',
-          link: '/lender/consultant'
-        }, {
-          name: 'Assign Associate',
-          link: '/lender/consultant'
-        }]
-      }]
+      {
+        name: 'List Products',
+        link: '/lender/products'
+      }, {
+        name: 'Add Product',
+        link: '/lender/add-product'
+      }, {
+        name: 'Assign Consultant',
+        link: '/lender/consultant'
+      }, {
+        name: 'Assign Associate',
+        link: '/lender/consultant'
+      }
+    ];
     }
-  }
 
 }

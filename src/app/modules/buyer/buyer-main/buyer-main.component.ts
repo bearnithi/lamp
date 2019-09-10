@@ -19,9 +19,6 @@ export class BuyerMainComponent implements OnInit {
         name: 'List Products',
         link: '/buyer/products'
       }, {
-        name: 'Interested Product',
-        link: '/buyer/add-product'
-      }, {
         name: 'Send Email',
         link: '/buyer/contact'
       }];

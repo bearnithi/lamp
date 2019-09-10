@@ -9,3 +9,4 @@ export * from './search/search-filter-machinery/search-filter-machinery.componen
 export * from './search/search-filter-stock-lots/search-filter-stock-lots.component';
 export * from './search/search-filter-take-over/search-filter-take-over.component';
 export * from './product-details/product-details.component';
+export * from './product-team-assign/product-team-assign.component';

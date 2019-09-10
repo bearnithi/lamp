@@ -5,13 +5,13 @@
         <th>Property</th>
         <th>Bank</th>
         <th>Price</th>
-        <th>Auction Date</th>
-        <th>Status</th>
-        <th *ngIf="selectedrole?.role==='Admin'">Action</th>
+        <th>Closed Date</th>
+        <th>Buyer</th>
+
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let auction of auctionList" class="border-right border-left">
+      <tr *ngFor="let sold of soldList" class="border-right border-left">
         <td>
           <div class="d-flex align-items-center">
             <div class="mr-3">
@@ -21,8 +21,8 @@
             </div>
             <div>
               <a href="#" class="text-default font-weight-semibold">{{
-                auction.assetInfo.assetType
-              }}</a>
+                  sold.assetInfo.assetType
+                }}</a>
               <div class="text-muted font-size-sm">
                 <span class="badge badge-mark border-blue mr-1"></span>
                 02:00 - 03:00
@@ -31,24 +31,21 @@
           </div>
         </td>
         <td>
-          <span class="text-muted">{{ auction.userInfo?.bankName }}</span>
+          <span class="text-muted">{{ sold.userInfo.bankName }}</span>
         </td>
         <td>
           <h6 class="font-weight-semibold mb-0 text-success-600">
-            {{ auction.assetInfo.assetDetails.floorPrice | currency: 'INR' }}
+            {{ sold.assetInfo.assetDetails.floorPrice  | currency: 'INR' }}
           </h6>
         </td>
         <td>
           <h6 class="font-weight-semibold mb-0">
-            {{ auction.auctionDate }}
+            {{ sold.soldDate }}
           </h6>
         </td>
-        <td><span class="badge bg-blue">Active</span></td>
-        <td style="cursor: pointer;" *ngIf="selectedrole?.role==='Admin'">
-          <i class="fa fa-pencil p-0" (click)="editAuction(auction)"> Edit</i>
-          <i class="fa fa-trash p-2" (click)="deleteAuction(auction)"> Delete</i>
+        <td>
+          <span class="text-muted">{{ sold.userInfo.buyerName }}</span>
         </td>
-        <!-- <td *ngIf="selectedrole.role==='Admin'"><i class="fa fa-trash"></i> Delete</td> -->
       </tr>
     </tbody>
   </table>

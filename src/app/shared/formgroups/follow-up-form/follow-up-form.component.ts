@@ -13,12 +13,13 @@ import { Location } from '@angular/common';
 })
 export class FollowUpFormComponent implements OnInit {
   followUpForm: FormGroup;
-  roles: Array<any> = [];
+  stakeHolders: Array<any> = [];
   types: Array<any> = [];
   assets: Array<any> = [];
   lenderAsset: Array<any> = [];
   isEdit: boolean;
   selectedFollowup: any = {};
+  productInfo: any = {};
 
   constructor(private fb: FormBuilder,
               public location: Location,
@@ -29,11 +30,11 @@ export class FollowUpFormComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-
+    this.productInfo = this.store.getValue('selected_product');
     this.followUpForm = this.fb.group({
       to: ['', Validators.required],
       type: ['', Validators.required],
-      comment: ['']
+      query: ['']
     });
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -45,7 +46,7 @@ export class FollowUpFormComponent implements OnInit {
       }
     });
 
-    this.fetchRoles();
+    this.fetchStakeHolders();
     this.fetchTypes();
     this.listenForType();
   }
@@ -67,8 +68,17 @@ export class FollowUpFormComponent implements OnInit {
     });
   }
 
-  fetchRoles() {
-    this.roles = ['Associate', 'Consultant'];
+  fetchStakeHolders() {
+    const userIDs = []
+    for (const id in this.productInfo.stakeHolders) {
+      if (this.productInfo.stakeHolders.hasOwnProperty(id)) {
+        userIDs.push(this.productInfo.stakeHolders[id]);
+      }
+
+    }
+    this.httpHelper.find('users', {query: { _id: { $in: userIDs }  }}).then((res: any) => {
+      this.stakeHolders = res.data;
+    });
   }
 
   fetchTypes() {
