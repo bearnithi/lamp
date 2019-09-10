@@ -8,3 +8,4 @@ export * from './search/search-filter-home/search-filter-home.component';
 export * from './search/search-filter-machinery/search-filter-machinery.component';
 export * from './search/search-filter-stock-lots/search-filter-stock-lots.component';
 export * from './search/search-filter-take-over/search-filter-take-over.component';
+export * from './product-details/product-details.component';

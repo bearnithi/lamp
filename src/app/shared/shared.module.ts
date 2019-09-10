@@ -41,7 +41,8 @@ import {
   SearchFilterHomeComponent,
   SearchFilterMachineryComponent,
   SearchFilterTakeOverComponent,
-  SearchFilterStockLotsComponent
+  SearchFilterStockLotsComponent,
+  ProductDetailsComponent
 } from './product-components';
 
 import {
@@ -83,6 +84,7 @@ import { SoldItemComponent } from './sold-item/sold-item.component';
 import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
 import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component';
+
 
 
 @NgModule({
@@ -131,7 +133,9 @@ import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component
     SearchFilterTakeOverComponent,
     SearchFilterStockLotsComponent,
     FollowUpFormComponent,
-    ContactFormGroupComponent],
+    ContactFormGroupComponent,
+    ProductDetailsComponent],
+
   imports: [
     CommonModule,
     FormsModule,

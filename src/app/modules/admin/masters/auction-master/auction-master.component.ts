@@ -18,46 +18,14 @@ export class AuctionMasterComponent implements OnInit {
     public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.auctionList = [
-      {
-        _id: "1",
-        auctionInfo: {
-          date: "22/11/2018"
-        },
-        lenderInfo: {
-          bankName: "Indian Bank"
-        },
-        assetInfo: {
-          assetType: "Residential Home",
-          assetDetails: {
-            floorPrice: '2000'
-          }
-        }
-      },
-      {
-        _id: "1",
-        auctionInfo: {
-          date: "22/11/2018"
-        },
-        lenderInfo: {
-          bankName: "Indian Bank"
-        },
-        assetInfo: {
-          assetType: "Residential Home",
-          assetDetails: {
-            floorPrice: '2000'
-          }
-        }
-      }
-    ];
-
     this.fetchAuctions();
+    // this.fetchAuctions();
   }
 
   fetchAuctions() {
-    this.httpHelper.find('auctions', {}).then((res) => {
-      console.log(res);
-    })
+    this.httpHelper.find('dashboard', { query: {type: 'auctioninfo' }}).then((res) => {
+      this.auctionList = res;
+    });
   }
 
   editAuctionList(value) {
@@ -81,11 +49,14 @@ export class AuctionMasterComponent implements OnInit {
             title: 'Success',
             type: 'success'
           });
+          this.fetchAuctions();
         });
 
       }
     });
   }
+
+
 
 
 }

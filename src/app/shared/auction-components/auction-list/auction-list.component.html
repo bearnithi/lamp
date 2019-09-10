@@ -31,13 +31,8 @@
           </div>
         </td>
         <td>
-          <span class="text-muted">{{ auction.lenderInfo.bankName }}</span>
+          <span class="text-muted">{{ auction.userInfo.bankName }}</span>
         </td>
-        <!-- <td>
-                    <span class="text-success-600"
-                      ><i class="icon-stats-growth2 mr-2"></i> 2.43%</span
-                    >
-                  </td> -->
         <td>
           <h6 class="font-weight-semibold mb-0 text-success-600">
             {{ auction.assetInfo.assetDetails.floorPrice }}
@@ -45,13 +40,13 @@
         </td>
         <td>
           <h6 class="font-weight-semibold mb-0">
-            {{ auction.auctionInfo.date }}
+            {{ auction.auctionDate }}
           </h6>
         </td>
         <td><span class="badge bg-blue">Active</span></td>
-        <td *ngIf="selectedrole?.role==='Admin'">
-          <i class="fa fa-pencil p-2" style="cursor: pointer;" (click)="editAuction(auction)"></i>Edit
-          <i class="fa fa-trash p-2" style="cursor: pointer;" (click)="deleteAuction(auction)"></i>Delete
+        <td style="cursor: pointer;" *ngIf="selectedrole?.role==='Admin'">
+          <i class="fa fa-pencil p-0" (click)="editAuction(auction)"> Edit</i>
+          <i class="fa fa-trash p-2" (click)="deleteAuction(auction)"> Delete</i>
         </td>
         <!-- <td *ngIf="selectedrole.role==='Admin'"><i class="fa fa-trash"></i> Delete</td> -->
       </tr>
