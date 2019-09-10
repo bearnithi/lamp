@@ -48,7 +48,8 @@ import {
 
 import {
   AddressGroupComponent,
-  ContactFormGroupComponent
+  ContactFormGroupComponent,
+  FollowUpFormComponent
 } from './formgroups';
 
 import {
@@ -88,9 +89,6 @@ import { HomeFeaturesComponent } from './features/home-features/home-features.co
 import { EquipmentFeaturesComponent } from './features/equipment-features/equipment-features.component';
 import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-features.component';
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
-import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component';
-
-
 
 @NgModule({
   declarations: [
@@ -187,7 +185,7 @@ import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component
     SoldListComponent,
     ProductTeamAssignComponent,
     ProductDetailsComponent,
-    ContactFormGroupComponent
+    FollowUpFormComponent
   ],
   entryComponents: [
     ConfirmDialogComponent,

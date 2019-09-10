@@ -54,7 +54,8 @@ export class ProductTeamAssignComponent implements OnInit {
 
   assignTeam() {
     const productInfo = this.data.productInfo;
-    productInfo.stakeHolders = this.assignForm.value;
+    productInfo.stakeHolders = { lender: productInfo.lenderId, ...this.assignForm.value};
+
 
     this.http.patch('assets', productInfo._id, productInfo).then((res: any) => {
       this.dialogRef.close(true);

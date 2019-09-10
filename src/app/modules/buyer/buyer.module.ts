@@ -9,9 +9,11 @@ import { ProductListBuyerComponent } from './products/product-list-buyer/product
 import { BuyerRoutingModule } from './buyer.routing';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProductDetailsPageComponent } from './products/product-details-page/product-details-page.component';
+import { FollowUpComponent } from './products/follow-up/follow-up.component';
 
 @NgModule({
-  declarations: [BuyerMainComponent, BuyerDashboardComponent, ProductListBuyerComponent, MyProfileComponent, ContactComponent],
+  declarations: [BuyerMainComponent, BuyerDashboardComponent, ProductListBuyerComponent, MyProfileComponent, ContactComponent, ProductDetailsPageComponent, FollowUpComponent],
   imports: [
     CommonModule,
     CoreModule,

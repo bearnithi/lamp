@@ -53,10 +53,11 @@ export class ProductListItemComponent implements OnInit {
   }
 
   showAction() {
-
+    this.store.showAction.next(this.productInfo);
   }
 
   activities() {
+    this.store.showActivity.next(this.productInfo);
   }
 
   navigateProductdetails(keyval) {
