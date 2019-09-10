@@ -1,0 +1,60 @@
+<div class="card" [formGroup]="contactFormGroup">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="form-group">
+          <label>
+            To
+            <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+          </label>
+          <input type="email" formControlName="to" class="form-control" placeholder="toemail@gmail.com" />
+
+          <div *ngIf="
+                control.to.touched && control.to.errors
+              " class="error-message">
+            <div *ngIf="control.to.errors.required">
+              To address is required
+            </div>
+            <div *ngIf="control.to.errors.email">
+              Invalid email
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="form-group">
+          <label>Subject
+            <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+          </label>
+          <input type="text" formControlName="subject" class="form-control" placeholder="Subject" />
+          <div *ngIf="
+          control.subject.touched && control.subject.errors
+        " class="error-message">
+            <div *ngIf="control.subject.errors.required">
+              Subject is required
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row jusity-content-center">
+      <div class="col-12 col-md-12 col-lg-12">
+        <div class="form-group">
+          <label>Message
+            <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+          </label>
+          <textarea formControlName="message" class="form-control" rows="6"></textarea>
+          <div *ngIf="
+              control.message.touched && control.message.errors
+            " class="error-message">
+            <div *ngIf="control.message.errors.required">
+              Message is required
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@ import { BuyerDashboardComponent } from './buyer-dashboard/buyer-dashboard.compo
 import { BuyerMainComponent } from './buyer-main/buyer-main.component';
 import { ProductListBuyerComponent } from './products/product-list-buyer/product-list-buyer.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const BUYER_ROUTES = [{
@@ -18,6 +19,9 @@ const BUYER_ROUTES = [{
   }, {
     path: 'my-profile',
     component: MyProfileComponent
+  }, {
+    path: 'contact',
+    component: ContactComponent
   }]
 }];
 

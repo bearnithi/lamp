@@ -10,22 +10,22 @@ export class BuyerMainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.menu = {
-      home: {
+    this.menu = [
+      {
         name: 'Dashboard',
         link: '/buyer/buyer-dashboard'
       },
-      group: [{
-        name: 'Products',
-        items: [{
-          name: 'List Products',
-          link: '/buyer/products'
-        }, {
-          name: 'Interested Product',
-          link: '/buyer/add-product'
-        }]
-      }]
-    }
+      {
+        name: 'List Products',
+        link: '/buyer/products'
+      }, {
+        name: 'Interested Product',
+        link: '/buyer/add-product'
+      }, {
+        name: 'Send Email',
+        link: '/buyer/contact'
+      }];
+
   }
 
 }

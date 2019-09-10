@@ -45,7 +45,8 @@ import {
 } from './product-components';
 
 import {
-  AddressGroupComponent
+  AddressGroupComponent,
+  ContactFormGroupComponent
 } from './formgroups';
 
 import {
@@ -81,6 +82,7 @@ import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-fe
 import { SoldItemComponent } from './sold-item/sold-item.component';
 import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
+import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component';
 
 
 @NgModule({
@@ -127,7 +129,9 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     SearchFilterHomeComponent,
     SearchFilterMachineryComponent,
     SearchFilterTakeOverComponent,
-    SearchFilterStockLotsComponent],
+    SearchFilterStockLotsComponent,
+    FollowUpFormComponent,
+    ContactFormGroupComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -167,7 +171,8 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     GrowlComponent,
     FormLoaderComponent,
     AuctionListComponent,
-    AddressGroupComponent
+    AddressGroupComponent,
+    ContactFormGroupComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

@@ -10,40 +10,26 @@ export class AdminMainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.menu = {
-      home: {
+    this.menu = [
+      {
         name: 'Dashboard',
         link: '/admin/admin-dashboard'
-      },
-      group: [{
-        name: 'Masters',
-        items: [{
-          name: 'Lenders',
-          link: '/admin/lender'
-        }, {
-          name: 'Associate',
-          link: '/admin/associate'
-        }, {
-          name: 'Consultant',
-          link: '/admin/consultant'
-        }]
       }, {
-        name: 'Products',
-        items: [{
-          name: 'List Products',
-          link: '/admin/products'
-        }, {
-          name: 'E-Auctions',
-          link: '/admin/auctions'
-        }, {
-          name: 'Creat E-auctions',
-          link: '/admin/add-auction'
-        }, {
-          name: 'Assign Associate',
-          link: '/admin/consultant'
-        }]
-      }]
-    }
+        name: 'Lenders',
+        link: '/admin/lender'
+      }, {
+        name: 'Associate',
+        link: '/admin/associate'
+      }, {
+        name: 'Consultant',
+        link: '/admin/consultant'
+      }, {
+        name: 'E-Auctions',
+        link: '/admin/auctions'
+      }, {
+        name: 'Assign Associate',
+        link: '/admin/consultant'
+      }];
   }
 
 }

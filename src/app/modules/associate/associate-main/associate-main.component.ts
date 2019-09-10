@@ -10,19 +10,14 @@ export class AssociateMainComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.menu = {
-      home: {
-        name: 'Dashboard',
-        link: '/associate/associate-dashboard'
-      },
-      group: [{
-        name: 'Products',
-        items: [{
-          name: 'Buyers Interest',
-          link: '/associate/buyers-interests'
-        }]
-      }]
-    };
+    this.menu = [{
+      name: 'Dashboard',
+      link: '/associate/associate-dashboard'
+    }, {
+      name: 'Buyers Interest',
+      link: '/associate/buyers-interests'
+    }
+    ]
   }
 
 }

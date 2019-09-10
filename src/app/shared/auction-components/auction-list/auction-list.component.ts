@@ -14,7 +14,7 @@ export class AuctionListComponent implements OnInit {
   constructor(private authentication: AuthenticationService) { }
   selectedrole: any;
   ngOnInit() {
-    this.selectedrole = this.authentication.getUserInfo();
+    this.selectedrole = this.authentication.getUserInfo() ||  {};
   }
 
 

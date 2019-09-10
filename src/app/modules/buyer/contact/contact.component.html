@@ -1,0 +1,35 @@
+<div class="page-content pt-0 mt-4">
+  <div class="content-wrapper">
+    <div class="content">
+      <section class="add-associate container">
+        <div class="row">
+          <div class="col-12">
+            <form [formGroup]="contactForm" (ngSubmit)="contact()">
+              <app-content-header [header]="'Contact'"></app-content-header>
+              <app-contact-form-group [contactFormGroup]="contactForm"></app-contact-form-group>
+              <div class="d-flex justify-content-end align-items-center">
+                  <app-form-loader></app-form-loader>
+                  <div class="d-flex">
+                    <button
+                      type="button"
+                      class="btn bg-grey ml-3"
+                      (click)="location.back()"
+                    >
+                      Back
+                    </button>
+                    <button
+                      type="submit"
+                      [disabled]="contactForm.invalid"
+                      class="btn bg-blue ml-3"
+                    >
+                      Send Email
+                    </button>
+                  </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

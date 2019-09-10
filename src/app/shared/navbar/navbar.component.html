@@ -9,39 +9,11 @@
 
   <div class="navbar-collapse collapse" id="navbar-navigation">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a routerLink="{{menu.home.link}}" routerLinkActive="router-link-active" class="navbar-nav-link">
-          <i class="icon-home4 mr-2"></i>
-          {{menu.home.name}}
+      <li *ngFor="let menuitem of menu" class="nav-item">
+        <a routerLink="{{menuitem.link}}" routerLinkActive="router-link-active" class="navbar-nav-link">
+          <i class="icon-arrow-right32 mr-2"></i>
+          {{menuitem.name}}
         </a>
-      </li>
-
-      <li class="nav-item nav-item-levels mega-menu-full">
-        <a href="#" class="navbar-nav-link dropdown-toggle active" data-toggle="dropdown" aria-expanded="false">
-          <i class="icon-make-group mr-2"></i>
-          Navigation
-        </a>
-
-        <div class="dropdown-menu dropdown-content">
-          <div class="dropdown-content-body">
-            <div class="row">
-              <div class="col-md-3" *ngFor="let group of menu.group">
-                <div class="font-size-sm line-height-sm font-weight-semibold text-uppercase mt-1">{{group.name}}
-                </div>
-                <div class="dropdown-divider mb-2"></div>
-                <div class="dropdown-item-group mb-3 mb-md-0 slinky-menu slinky-theme-default"
-                  style="transition-duration: 200ms; height: 110px;">
-                  <ul class="list-unstyled active" style="transition-duration: 200ms; left: 0%;">
-                    <li *ngFor="let item of group.items">
-                      <a routerLink="{{item.link}}" class="dropdown-item rounded next"><i class="icon-copy"></i>
-                        {{ item.name }}</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </li>
     </ul>
   </div>

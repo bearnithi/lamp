@@ -7,7 +7,7 @@
         <th>Price</th>
         <th>Auction Date</th>
         <th>Status</th>
-        <th *ngIf="selectedrole.role==='Admin'">Action</th>
+        <th *ngIf="selectedrole?.role==='Admin'">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -49,7 +49,7 @@
           </h6>
         </td>
         <td><span class="badge bg-blue">Active</span></td>
-        <td *ngIf="selectedrole.role==='Admin'">
+        <td *ngIf="selectedrole?.role==='Admin'">
           <i class="fa fa-pencil p-2" style="cursor: pointer;" (click)="editAuction(auction)"></i>Edit
           <i class="fa fa-trash p-2" style="cursor: pointer;" (click)="deleteAuction(auction)"></i>Delete
         </td>
