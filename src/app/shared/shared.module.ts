@@ -46,7 +46,8 @@ import {
 } from './product-components';
 
 import {
-  AddressGroupComponent
+  AddressGroupComponent,
+  ContactFormGroupComponent
 } from './formgroups';
 
 import {
@@ -82,6 +83,7 @@ import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-fe
 import { SoldItemComponent } from './sold-item/sold-item.component';
 import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
+import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component';
 
 
 
@@ -130,7 +132,10 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     SearchFilterMachineryComponent,
     SearchFilterTakeOverComponent,
     SearchFilterStockLotsComponent,
+    FollowUpFormComponent,
+    ContactFormGroupComponent,
     ProductDetailsComponent],
+
   imports: [
     CommonModule,
     FormsModule,
@@ -171,7 +176,8 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     FormLoaderComponent,
     AuctionListComponent,
     AddressGroupComponent, 
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    ContactFormGroupComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

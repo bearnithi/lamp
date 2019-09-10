@@ -8,9 +8,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductListBuyerComponent } from './products/product-list-buyer/product-list-buyer.component';
 import { BuyerRoutingModule } from './buyer.routing';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
-  declarations: [BuyerMainComponent, BuyerDashboardComponent, ProductListBuyerComponent, MyProfileComponent],
+  declarations: [BuyerMainComponent, BuyerDashboardComponent, ProductListBuyerComponent, MyProfileComponent, ContactComponent],
   imports: [
     CommonModule,
     CoreModule,
