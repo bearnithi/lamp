@@ -8,37 +8,24 @@
               {{ isEdit ? "Edit Associate" : "Add Associate" }}
             </h2>
             <form [formGroup]="addAssociateForm" (ngSubmit)="registration()">
-              <app-content-header
-                [header]="'Basic Information'"
-              ></app-content-header>
+              <app-content-header [header]="'Basic Information'"></app-content-header>
 
               <div class="card">
                 <div class="card-body">
                   <div class="row justify-content-center">
                     <div class="col-4">
                       <div class="form-group text-center">
-                        <img
-                          for="profilepic"
-                          (click)="fileInput.click()"
-                          class="mw-100 account-info__img"
-                          src="{{
+                        <img for="profilepic" (click)="fileInput.click()" class="mw-100 account-info__img" src="{{
                             profilPicData ||
                               './assets/images/default-profile.jpg'
-                          }}"
-                        />
-                        <label for="profilepic" class="camera__icon"
-                          ><i class="fa fa-camera" aria-hidden="true"></i
-                        ></label>
+                          }}" />
+                        <label for="profilepic" class="camera__icon"><i class="fa fa-camera"
+                            aria-hidden="true"></i></label>
 
-                        <input
-                          #fileInput
+                        <input #fileInput
                           class="btn btn-primary btn-semi-circle text-warning p-1 u-text-small mt-2 upload_img_input"
-                          formControlName="profileImage"
-                          type="file"
-                          accept="image/*"
-                          (change)="handleFileUpload($event)"
-                          id="profilepic"
-                        />
+                          formControlName="profileImage" type="file" accept="image/*"
+                          (change)="handleFileUpload($event)" id="profilepic" />
                       </div>
                     </div>
                   </div>
@@ -47,27 +34,16 @@
                       <div class="form-group">
                         <label>
                           First Name
-                          <sup
-                            class="required-indicator text-danger font-weight-bold font-size-lg"
-                            >*</sup
-                          >
+                          <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
                         </label>
-                        <input
-                          type="text"
-                          formControlName="firstName"
-                          (keypress)="validationService.allowOnlyString($event)"
-                          maxlength="25"
-                          class="form-control"
-                          placeholder="John"
-                        />
+                        <input type="text" formControlName="firstName"
+                          (keypress)="validationService.allowOnlyString($event)" maxlength="25" class="form-control"
+                          placeholder="John" />
 
-                        <div
-                          *ngIf="
+                        <div *ngIf="
                             control.firstName.touched &&
                             control.firstName.errors
-                          "
-                          class="error-message"
-                        >
+                          " class="error-message">
                           <div *ngIf="control.firstName.errors.required">
                             First Name is required
                           </div>
@@ -77,39 +53,23 @@
                     <div class="col-12 col-md-4 col-lg-4">
                       <div class="form-group">
                         <label>Middle Name</label>
-                        <input
-                          type="text"
-                          formControlName="middleName"
-                          (keypress)="validationService.allowOnlyString($event)"
-                          maxlength="25"
-                          class="form-control"
-                          placeholder="Kevin"
-                        />
+                        <input type="text" formControlName="middleName"
+                          (keypress)="validationService.allowOnlyString($event)" maxlength="25" class="form-control"
+                          placeholder="Kevin" />
                       </div>
                     </div>
                     <div class="col-12 col-md-4 col-lg-4">
                       <div class="form-group">
                         <label>
                           Last Name
-                          <sup
-                            class="required-indicator text-danger font-weight-bold font-size-lg"
-                            >*</sup
-                          >
+                          <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
                         </label>
-                        <input
-                          type="text"
-                          formControlName="lastName"
-                          (keypress)="validationService.allowOnlyString($event)"
-                          maxlength="25"
-                          class="form-control"
-                          placeholder="Doe"
-                        />
-                        <div
-                          *ngIf="
+                        <input type="text" formControlName="lastName"
+                          (keypress)="validationService.allowOnlyString($event)" maxlength="25" class="form-control"
+                          placeholder="Doe" />
+                        <div *ngIf="
                             control.lastName.touched && control.lastName.errors
-                          "
-                          class="error-message"
-                        >
+                          " class="error-message">
                           <div *ngIf="control.lastName.errors.required">
                             Last Name is required
                           </div>
@@ -123,25 +83,14 @@
                       <div class="form-group">
                         <label>
                           Mobile
-                          <sup
-                            class="required-indicator text-danger font-weight-bold font-size-lg"
-                            >*</sup
-                          >
+                          <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
                         </label>
-                        <input
-                          type="tel"
-                          formControlName="mobileNo"
-                          (keypress)="validationService.allowOnlyNumber($event)"
-                          maxlength="10"
-                          class="form-control"
-                          placeholder="8823485211"
-                        />
-                        <div
-                          *ngIf="
+                        <input type="tel" formControlName="mobileNo"
+                          (keypress)="validationService.allowOnlyNumber($event)" maxlength="10" class="form-control"
+                          placeholder="8823485211" />
+                        <div *ngIf="
                             control.mobileNo.touched && control.mobileNo.errors
-                          "
-                          class="error-message"
-                        >
+                          " class="error-message">
                           <div *ngIf="control.mobileNo.errors.required">
                             Mobile Number is required
                           </div>
@@ -153,23 +102,11 @@
                       <div class="form-group">
                         <label>
                           Email Id
-                          <sup
-                            class="required-indicator text-danger font-weight-bold font-size-lg"
-                            >*</sup
-                          >
+                          <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
                         </label>
-                        <input
-                        type="email"
-                        formControlName="email"
-                        maxlength="50"
-                        class="form-control"
-                        placeholder="youremail@gmail.com"
-
-                        />
-                        <div
-                          *ngIf="control.email.touched && control.email.errors"
-                          class="error-message"
-                        >
+                        <input type="email" formControlName="email" maxlength="50" class="form-control"
+                          placeholder="youremail@gmail.com" />
+                        <div *ngIf="control.email.touched && control.email.errors" class="error-message">
                           <div *ngIf="control.email.errors.required">
                             Email Id is required
                           </div>
@@ -181,23 +118,13 @@
                       <div class="form-group">
                         <label>
                           Password
-                          <sup
-                            class="required-indicator text-danger font-weight-bold font-size-lg"
-                            >*</sup
-                          >
+                          <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
                         </label>
-                        <input
-                          type="password"
-                          formControlName="password"
-                          class="form-control"
-                          placeholder="Your password"
-                        />
-                        <div
-                          *ngIf="
+                        <input type="password" formControlName="password" class="form-control"
+                          placeholder="Your password" />
+                        <div *ngIf="
                             control.password.touched && control.password.errors
-                          "
-                          class="error-message"
-                        >
+                          " class="error-message">
                           <div *ngIf="control.password.errors.required">
                             Password is required
                           </div>
@@ -211,9 +138,7 @@
                 </div>
               </div>
 
-              <app-content-header
-                [header]="'Address Details'"
-              ></app-content-header>
+              <app-content-header [header]="'Address Details'"></app-content-header>
               <app-address-group [addressGroup]="addAssociateForm"></app-address-group>
               <!-- <div class="card">
                 <div class="card-body">
@@ -316,18 +241,10 @@
               <div class="d-flex justify-content-end align-items-center">
                 <app-form-loader></app-form-loader>
                 <div class="d-flex">
-                  <button
-                    type="button"
-                    class="btn bg-grey ml-3"
-                    (click)="location.back()"
-                  >
+                  <button type="button" class="btn bg-grey ml-3" (click)="location.back()">
                     Back
                   </button>
-                  <button
-                    type="submit"
-                    [disabled]="addAssociateForm.invalid"
-                    class="btn bg-blue ml-3"
-                  >
+                  <button type="submit" [disabled]="addAssociateForm.invalid" class="btn bg-blue ml-3">
                     {{ isEdit ? "Update" : "Add" }}
                   </button>
                 </div>

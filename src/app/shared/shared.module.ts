@@ -175,7 +175,7 @@ import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component
     GrowlComponent,
     FormLoaderComponent,
     AuctionListComponent,
-    AddressGroupComponent, 
+    AddressGroupComponent,
     ProductDetailsComponent,
     ContactFormGroupComponent
   ],
