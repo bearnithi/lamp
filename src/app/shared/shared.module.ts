@@ -42,7 +42,8 @@ import {
   SearchFilterMachineryComponent,
   SearchFilterTakeOverComponent,
   SearchFilterStockLotsComponent,
-  ProductDetailsComponent
+  ProductDetailsComponent,
+  ProductTeamAssignComponent
 } from './product-components';
 
 import {
@@ -68,8 +69,14 @@ import {
 
 import {
   StatCardComponent,
-  SalesChartComponent
+  SalesChartComponent,
 } from './chart-components';
+
+import {
+  SoldListComponent,
+  SoldCarouselComponent,
+  SoldItemComponent
+} from './sales-close-components';
 
 
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -80,8 +87,6 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { HomeFeaturesComponent } from './features/home-features/home-features.component';
 import { EquipmentFeaturesComponent } from './features/equipment-features/equipment-features.component';
 import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-features.component';
-import { SoldItemComponent } from './sold-item/sold-item.component';
-import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
 import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component';
 
@@ -134,7 +139,9 @@ import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component
     SearchFilterStockLotsComponent,
     FollowUpFormComponent,
     ContactFormGroupComponent,
-    ProductDetailsComponent],
+    ProductDetailsComponent,
+    SoldListComponent,
+    ProductTeamAssignComponent],
 
   imports: [
     CommonModule,
@@ -176,10 +183,13 @@ import { FollowUpFormComponent } from './follow-up-form/follow-up-form.component
     FormLoaderComponent,
     AuctionListComponent,
     AddressGroupComponent,
-    ContactFormGroupComponent
+    ContactFormGroupComponent,
+    SoldListComponent,
+    ProductTeamAssignComponent
   ],
   entryComponents: [
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ProductTeamAssignComponent
   ]
 })
 export class SharedModule { }

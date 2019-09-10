@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Assign Team</h1>
+<div mat-dialog-content>
+  <form [formGroup]="assignForm">
+    <div class="form-group">
+      <label>
+        Select Associate
+        <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+      </label>
+      <select formControlName="associate" class="form-control">
+        <option value="" style="display: none">Select</option>
+        <option *ngFor="let associate of associates" [value]="associate._id">{{ associate.firstName }}
+          {{ associate.lastName }}</option>
+      </select>
+      <div *ngIf="control.associate.touched && control.associate.errors" class="error-message">
+        <div *ngIf="control.associate.errors.required">
+          Associate is required
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <label>
+        Select Consultant
+        <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+      </label>
+      <select formControlName="consultant" class="form-control">
+        <option value="" style="display: none">Select</option>
+        <option *ngFor="let consultant of consultants" [value]="consultant._id">{{ consultant.firstName }}
+          {{ consultant.lastName }}</option>
+      </select>
+      <div *ngIf="control.consultant.touched && control.consultant.errors" class="error-message">
+        <div *ngIf="control.consultant.errors.required">
+          Consultant is required
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>
+<div mat-dialog-footer class="text-right">
+  <button class="btn bg-grey mr-2" (click)="dialogRef.close()">Cancel</button>
+  <button class="btn bg-teal" (click)="assignTeam()">Assign</button>
+</div>

@@ -13,6 +13,8 @@ export class BuyerDashboardComponent implements OnInit {
   userInfo: any = {};
   productList: any;
   profileSubscription: Subscription;
+  auctionList: Array<any> = [];
+
   constructor(private authentication: AuthenticationService,
     private http: HttpHelperService) { }
 
@@ -50,12 +52,14 @@ export class BuyerDashboardComponent implements OnInit {
     this.userInfo = this.authentication.getUserInfo();
     this.authentication.profileUpdated.subscribe((userInfo: any) => {
       this.userInfo = userInfo;
-      this.fetchProducts();
+    //  this.fetchProducts();
     });
 
     if(this.userInfo) {
-      this.fetchProducts();
+    //  this.fetchProducts();
     }
+
+    this.fetchAuctions();
 
   }
 
@@ -71,6 +75,13 @@ export class BuyerDashboardComponent implements OnInit {
       assetType: this.userInfo.preference.propertyType
     } }).then((res) => {
       this.productList = res.data;
+    });
+  }
+
+
+  fetchAuctions() {
+    this.http.find('dashboard', { query: {type: 'auctioninfo' }}).then((res) => {
+      this.auctionList = res;
     });
   }
 

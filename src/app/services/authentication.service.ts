@@ -29,6 +29,7 @@ export class AuthenticationService {
 
   logout() {
     this.store.setValue('user_info', {});
+    window.localStorage.clear();
     this.http.feathersInstance().logout();
     this.router.navigate(['/']);
   }
