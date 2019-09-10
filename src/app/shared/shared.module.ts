@@ -170,7 +170,8 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     GrowlComponent,
     FormLoaderComponent,
     AuctionListComponent,
-    AddressGroupComponent
+    AddressGroupComponent, 
+    ProductDetailsComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

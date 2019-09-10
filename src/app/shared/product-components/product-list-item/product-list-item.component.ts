@@ -13,8 +13,8 @@ export class ProductListItemComponent implements OnInit {
   role: string;
   userInfo: any = {};
   constructor(private authentication: AuthenticationService,
-              private http: HttpHelperService,
-              private store: StoreService) { }
+    private http: HttpHelperService,
+    private store: StoreService) { }
 
   ngOnInit() {
     this.userInfo = this.authentication.getUserInfo();
@@ -32,6 +32,10 @@ export class ProductListItemComponent implements OnInit {
         type: 'success'
       });
     });
+  }
+
+  navigateProductdetails(keyval) {
+    this.store.getproductdetails(keyval);
   }
 
 }

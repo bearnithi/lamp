@@ -41,7 +41,8 @@ export class AdminMainComponent implements OnInit {
         }, {
           name: 'Assign Associate',
           link: '/admin/consultant'
-        }]
+        }
+        ]
       }]
     }
   }

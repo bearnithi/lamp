@@ -11,7 +11,7 @@
       <div class="price">
         <button *ngIf="role === 'Buyer'" class="btn bg-teal"
         (click)="addInterest()">I'm Interested</button></div>
-      <h3><a href="#">{{productInfo.assetType}}</a></h3>
+      <h3><a href="#" (click)="$event.preventDefault();navigateProductdetails(productInfo)">{{productInfo.assetType}}</a></h3>
       <span class="location"><i class="fa fa-map-marker"></i> {{productInfo?.assetDetails?.city}}</span>
 
       <p>{{ productInfo?.assetDetails?.amenties }}</p>
