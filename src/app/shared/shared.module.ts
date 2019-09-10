@@ -41,7 +41,8 @@ import {
   SearchFilterHomeComponent,
   SearchFilterMachineryComponent,
   SearchFilterTakeOverComponent,
-  SearchFilterStockLotsComponent
+  SearchFilterStockLotsComponent,
+  ProductDetailsComponent
 } from './product-components';
 
 import {
@@ -81,6 +82,7 @@ import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-fe
 import { SoldItemComponent } from './sold-item/sold-item.component';
 import { SoldCarouselComponent } from './sold-carousel/sold-carousel.component';
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
+
 
 
 @NgModule({
@@ -127,7 +129,8 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     SearchFilterHomeComponent,
     SearchFilterMachineryComponent,
     SearchFilterTakeOverComponent,
-    SearchFilterStockLotsComponent],
+    SearchFilterStockLotsComponent,
+    ProductDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,

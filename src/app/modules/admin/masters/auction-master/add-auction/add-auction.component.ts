@@ -42,6 +42,7 @@ export class AddAuctionComponent implements OnInit {
       if (this.isEdit) {
         this.selectedAuction = this.store.getValue('selected_auction');
         this.auctionForm.patchValue(this.selectedAuction);
+        this.fetchAssets(this.selectedAuction.lenderId);
       }
     });
 

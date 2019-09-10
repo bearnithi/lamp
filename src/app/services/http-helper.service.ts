@@ -23,7 +23,7 @@ export class HttpHelperService {
   getInstance() {
 
     return axios.create({
-      baseURL: "http://192.168.2.189:43030",
+      baseURL: "http://192.168.2.12:43030",
       timeout: 3000,
       headers: {
         'X-Initialized-At': Date.now().toString(),
@@ -45,7 +45,7 @@ export class HttpHelperService {
 
 
     const client = feathers();
-    const restclient = feathersRestClient("http://192.168.2.189:43030")
+    const restclient = feathersRestClient("http://192.168.2.12:43030")
     client.configure(restclient.axios(axios));
     client.configure(feathersAuthClient({
       storage: window.localStorage as any
