@@ -89,6 +89,8 @@ import { HomeFeaturesComponent } from './features/home-features/home-features.co
 import { EquipmentFeaturesComponent } from './features/equipment-features/equipment-features.component';
 import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-features.component';
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
+import { QueryListComponent } from './query-components/query-list/query-list.component';
+import { QueryDetailComponent } from './query-components/query-detail/query-detail.component';
 
 @NgModule({
   declarations: [
@@ -139,7 +141,9 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     ContactFormGroupComponent,
     ProductDetailsComponent,
     SoldListComponent,
-    ProductTeamAssignComponent],
+    ProductTeamAssignComponent,
+    QueryListComponent,
+    QueryDetailComponent],
 
   imports: [
     CommonModule,
@@ -185,7 +189,9 @@ import { NewsAnnouncementsComponent } from './news-announcements/news-announceme
     SoldListComponent,
     ProductTeamAssignComponent,
     ProductDetailsComponent,
-    FollowUpFormComponent
+    FollowUpFormComponent,
+    QueryListComponent,
+    QueryDetailComponent
   ],
   entryComponents: [
     ConfirmDialogComponent,

@@ -22,6 +22,9 @@ const routes: Routes = [{
 }, {
   path: 'associate',
   loadChildren: () => import('./modules/associate/associate.module').then((mod) => mod.AssociateModule)
+}, {
+  path: 'consultant',
+  loadChildren: () => import('./modules/consultant/consultant.module').then((mod) => mod.ConsultantModule)
 }];
 
 @NgModule({

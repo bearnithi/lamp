@@ -9,7 +9,7 @@ export class ProductService {
 
   lenderId : any;
   constructor(private httpService:HttpHelperService,private storageService:StoreService) { 
-   this.lenderId = this.storageService.getValue('selected_user')['_id'];
+  // this.lenderId = this.storageService.getValue('selected_user')['_id'];
   }
 
 

@@ -57,7 +57,7 @@ export class ProductListItemComponent implements OnInit {
   }
 
   activities() {
-    this.store.showActivity.next(this.productInfo);
+    this.store.showActivity.next({ show: true, data: this.productInfo});
   }
 
   navigateProductdetails(keyval) {
