@@ -6,7 +6,7 @@
           <app-product-list [filter]="filterObj"></app-product-list>
         </ng-container>
 
-        <app-query-list (back)="showActivity = false" *ngIf="showActivity"></app-query-list>
+        <app-query-list [assetId]="selectedProduct._id" (back)="showActivity = false" *ngIf="showActivity"></app-query-list>
       </div>
     </div>
   </div>

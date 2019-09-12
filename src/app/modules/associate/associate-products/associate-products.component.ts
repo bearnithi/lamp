@@ -19,6 +19,8 @@ export class AssociateProductsComponent implements OnInit {
   showActivity: boolean;
   showActivityDetail: boolean;
 
+  selectedProduct: any = {};
+
   constructor(private store: StoreService,
               private authentication: AuthenticationService,
               private router: Router) { }
@@ -26,15 +28,18 @@ export class AssociateProductsComponent implements OnInit {
   ngOnInit() {
     this.productdetailssubscribtion = this.store.showproductdetails.subscribe((res) => {
       this.store.setValue('Selected_Product', res);
+      this.selectedProduct = res;
       this.router.navigate(['associate', 'product-details']);
     });
 
     this.activitySubscription = this.store.showActivity.subscribe((res: any) => {
       this.showActivity = res.show || false;
+      this.selectedProduct = res.data;
     });
 
     this.actionSubscription = this.store.showAction.subscribe((res: any) => {
       this.store.setValue('selected_product', res);
+      this.selectedProduct = res;
       this.router.navigate(['associate', 'follow-up']);
     });
 

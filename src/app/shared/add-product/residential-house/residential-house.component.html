@@ -173,9 +173,9 @@
         </div>
 
         <div class="d-flex justify-content-between align-items-center">
-          <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
+          <app-form-loader></app-form-loader>
           <div class="d-flex">
-            <button type="button" class="btn bg-grey ml-3">Back</button>
+            <button type="button" (click)="location.back()" class="btn bg-grey ml-3">Back</button>
             <button type="submit" [disabled]="addResendentialPropertyForm.invalid" class="btn bg-blue ml-3">
               Save
             </button>

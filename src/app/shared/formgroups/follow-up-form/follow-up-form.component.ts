@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, Params } from '@angular/router';
 import { StoreService } from 'src/app/services/store.service';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { Location } from '@angular/common';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-follow-up-form',
@@ -27,13 +28,15 @@ export class FollowUpFormComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private store: StoreService,
               private httpHelper: HttpHelperService,
-              private router: Router) { }
+              private router: Router,
+              private authentication: AuthenticationService) { }
 
   ngOnInit() {
     this.productInfo = this.store.getValue('selected_product');
     this.followUpForm = this.fb.group({
       to: ['', Validators.required],
       type: ['', Validators.required],
+      sheduleDate: [''],
       query: ['']
     });
 
@@ -76,8 +79,18 @@ export class FollowUpFormComponent implements OnInit {
       }
 
     }
-    this.httpHelper.find('users', {query: { _id: { $in: userIDs }  }}).then((res: any) => {
-      this.stakeHolders = res.data;
+    this.httpHelper.find('users', { query: { role: { $in: ['Associate', 'Consultant', 'Buyer'] } } }).then((res: any) => {
+      const result = [];
+      if (res.data.length > 0) {
+        for (const id of userIDs) {
+          for (const user of res.data) {
+            if (user._id === id) {
+              result.push(user);
+            }
+          }
+        }
+      }
+      this.stakeHolders = result || [];
     });
   }
 
@@ -95,6 +108,11 @@ export class FollowUpFormComponent implements OnInit {
 
   addFollowup() {
     this.store.showLoader.next(true);
+    const data = this.followUpForm.value;
+    data.replies = [];
+    data.assetId = this.productInfo._id;
+    data.from = this.authentication.getUserInfo()._id;
+    data.lenderId = this.productInfo.lenderId;
     this.httpHelper.create('followup', this.followUpForm.value).then((res: any) => {
       this.onSuccess();
     }).catch((err) => {

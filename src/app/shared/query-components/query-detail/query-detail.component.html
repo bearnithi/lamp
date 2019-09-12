@@ -9,7 +9,7 @@
       <div class="username text-teal font-weight-bold">
         <span *ngIf="message.type === 'received'">{{ message.userInfo.firstName }}
           {{ message.userInfo.lastName }}</span>
-        <span *ngIf="message.type === 'sent'">Me</span>
+        <span *ngIf="message.type === 'sent' || !message.type">Me</span>
       </div>
       <div class="message-text">{{ message.message }}</div>
     </li>

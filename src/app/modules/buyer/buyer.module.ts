@@ -13,7 +13,14 @@ import { ProductDetailsPageComponent } from './products/product-details-page/pro
 import { FollowUpComponent } from './products/follow-up/follow-up.component';
 
 @NgModule({
-  declarations: [BuyerMainComponent, BuyerDashboardComponent, ProductListBuyerComponent, MyProfileComponent, ContactComponent, ProductDetailsPageComponent, FollowUpComponent],
+  declarations: [
+    BuyerMainComponent,
+    BuyerDashboardComponent,
+    ProductListBuyerComponent,
+    MyProfileComponent,
+    ContactComponent,
+    ProductDetailsPageComponent,
+    FollowUpComponent],
   imports: [
     CommonModule,
     CoreModule,

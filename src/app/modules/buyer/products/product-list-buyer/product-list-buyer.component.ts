@@ -10,21 +10,32 @@ import { Subscription } from 'rxjs';
 })
 export class ProductListBuyerComponent implements OnInit {
   filterObj: any = {};
+  selectedProduct: any = {};
+
   productdetailssubscribtion: Subscription;
   actionSubscription: Subscription;
-  selectedProduct: any = {};
+  activitySubscription: Subscription;
+
+  showActivity: boolean;
+
   constructor(private router: Router, private store: StoreService) { }
 
   ngOnInit() {
     this.productdetailssubscribtion = this.store.showproductdetails.subscribe((res) => {
-      this.selectedProduct = this.store.setValue('Selected_Product', res);
+      this.store.setValue('Selected_Product', res);
       this.router.navigate(['buyer', 'product-details']);
     });
 
     this.actionSubscription = this.store.showAction.subscribe((res: any) => {
-      this.selectedProduct = this.store.setValue('selected_product', res);
+      this.store.setValue('selected_product', res);
       this.router.navigate(['buyer','follow-up']);
-    })
+    });
+
+    this.activitySubscription = this.store.showActivity.subscribe((res: any) => {
+      this.showActivity = res.show || false;
+      this.selectedProduct = res.data;
+    });
+
   }
 
   ngOnDestroy(): void {

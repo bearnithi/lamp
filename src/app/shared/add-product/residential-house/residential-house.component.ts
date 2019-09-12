@@ -78,6 +78,7 @@ export class ResidentialHouseComponent implements OnInit {
           title: "Success",
           type: "success"
         });
+        this.location.back();
       })
       .catch(error => {
         this.store.showGrowl.next({

@@ -1,209 +1,188 @@
 <section class="add-associate container">
-        <div class="row">
-          <div class="col-12">
-            <form [formGroup]="addCommercialPropertyForm" (ngSubmit)="addProduct('Commercial-Building')">
-      
-              <app-content-header [header]="'Basic Information'"></app-content-header>
-      
-              <div class="card">
-                <div class="card-body">
-                  <div class="row">
-                   
-                    <div class="col-12 col-md-4 col-lg-4">
-                      <div class="form-group">
-                        <label>Build in year</label>
-                        <input type="text" formControlName="buildInYear" class="form-control" placeholder="2008">
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-4">
-                      <div class="form-group">
-                        <label>Building Area (Sq.Ft)</label>
-                        <input type="text" formControlName="buildingArea" class="form-control" placeholder="Doe">
-                        <div *ngIf="control.buildingArea.touched && control.buildingArea.errors" class="error-message">
-                          <div *ngIf="control.buildingArea.errors.required">Building Area is required</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-4 col-lg-4">
-                            <div class="form-group">
-                              <label>Carpet Area (Sq.Ft)</label>
-                              <input type="text" formControlName="carpetArea" class="form-control">
-                              <div *ngIf="control.carpetArea.touched && control.carpetArea.errors" class="error-message">
-                                <div *ngIf="control.carpetArea.errors.required">Carpet Area is required</div>
-                              </div>
-                            </div>
-                          </div>
-                </div>
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="addCommercialPropertyForm" (ngSubmit)="addProduct('Commercial-Building')">
 
-      
-                
-                </div>
-              </div>
-              <app-content-header [header]="'Pricing'"></app-content-header>
-              <div class="card">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>Guide Line Value (1 sq.ft)</label>
-                        <input type="text" formControlName="guideLineValue" class="form-control" placeholder="John">
-      
-                        <div *ngIf="control.guideLineValue.touched && control.guideLineValue.errors" class="error-message">
-                          <div *ngIf="control.guideLineValue.errors.required">Address is required</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>Market Value</label>
-                        <input type="text" formControlName="marketValue" class="form-control" placeholder="Doe">
-                        <div *ngIf="control.marketValue.touched && control.marketValue.errors" class="error-message">
-                          <div *ngIf="control.marketValue.errors.required">Street is required</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>Fair Rental Price</label>
-                        <input type="text" formControlName="fairRentalValue" class="form-control" placeholder="Doe">
-                        <div *ngIf="control.fairRentalValue.touched && control.fairRentalValue.errors" class="error-message">
-                          <div *ngIf="control.fairRentalValue.errors.required">Fair Rental Price is required</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>Floor Price</label>
-                        <input type="text" [value]="addCommercialPropertyForm.value.floorPrice | currency: 'INR'" formControlName="floorPrice"
-                          class="form-control" placeholder="Doe" (keypress)="validation.allowOnlyNumber($event)">
-                        <div *ngIf="control.floorPrice.touched && control.floorPrice.errors" class="error-message">
-                          <div *ngIf="control.floorPrice.errors.required">Floor Price is required</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      
-              <app-content-header [header]="'Address Details'"></app-content-header>
-              <div class="card">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>Address Line 1</label>
-                        <input type="text" formControlName="addressLine1" class="form-control" placeholder="John">
-      
-                        <div *ngIf="control.addressLine1.touched && control.addressLine1.errors" class="error-message">
-                          <div *ngIf="control.addressLine1.errors.required">Address Line 1 is required</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                          <label>Address Line 2</label>
-                          <input type="text" formControlName="addressLine2" class="form-control" placeholder="John">
-        
-                          <div *ngIf="control.addressLine2.touched && control.addressLine2.errors" class="error-message">
-                            <div *ngIf="control.addressLine2.errors.required">Address Line 2 is required</div>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>State</label>
-                        <select formControlName="state" class="form-control">
-                          <option value="" style="display: none">Select</option>
-                          <option value="TN">Tamil Nadu</option>
-                          <option value="UP">Utter Pradesh</option>
-      
-                        </select>
-                        <div *ngIf="control.state.touched && control.state.errors" class="error-message">
-                          <div *ngIf="control.state.errors.required">State is required</div>
-                        </div>
-                      </div>
-                    </div>
-      
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>City</label>
-      
-                        <select formControlName="city" class="form-control">
-                          <option value="" style="display: none">Select</option>
-                          <option value="Chennai">Chennai</option>
-                          <option value="Tirunelveli">Tirunelveli</option>
-      
-                        </select>
-      
-                        <div *ngIf="control.city.touched && control.city.errors" class="error-message">
-                          <div *ngIf="control.city.errors.required">City is required</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-      
-              </div>
-    
-    
-              <app-content-header [header]="'Additional Details'"></app-content-header>
-              <div class="card">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-12 col-md-6 col-lg-6">
-                      <div class="form-group">
-                        <label>Builder Company Name</label>
-                        <input type="text" formControlName="builderCompany" class="form-control" placeholder="John">
-      
-                        
-                      </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                          <label>Builder City</label>
-                          <select formControlName="builderCity" class="form-control">
-                                <option value="" style="display: none">Select</option>
-                                <option value="Chennai">Chennai</option>
-                                <option value="Tirunelveli">Tirunelveli</option>
-                              </select>
-        
-                       
-                        </div>
-                      </div>
-                  </div>
-    
-                  <div class="row">
-                        <div class="col-12 col-md-12 col-lg-12">
-                                <label>Building Description</label>
-                                <textarea formControlName='description' class="form-control">
-                                    </textarea>
-                            </div>
+        <app-content-header [header]="'Basic Information'"></app-content-header>
 
-                    <div class="col-12 col-md-12 col-lg-12">
-                        <label>Amenties</label>
-                        <textarea formControlName='amenties' class="form-control">
-                            </textarea>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>Build in year
+                    <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+                  </label>
+                  <input type="text" formControlName="buildInYear" (keypress)="validation.allowOnlyNumber($event)"
+                    maxlength="4" class="form-control" placeholder="2008" />
+                  <div *ngIf="
+                          control.buildInYear.touched && control.buildInYear.errors
+                        " class="error-message">
+                    <div *ngIf="control.buildInYear.errors.required">
+                      Build in year is required
                     </div>
-    
                   </div>
-          
-       
                 </div>
-      
               </div>
-      
-              <div class="d-flex justify-content-between align-items-center">
-                <span><i class="icon-spinner2 spinner mr-2"></i> Processing...</span>
-                <div class="d-flex">
-                  <button type="button" class="btn bg-grey ml-3">Back</button>
-                  <button type="submit" [disabled]="addCommercialPropertyForm.invalid" class="btn bg-blue ml-3">Save</button>
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>Building Area (Sq.Ft)
+                    <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+                  </label>
+                  <input type="text" formControlName="buildingArea" (keypress)="validation.allowOnlyNumber($event)"
+                    class="form-control" placeholder="Doe" />
+                  <div *ngIf="
+                          control.buildingArea.touched &&
+                          control.buildingArea.errors
+                        " class="error-message">
+                    <div *ngIf="control.buildingArea.errors.required">
+                      Building Area is required
+                    </div>
+                  </div>
                 </div>
-      
               </div>
-            </form>
+              <div class="col-12 col-md-4 col-lg-4">
+                <div class="form-group">
+                  <label>Carpet Area (Sq.Ft)
+                    <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+                  </label>
+                  <input type="text" formControlName="carpetArea" (keypress)="validation.allowOnlyNumber($event)"
+                    class="form-control" />
+                  <div *ngIf="
+                          control.carpetArea.touched && control.carpetArea.errors
+                        " class="error-message">
+                    <div *ngIf="control.carpetArea.errors.required">
+                      Carpet Area is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-      </section>
-      
+        <app-content-header [header]="'Pricing'"></app-content-header>
+        <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label>Guide Line Value (1 sq.ft) </label>
+                    <input type="text" formControlName="guideLineValue"
+                      (keypress)="validation.allowOnlyFloatNumber($event)" class="form-control" placeholder="0.00" />
+
+                    <div *ngIf="
+                            control.guideLineValue.touched &&
+                            control.guideLineValue.errors
+                          " class="error-message">
+                      <div *ngIf="control.guideLineValue.errors.required">
+                        Guideline value is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label>Market Value </label>
+                    <input type="text" formControlName="marketValue"
+                      (keypress)="validation.allowOnlyFloatNumber($event)" class="form-control" placeholder="0.00" />
+                    <div *ngIf="
+                            control.marketValue.touched && control.marketValue.errors
+                          " class="error-message">
+                      <div *ngIf="control.marketValue.errors.required">
+                        Market value is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label>Fair Rental Price </label>
+                    <input type="text" formControlName="fairRentalValue"
+                      (keypress)="validation.allowOnlyFloatNumber($event)" class="form-control" placeholder="0.00" />
+                    <div *ngIf="
+                            control.fairRentalValue.touched &&
+                            control.fairRentalValue.errors
+                          " class="error-message">
+                      <div *ngIf="control.fairRentalValue.errors.required">
+                        Fair Rental Price is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                  <div class="form-group">
+                    <label>Floor Price
+                      <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+                    </label>
+                    <input type="text" (keypress)="validation.allowOnlyFloatNumber($event)"
+                      formControlName="floorPrice" class="form-control" placeholder="0.00" />
+                    <div *ngIf="
+                            control.floorPrice.touched && control.floorPrice.errors
+                          " class="error-message">
+                      <div *ngIf="control.floorPrice.errors.required">
+                        Floor Price is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <app-content-header [header]="'Address Details'"></app-content-header>
+        <app-address-group [addressGroup]="addCommercialPropertyForm"></app-address-group>
+
+        <app-content-header [header]="'Additional Details'"></app-content-header>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Builder Company Name </label>
+                  <input type="text" formControlName="builderCompany" class="form-control" placeholder="John"
+                    (keypress)="validation.allowAlphaNumericString($event)" />
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="form-group">
+                  <label>Builder City </label>
+
+                  <select formControlName="builderCity" class="form-control">
+                    <option value="" style="display: none">Select</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-12 col-lg-12">
+                <label>Amenties
+                  <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+                </label>
+                <textarea formControlName="amenties" class="form-control">
+                  </textarea>
+                <div *ngIf="control.amenties.touched && control.amenties.errors" class="error-message">
+                  <div *ngIf="control.amenties.errors.required">
+                    Amenties are required
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <app-form-loader></app-form-loader>
+            <div class="d-flex">
+              <button type="button" (click)="location.back()" class="btn bg-grey ml-3">Back</button>
+            <button type="submit" [disabled]="addCommercialPropertyForm.invalid" class="btn bg-blue ml-3">Save</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

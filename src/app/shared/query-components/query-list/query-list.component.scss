@@ -2,16 +2,16 @@
   list-style: none;
 }
 
-.username::after {
-  position: absolute;
-  left: -30px;
-  top: 7px;
-  width: 10px;
-  height: 10px;
-  background: #00bcd4;
-  content: " ";
-  border-radius: 100%;
-}
+// .username::after {
+//   position: absolute;
+//   left: -30px;
+//   top: 7px;
+//   width: 10px;
+//   height: 10px;
+//   background: #00bcd4;
+//   content: " ";
+//   border-radius: 100%;
+// }
 
 .message-icon {
   font-size: 20px;
