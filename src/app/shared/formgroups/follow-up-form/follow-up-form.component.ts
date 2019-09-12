@@ -115,7 +115,7 @@ export class FollowUpFormComponent implements OnInit {
   onSuccess() {
     this.store.showLoader.next(false);
     this.store.showGrowl.next({
-      text: 'E-Auction has been created successfully',
+      text: 'Data has been saved successfully',
       title: 'Success',
       type: 'success'
     });
@@ -125,7 +125,7 @@ export class FollowUpFormComponent implements OnInit {
     this.store.showLoader.next(false);
 
     this.store.showGrowl.next({
-      text: 'Error while creating E-Auction',
+      text: 'Error while saving',
       title: 'Error',
       type: 'danger'
     });

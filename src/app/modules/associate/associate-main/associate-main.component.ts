@@ -14,8 +14,8 @@ export class AssociateMainComponent implements OnInit {
       name: 'Dashboard',
       link: '/associate/associate-dashboard'
     }, {
-      name: 'Buyers Interest',
-      link: '/associate/buyers-interests'
+      name: 'Properties',
+      link: '/associate/products'
     }
     ]
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-query-detail',
@@ -7,11 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class QueryDetailComponent implements OnInit {
   @Input() query: any = {};
+  @Output() back = new EventEmitter<any>();
   message: string;
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
   sendMessage() {

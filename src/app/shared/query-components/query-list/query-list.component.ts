@@ -7,7 +7,10 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 })
 export class QueryListComponent implements OnInit {
   queries: Array<any> = [];
-  @Output() selectedQuery = new EventEmitter<any>();
+  selectedQuery: any = {};
+  showDetail: boolean;
+  @Output() back = new EventEmitter<any>();
+
   constructor() {}
 
   ngOnInit() {
@@ -74,6 +77,7 @@ export class QueryListComponent implements OnInit {
   }
 
   select(query) {
-    this.selectedQuery.emit(query)
+    this.selectedQuery = query;
+    this.showDetail = true;
   }
 }

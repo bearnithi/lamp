@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { StoreService } from 'src/app/services/store.service';
 import { Subscription } from 'rxjs';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { StoreService } from 'src/app/services/store.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
-  selector: 'app-consultant-products',
-  templateUrl: './consultant-products.component.html',
-  styleUrls: ['./consultant-products.component.scss']
+  selector: 'app-associate-products',
+  templateUrl: './associate-products.component.html',
+  styleUrls: ['./associate-products.component.scss']
 })
-export class ConsultantProductsComponent implements OnInit {
+export class AssociateProductsComponent implements OnInit {
   filterObj: any = {};
 
   activitySubscription: Subscription;
@@ -26,7 +26,7 @@ export class ConsultantProductsComponent implements OnInit {
   ngOnInit() {
     this.productdetailssubscribtion = this.store.showproductdetails.subscribe((res) => {
       this.store.setValue('Selected_Product', res);
-      this.router.navigate(['consultant', 'product-details']);
+      this.router.navigate(['associate', 'product-details']);
     });
 
     this.activitySubscription = this.store.showActivity.subscribe((res: any) => {
@@ -35,11 +35,11 @@ export class ConsultantProductsComponent implements OnInit {
 
     this.actionSubscription = this.store.showAction.subscribe((res: any) => {
       this.store.setValue('selected_product', res);
-      this.router.navigate(['consultant', 'follow-up']);
+      this.router.navigate(['associate', 'follow-up']);
     });
 
     this.filterObj = {
-      'stakeHolders.consultant': this.authentication.getUserInfo()._id
+      'stakeHolders.associate': this.authentication.getUserInfo()._id
     };
   }
 

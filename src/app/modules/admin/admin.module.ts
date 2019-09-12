@@ -17,6 +17,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { AddProductComponent } from './products/add-product/add-product.component';
 import { AddAuctionComponent } from './masters/auction-master/add-auction/add-auction.component';
 import { ProductDetailsPageComponent } from './products/product-details-page/product-details-page.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 
 
@@ -33,7 +34,8 @@ import { ProductDetailsPageComponent } from './products/product-details-page/pro
     ProductListComponent,
     AddProductComponent,
     AddAuctionComponent,
-    ProductDetailsPageComponent],
+    ProductDetailsPageComponent,
+    AdminProfileComponent],
   imports: [
     CommonModule,
     CoreModule,

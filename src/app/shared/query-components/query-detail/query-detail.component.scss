@@ -1,7 +1,7 @@
 .message-container {
     list-style: none;
     margin-left: 0;
-    height: 100px; // 60vh later
+    max-height: 60vh; // 60vh later
     overflow: auto;
 
     & .message {

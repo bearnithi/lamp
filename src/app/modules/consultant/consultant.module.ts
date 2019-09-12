@@ -8,11 +8,13 @@ import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConsultantProductsComponent } from './consultant-products/consultant-products.component';
+import { ConsultantFollowUpComponent } from './consultant-follow-up/consultant-follow-up.component';
+import { ConsultantProductDetailComponent } from './consultant-product-detail/consultant-product-detail.component';
 
 
 
 @NgModule({
-  declarations: [ConsultantMainComponent, ConsultantDashboardComponent, ConsultantMyProfileComponent, ConsultantProductsComponent],
+  declarations: [ConsultantMainComponent, ConsultantDashboardComponent, ConsultantMyProfileComponent, ConsultantProductsComponent, ConsultantFollowUpComponent, ConsultantProductDetailComponent],
   imports: [
     CommonModule,
     CoreModule,

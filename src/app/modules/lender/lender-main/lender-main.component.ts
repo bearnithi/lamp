@@ -16,17 +16,8 @@ export class LenderMainComponent implements OnInit {
         link: '/lender/lender-dashboard'
       },
       {
-        name: 'List Products',
+        name: 'Properties',
         link: '/lender/products'
-      }, {
-        name: 'Add Product',
-        link: '/lender/add-product'
-      }, {
-        name: 'Assign Consultant',
-        link: '/lender/consultant'
-      }, {
-        name: 'Assign Associate',
-        link: '/lender/consultant'
       }
     ];
     }

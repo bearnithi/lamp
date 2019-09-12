@@ -4,6 +4,8 @@ import { ConsultantDashboardComponent } from "./consultant-dashboard/consultant-
 import { ConsultantMainComponent } from "./consultant-main/consultant-main.component";
 import { ConsultantMyProfileComponent } from "./consultant-my-profile/consultant-my-profile.component";
 import { ConsultantProductsComponent } from './consultant-products/consultant-products.component';
+import { ConsultantFollowUpComponent } from './consultant-follow-up/consultant-follow-up.component';
+import { ConsultantProductDetailComponent } from './consultant-product-detail/consultant-product-detail.component';
 
 const CONSULTANT_ROUTES = [
   {
@@ -21,6 +23,14 @@ const CONSULTANT_ROUTES = [
       {
           path: 'products',
           component: ConsultantProductsComponent
+      },
+      {
+        path: 'follow-up',
+        component: ConsultantFollowUpComponent
+      },
+      {
+        path: 'product-details',
+        component: ConsultantProductDetailComponent
       },
       {
         path: "",

@@ -15,9 +15,9 @@ export class LenderDashboardComponent implements OnInit {
 
   fetchCardStats() {
     this.cardStats = [{
-      title: '50',
-      desc: 'Lenders',
-      subdesc: 'Active Lenders',
+      title: '20',
+      desc: 'Properties',
+      subdesc: 'Active Properties',
       id: 'members-online',
       class: 'bg-teal'
     }, {

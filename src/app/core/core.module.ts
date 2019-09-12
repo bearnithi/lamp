@@ -39,7 +39,8 @@ import {
     LenderProfileComponent,
     BuyerProfileComponent,
     BorrowerProfileComponent,
-    ConsultantProfileComponent
+    ConsultantProfileComponent,
+    AdminProfileComponent
   ]
 })
 export class CoreModule { }
