@@ -57,7 +57,11 @@ export class SignupComponent implements OnInit {
       .then(res => {
         const isUserExist = res.data.length;
         if (isUserExist === 0) {
-          this.httpHelper.getInstance().post('/users', this.signUpForm.value)
+          const signupData = this.signUpForm.value;
+          if (this.signUpForm.value !== 'Buyer') {
+            signupData.status = 'APPROVAL_PENDING';
+          }
+          this.httpHelper.getInstance().post('/users', signupData)
             .then((response) => {
               this.showLoader = false;
               this.hasMessage = true;

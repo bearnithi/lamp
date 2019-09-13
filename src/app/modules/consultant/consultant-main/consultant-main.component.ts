@@ -16,7 +16,7 @@ export class ConsultantMainComponent implements OnInit {
         link: "/consultant/consultant-dashboard"
       },
       {
-        name: "Properties",
+        name: "Assets",
         link: "/consultant/products"
       }
     ];

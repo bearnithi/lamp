@@ -35,6 +35,7 @@ export class AssociateProductsComponent implements OnInit {
     this.activitySubscription = this.store.showActivity.subscribe((res: any) => {
       this.showActivity = res.show || false;
       this.selectedProduct = res.data;
+      this.store.setValue('selected_product', res.data);
     });
 
     this.actionSubscription = this.store.showAction.subscribe((res: any) => {

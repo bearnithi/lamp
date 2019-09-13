@@ -32,6 +32,7 @@ export class ProductListBuyerComponent implements OnInit {
     });
 
     this.activitySubscription = this.store.showActivity.subscribe((res: any) => {
+      this.store.setValue('selected_product', res.data);
       this.showActivity = res.show || false;
       this.selectedProduct = res.data;
     });

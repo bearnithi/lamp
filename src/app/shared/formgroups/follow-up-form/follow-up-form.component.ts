@@ -37,7 +37,7 @@ export class FollowUpFormComponent implements OnInit {
       to: ['', Validators.required],
       type: ['', Validators.required],
       sheduleDate: [''],
-      query: ['']
+      message: ['']
     });
 
     this.activatedRoute.params.subscribe((params: Params) => {
@@ -109,10 +109,10 @@ export class FollowUpFormComponent implements OnInit {
   addFollowup() {
     this.store.showLoader.next(true);
     const data = this.followUpForm.value;
-    data.replies = [];
     data.assetId = this.productInfo._id;
     data.from = this.authentication.getUserInfo()._id;
     data.lenderId = this.productInfo.lenderId;
+    data.createdDate = new Date();
     this.httpHelper.create('followup', this.followUpForm.value).then((res: any) => {
       this.onSuccess();
     }).catch((err) => {
@@ -137,6 +137,7 @@ export class FollowUpFormComponent implements OnInit {
       title: 'Success',
       type: 'success'
     });
+    this.location.back();
   }
 
   onFailure() {
@@ -147,6 +148,7 @@ export class FollowUpFormComponent implements OnInit {
       title: 'Error',
       type: 'danger'
     });
+    this.location.back();
   }
 
 }

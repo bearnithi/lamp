@@ -12,12 +12,14 @@ export class HomeComponent implements OnInit {
   productSliders: Array<any> = [];
   newOffers: Array<any> = [];
   auctionList: Array<any> = [];
+  soldList: Array<any> = [];
   constructor(private http: HttpHelperService) { }
 
   ngOnInit() {
     this.setSliders();
     this.fetchNewOffers();
     this.fetchAuctions();
+    this.fetchSoldItems();
   }
 
   fetchNewOffers() {
@@ -75,6 +77,13 @@ export class HomeComponent implements OnInit {
     const query = { type: 'auctioninfo', $limit: 10, $sort: { _id: -1 } };
     this.http.find('dashboard', { query }).then((res) => {
       this.auctionList = res;
+    });
+  }
+
+  fetchSoldItems() {
+    const query = { type: 'auctioninfo', $limit: 10, $sort: { _id: -1 } };
+    this.http.find('dashboard', { query }).then((res) => {
+      this.soldList = res;
     });
   }
 }

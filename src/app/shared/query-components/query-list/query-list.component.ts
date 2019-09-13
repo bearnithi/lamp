@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, Input, SimpleChanges } from "@angular/core";
 import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: "app-query-list",
@@ -9,97 +10,69 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 })
 export class QueryListComponent implements OnInit {
   @Input() assetId: string;
-  queries: Array<any> = [];
-  selectedQuery: any = {};
-  showDetail: boolean;
-  loggedInUserID: string;
   @Output() back = new EventEmitter<any>();
 
+  messages: Array<any> = [];
+  selectedQuery: any = {};
+  showDetail: boolean;
+  loggedInUser: any = {};
+  contacts: Array<any> = [];
+  selectedContact: any = {};
+  productInfo: any = {};
+  message: string;
+
   constructor(private http: HttpHelperService,
-              private authentication: AuthenticationService) { }
+              private authentication: AuthenticationService,
+              private store: StoreService) { }
 
   ngOnInit() {
-    // this.queries = [
-    //   {
-    //     to: "Consultant",
-    //     userInfo: {
-    //       firstName: "Jane",
-    //       lastName: "Statham"
-    //     },
-    //     type: "Follow-Up",
-    //     query: "I will update the documents",
-    //     replies: [
-    //       {
-    //         message: "I need HIS document",
-    //         userInfo: {
-    //           firstName: "Jane",
-    //           lastName: "Statham"
-    //         },
-    //         type: "received"
-    //       },
-    //       {
-    //         message: "Okey I ll arrage it in 2 days.",
-    //         type: "sent"
-    //       },
-    //       {
-    //         message: "Lets create a shedule to meet",
-    //         userInfo: {
-    //           firstName: "Jane",
-    //           lastName: "Statham"
-    //         },
-    //         type: "received"
-    //       }
-    //     ]
-    //   },
-    //   {
-    //     to: "Consultant",
-    //     type: "Follow-Up",
-    //     userInfo: {
-    //       firstName: "Jane",
-    //       lastName: "Statham"
-    //     },
-    //     query: "I will update the documents"
-    //   },
-    //   {
-    //     to: "Consultant",
-    //     type: "Follow-Up",
-    //     userInfo: {
-    //       firstName: "Jane",
-    //       lastName: "Statham"
-    //     },
-    //     query: "I will update the documents"
-    //   },
-    //   {
-    //     to: "Consultant",
-    //     type: "Follow-Up",
-    //     userInfo: {
-    //       firstName: "Jane",
-    //       lastName: "Statham"
-    //     },
-    //     query: "I will update the documents"
-    //   }
-    // ];
-
-    this.loggedInUserID = this.authentication.getUserInfo()._id;
+    this.productInfo = this.store.getValue('selected_product');
+    this.loggedInUser = this.authentication.getUserInfo();
+    this.listenLive();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.assetId !== '') {
-      this.fetchActivities();
-    }
+
   }
 
-  fetchActivities() {
 
-    this.http.find('followup', { query: { assetId: this.assetId } }).then((res) => {
-      this.queries = res.data;
-
-      for (const query of this.queries) {
-        this.fetchUser(query);
-
-        for(const reply of query.replies) {
-          this.formatReply(reply);
+  fetchMessages(contact) {
+    let query = {}
+    this.selectedContact = contact;
+    if (contact.role !== 'All') {
+      query = {
+        query: {
+          assetId: this.assetId,
+          from: {
+            $in: [contact._id, this.loggedInUser._id]
+          },
+          to: {
+            $in: [contact._id, this.loggedInUser._id]
+          },
+          $sort: {
+            _id: 1
+          }
         }
+      };
+    } else {
+      query = {
+        query: {
+          assetId: this.assetId,
+          $or: [{
+            from: this.loggedInUser._id
+          }, { to: this.loggedInUser._id }],
+          $sort: {
+            _id: 1
+          }
+        }
+      };
+    }
+
+    this.http.find('followup', query).then((res) => {
+      this.messages = res.data;
+
+      for (const message of this.messages) {
+        this.fetchUser(message);
       }
     });
   }
@@ -110,19 +83,42 @@ export class QueryListComponent implements OnInit {
     });
   }
 
-  formatReply(reply) {
-      if(reply.userId === this.loggedInUserID) {
-        reply.type = 'sent';
-      } else {
-        reply.type = 'received';
-        this.http.find('users', { query: { _id: reply.userId } }).then((res) => {
-          reply.userInfo = res.data[0];
-        });
-      }
-  }
 
   select(query) {
     this.selectedQuery = query;
     this.showDetail = true;
   }
+
+  listenLive() {
+    this.http.feathersInstance().service('followup').on('created', message => {
+      this.messages.push(message);
+    });
+  }
+
+  sendMessage() {
+    if (this.message.trim() !== '') {
+      const query = {
+        type: 'Reply',
+        message: this.message,
+        assetId: this.productInfo._id,
+        from: this.authentication.getUserInfo()._id,
+        to: this.selectedContact._id,
+        lenderId: this.productInfo.lenderId,
+        createdDate: new Date()
+      };
+      // this.messages.push(query);
+
+      this.http.create('followup', query).then((res) => {
+        console.log('msg sent');
+      });
+
+
+    }
+  }
+
+
+  showFollowup() {
+    this.store.showAction.next(this.productInfo);
+  }
+
 }

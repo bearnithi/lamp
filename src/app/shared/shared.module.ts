@@ -91,6 +91,8 @@ import { VehicleFeaturesComponent } from './features/vehicle-features/vehicle-fe
 import { NewsAnnouncementsComponent } from './news-announcements/news-announcements.component';
 import { QueryListComponent } from './query-components/query-list/query-list.component';
 import { QueryDetailComponent } from './query-components/query-detail/query-detail.component';
+import { QueryContactsComponent } from './query-components/query-contacts/query-contacts.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -143,7 +145,9 @@ import { QueryDetailComponent } from './query-components/query-detail/query-deta
     SoldListComponent,
     ProductTeamAssignComponent,
     QueryListComponent,
-    QueryDetailComponent],
+    QueryDetailComponent,
+    QueryContactsComponent,
+    FilterPipe],
 
   imports: [
     CommonModule,

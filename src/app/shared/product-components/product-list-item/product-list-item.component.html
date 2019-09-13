@@ -14,8 +14,8 @@
         (click)="addInterest()">I'm Interested</button>
         <button *ngIf="role === 'Admin' || role==='Lender'" class="btn bg-teal mr-1"
         (click)="assignTeam()">Assign Stake Holders</button>
-        <button *ngIf="role === 'Buyer' || role==='Associate' || role === 'Consultant'" class="btn bg-teal mr-1"
-        (click)="showAction()">Action</button>
+        <!-- <button *ngIf="role === 'Buyer' || role==='Associate' || role === 'Consultant'" class="btn bg-teal mr-1"
+        (click)="showAction()">Action</button> -->
         <button *ngIf="role === 'Buyer' || role==='Associate' || role === 'Consultant'" class="btn bg-teal mr-1"
         (click)="activities()">Activity</button>
       </div>
