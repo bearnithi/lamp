@@ -1,0 +1,83 @@
+<!-- <section *ngIf="!showDetail" class="query-list-container bg-white p-4">
+  <div class="query-list-heder d-flex justify-content-between mb-2 align-items-center">
+    <h4>Activities</h4>
+    <button class="btn bg-grey" (click)="back.emit(true)">Back</button>
+  </div>
+
+  <ul class="media-list pl-4">
+    <li class="media" *ngFor="let query of queries">
+      <div class="mr-3 position-relative">
+        <img src="assets/images/default-profile.jpg" class="rounded-circle" width="36" height="36" alt="">
+        <span *ngIf="query?.replies.length > 0"
+          class="badge bg-danger-400 badge-pill badge-float border-2 border-white">
+          {{ query?.replies.length }}</span>
+      </div>
+
+      <div class="media-body">
+        <div class="d-flex">
+          <a href="#" (click)="$event.preventDefault();select(query)">{{ query.userInfo.firstName }}
+            {{ query.userInfo.lastName }} <span *ngIf="query.from === loggedInUserID"> - You</span></a>
+          <div class="ml-2 badge badge-success username">
+            {{ query.type }} <span *ngIf="query.type === 'Shedule'">{{ query.sheduleDate }}</span>
+          </div>
+        </div>
+
+        {{ query.query }}
+      </div>
+    </li>
+  </ul>
+</section> -->
+
+<!-- <app-query-detail (back)="showDetail = false" [query]="selectedQuery" *ngIf="showDetail"></app-query-detail> -->
+
+<div class="container-fluid clearfix">
+  <div class="row">
+    <div class="col-3 p-0 contacts">
+      <app-query-contacts (selectedContact)="fetchMessages($event)"></app-query-contacts>
+    </div>
+    <div class="col-9 p-0">
+      <div class="chat">
+        <div class="chat-header clearfix">
+          <!-- <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" /> -->
+
+          <div class="chat-about">
+            <div class="chat-with">Chat with {{selectedContact.firstName}} {{ selectedContact.lastName }}</div>
+          </div>
+          <i class="fa fa-star"></i>
+        </div> <!-- end chat-header -->
+
+        <div class="chat-history">
+          <ul>
+            <li *ngFor="let message of messages" [ngClass]="{'clearfix': message.from === loggedInUser._id}">
+              <div class="message-data" [ngClass]="{'align-right': message.from === loggedInUser._id}">
+                <span class="badge badge-success mr-2" *ngIf="message.type !== 'Reply'">{{ message.type }}
+                  <ng-container *ngIf="message.type === 'Shedule'"> - {{ message.sheduleDate }}</ng-container></span>
+                <span class="message-data-time">{{ message?.createdDate | date}}</span> &nbsp; &nbsp;
+                <span class="message-data-name">{{message?.userInfo?.firstName}} {{message?.userInfo?.lastName}}</span>
+              </div>
+              <div class="message " [ngClass]="{'my-message float-right': message.from === loggedInUser._id,
+                'other-message': message.from !== loggedInUser._id}">
+                {{ message?.message }}
+              </div>
+            </li>
+
+          </ul>
+
+        </div> <!-- end chat-history -->
+
+        <div class="chat-message clearfix">
+          <textarea [disabled]="selectedContact.role === 'All'" name="message-to-send" [(ngModel)]="message"
+          id="message-to-send" placeholder="Type your message"
+            rows="3"></textarea>
+          <button [disabled]="selectedContact.role === 'All'" (click)="sendMessage()">Send</button>
+          <button (click)="showFollowup()">Action</button>
+
+        </div> <!-- end chat-message -->
+
+      </div> <!-- end chat -->
+    </div>
+  </div>
+
+
+
+</div> <!-- end container -->

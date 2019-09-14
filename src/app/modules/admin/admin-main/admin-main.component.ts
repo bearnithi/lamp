@@ -26,9 +26,6 @@ export class AdminMainComponent implements OnInit {
       }, {
         name: 'E-Auctions',
         link: '/admin/auctions'
-      }, {
-        name: 'Assign Associate',
-        link: '/admin/consultant'
       }];
   }
 

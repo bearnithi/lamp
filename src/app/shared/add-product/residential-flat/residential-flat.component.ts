@@ -19,14 +19,14 @@ export class ResidentialFlatComponent implements OnInit {
 
   addResendentialPropertyForm: FormGroup;
 
-  constructor( public router: Router,
+  constructor(public router: Router,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
     private http: HttpHelperService,
     public location: Location,
     public validation: ValidationService,
-    public productService:ProductService,
-    private store:StoreService) { }
+    public productService: ProductService,
+    private store: StoreService) { }
 
   ngOnInit() {
     this.createForm();
@@ -35,29 +35,31 @@ export class ResidentialFlatComponent implements OnInit {
 
   createForm() {
     this.addResendentialPropertyForm = this.fb.group({
-
-      buildInYear: [''],
-      buildingArea:[''],
-      carpetArea:[''],
-      bhk:[''],
-      guideLineValue:[''],
-      marketValue:[''],
-      fairRentalValue:[''],
-      floorPrice:[''],
-      addressLine1:[''],
-      addressLine2:[''],
-      state:[''],
-      city:[''],
-      builderCompany:[''],
-      builderCity:[''],
-      amenties:['']
+      bhk: [''],
+      buildInYear: [
+        "",
+        [Validators.required, Validators.minLength(4), Validators.maxLength(4)]
+      ],
+      buildingArea: ["", Validators.required],
+      carpetArea: ["", Validators.required],
+      guideLineValue: [""],
+      marketValue: [""],
+      fairRentalValue: [""],
+      floorPrice: ['', Validators.required],
+      address1: ["", Validators.required],
+      address2: [""],
+      state: ["", Validators.required],
+      city: ["", Validators.required],
+      builderCompany: [""],
+      builderCity: [""],
+      amenties: ["", Validators.required]
     });
   }
 
   get control(): any { return this.addResendentialPropertyForm.controls; }
 
 
-  addProduct(type){
+  addProduct(type) {
     let data = {};
     data['assetType'] = type;
     data['assetId'] = UUID.UUID();
@@ -65,13 +67,15 @@ export class ResidentialFlatComponent implements OnInit {
 
 
 
-    this.productService.saveProductInfo(data).then((response)=>{
+    this.productService.saveProductInfo(data).then((response) => {
+      this.location.back();
       this.store.showGrowl.next({
         text: 'Asset has been saved successfully',
         title: 'Success',
         type: 'success'
       });
-    }).catch((error)=>{
+    }).catch((error) => {
+      this.location.back();
       this.store.showGrowl.next({
         text: 'Error while creating asset',
         title: 'Error',

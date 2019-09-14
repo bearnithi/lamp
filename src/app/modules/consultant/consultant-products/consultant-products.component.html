@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12">
+      <ng-container *ngIf="!showActivity">
+        <app-content-header [header]="'Properties'"></app-content-header>
+        <app-product-list [filter]="filterObj"></app-product-list>
+      </ng-container>
+
+      <app-query-list [assetId]="selectedProduct._id" (back)="showActivity = false" *ngIf="showActivity"></app-query-list>
+    </div>
+  </div>
+</div>

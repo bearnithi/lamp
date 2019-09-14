@@ -73,7 +73,7 @@ export class AdminProfileComponent implements OnInit {
 
   createForm() {
     this.adminProfileForm = this.fb.group({
-      role: ['Associate'],
+      role: ['Admin'],
       profileImage: [''],
       firstName: ['', Validators.required],
       middleName: [''],

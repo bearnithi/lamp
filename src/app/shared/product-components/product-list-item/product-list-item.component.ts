@@ -4,6 +4,7 @@ import { HttpHelperService } from 'src/app/services/http-helper.service';
 import { StoreService } from 'src/app/services/store.service';
 import { MatDialog } from '@angular/material';
 import { ProductTeamAssignComponent } from '../product-team-assign/product-team-assign.component';
+import { isObject } from 'util';
 
 @Component({
   selector: 'app-product-list-item',
@@ -14,6 +15,7 @@ export class ProductListItemComponent implements OnInit {
   @Input() productInfo: any = {};
   role: string;
   userInfo: any = {};
+
   constructor(private authentication: AuthenticationService,
               private http: HttpHelperService,
               private store: StoreService,
@@ -33,6 +35,19 @@ export class ProductListItemComponent implements OnInit {
         text: 'You showed interest',
         title: 'Success',
         type: 'success'
+      });
+
+
+      if (isObject(this.productInfo.stakeHolders)) {
+        this.productInfo.stakeHolders.buyer = this.userInfo._id;
+      } else {
+        this.productInfo.stakeHolders = {
+          buyer: this.userInfo._id
+        };
+      }
+
+      this.http.patch('assets', this.productInfo._id, this.productInfo).then((res: any) => {
+
       });
     });
   }
@@ -57,7 +72,7 @@ export class ProductListItemComponent implements OnInit {
   }
 
   activities() {
-    this.store.showActivity.next(this.productInfo);
+    this.store.showActivity.next({ show: true, data: this.productInfo });
   }
 
   navigateProductdetails(keyval) {

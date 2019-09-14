@@ -1,0 +1,12 @@
+.message-container {
+    list-style: none;
+    margin-left: 0;
+    max-height: 60vh; // 60vh later
+    overflow: auto;
+
+    & .message {
+        padding: 6px;
+        background: #f7f7f7;
+        border: 1px solid #dedede;
+    }
+}

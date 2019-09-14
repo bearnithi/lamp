@@ -1,19 +1,24 @@
 <div class="page-header">
     <app-page-header pageHeader="Dashboard"></app-page-header>
   </div>
-  
+
   <!-- Quick stats boxes -->
   <div class="page-content pt-0">
     <div class="content-wrapper">
-  
       <!-- Content area -->
       <div class="content">
-        <div class="row">
+        <div class="row justify-content-center">
           <div class="col-lg-3" *ngFor="let card of cardStats">
             <app-stat-card [cardDetail]="card"></app-stat-card>
           </div>
         </div>
+        <!-- <div class="row">
+            <div class="col-12">
+                  <app-query-list (selectedQuery)="query = $event"></app-query-list>
+                  <app-query-detail [query]="query"></app-query-detail>
+            </div>
+        </div> -->
+
       </div>
     </div>
   </div>
-  

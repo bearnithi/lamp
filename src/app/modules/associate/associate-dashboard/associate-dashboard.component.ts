@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpHelperService } from 'src/app/services/http-helper.service';
 
 @Component({
   selector: 'app-associate-dashboard',
@@ -7,25 +8,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssociateDashboardComponent implements OnInit {
   cardStats: Array<any>;
-  constructor() { }
+  dashboardres: any;
+  query: any = {};
+  constructor(private httpHelper: HttpHelperService) { }
 
   ngOnInit() {
-
+  //  this.fetchDaseboard();
     this.cardStats = [{
-      title: '150',
+      title: '50',
       desc: 'Properties',
-      subdesc: 'Active Properties',
+      subdesc: 'Total Properties',
       id: 'members-online',
       class: 'bg-teal',
-      link: '/admin/lender'
+      link: '/associate/properties'
     }, {
-      title: '250',
-      desc: 'Buyer',
-      subdesc: 'Active Buyers',
-      id: 'buyers',
-      class: 'bg-orange',
-      link: '/admin/buyers'
+      title: '20',
+      desc: 'Working Properties',
+      subdesc: 'Properties which you are handling',
+      id: 'server-load',
+      class: 'bg-pink',
+      link: '/associate/properties'
     }]
+
   }
 
+  fetchDaseboard() {
+    this.httpHelper.find('dashboard', { query: { type: 'admindashboard' } }).then((res) => {
+      this.changeTitle(res[0]);
+    });
+  }
+
+  changeTitle(dashboardCount) {
+    this.cardStats.forEach((currenttitle) => {
+      for (const key in dashboardCount) {
+        if (currenttitle.desc === key) {
+          currenttitle.title = dashboardCount[key] || 0;
+        }
+      }
+    });
+  }
 }

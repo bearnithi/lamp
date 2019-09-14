@@ -1,0 +1,31 @@
+<section class="query-detail bg-white p-4">
+  <div class="query-detail-header d-flex justify-content-between mb-2 align-items-center">
+    <h4>Activity Details</h4>
+    <button class="btn bg-grey" (click)="back.emit(true)">Back</button>
+  </div>
+
+  <ul class="message-container">
+    <li *ngFor="let message of query.replies" class="message mb-2">
+      <div class="username text-teal font-weight-bold">
+        <span *ngIf="message.type === 'received'">{{ message.userInfo.firstName }}
+          {{ message.userInfo.lastName }}</span>
+        <span *ngIf="message.type === 'sent' || !message.type">Me</span>
+      </div>
+      <div class="message-text">{{ message.message }}</div>
+    </li>
+  </ul>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <label>Reply</label>
+        <textarea rows="4" class="form-control" [(ngModel)]="message"></textarea>
+      </div>
+    </div>
+    <div class="row justify-content-end mt-3">
+      <div class="col-4 text-right">
+        <button class="btn bg-teal" (click)="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</section>

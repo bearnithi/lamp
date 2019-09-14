@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     Borrower: 'borrower/borrower-dashboard',
     Associate: 'associate/associate-dashboard',
     Facilitator: 'facilitator/facilitator-dashboard',
-    Consultant: 'consulatant/consultant-dashboard'
+    Consultant: 'consultant/consultant-dashboard'
   };
 
   constructor(

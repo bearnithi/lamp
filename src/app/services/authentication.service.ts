@@ -11,7 +11,7 @@ export class AuthenticationService {
   userInfo: any;
   profileUpdated = new Subject<any>();
   constructor(private http: HttpHelperService, private store: StoreService,
-    private router: Router) { }
+              private router: Router) { }
 
   setUserInfo(email) {
     this.http.find('users', { query: { email } }).then((res: any) => {

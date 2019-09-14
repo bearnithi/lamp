@@ -33,20 +33,6 @@ export class BuyerDashboardComponent implements OnInit {
       id: 'server-load',
       class: 'bg-pink',
       link: '/buyer/products'
-    }, {
-      title: '2',
-      desc: 'Properties Bought',
-      subdesc: 'Properties you have bought.',
-      id: 'today-revenue',
-      class: 'bg-blue',
-      link: '/buyer/products'
-    }, {
-      title: '250',
-      desc: 'Properties',
-      subdesc: 'All properties including sold.',
-      id: 'buyers',
-      class: 'bg-orange',
-      link: '/buyer/products'
     }];
 
     this.userInfo = this.authentication.getUserInfo();

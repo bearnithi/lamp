@@ -13,6 +13,7 @@ import { AddProductComponent } from './products/add-product/add-product.componen
 import { AuctionMasterComponent } from './masters/auction-master/auction-master.component';
 import { AddAuctionComponent } from './masters/auction-master/add-auction/add-auction.component';
 import { ProductDetailsPageComponent } from './products/product-details-page/product-details-page.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 
 const ADMIN_ROUTES = [{
   path: '',
@@ -75,6 +76,10 @@ const ADMIN_ROUTES = [{
   }, {
     path: 'product-details',
     component: ProductDetailsPageComponent
+  },
+  {
+    path: 'my-profile',
+    component: AdminProfileComponent
   }
 ]
 }];
