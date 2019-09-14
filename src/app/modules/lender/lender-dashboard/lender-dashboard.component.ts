@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpHelperService } from 'src/app/services/http-helper.service';
 
 @Component({
   selector: 'app-lender-dashboard',
@@ -7,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LenderDashboardComponent implements OnInit {
   cardStats: Array<any>;
-  constructor() { }
+  constructor(private httpHelper: HttpHelperService) { }
 
   ngOnInit() {
     this.fetchCardStats();
+    this.fetchDaseboardTitle();
   }
 
   fetchCardStats() {
@@ -39,6 +41,24 @@ export class LenderDashboardComponent implements OnInit {
       id: 'buyers',
       class: 'bg-orange'
     }]
+  }
+
+
+
+  fetchDaseboardTitle() {
+    this.httpHelper.find('dashboard', { query: { type: 'admindashboard' } }).then((res) => {
+      this.changeTitle(res[0]);
+    });
+  }
+
+  changeTitle(dashboardCount) {
+    this.cardStats.forEach((currenttitle) => {
+      for (const key in dashboardCount) {
+        if (currenttitle.desc === key) {
+          currenttitle.title = dashboardCount[key] || 0;
+        }
+      }
+    });
   }
 
 }
