@@ -36,39 +36,53 @@ export class HomeComponent implements OnInit {
         width: "100%",
         height: "500px",
         src:
-          "assets/images/homesliders/architectural-design-architecture-country-home-2287310.jpg"
+          "assets/images/homesliders/architectural-design-architecture-country-home-2287310.jpg",
+        header: 'LAMP welcomes you to a WIN-WIN-WIN market place.',
+        pageContent: 'Welcome to buy the assets which are on lien with a lender, who puts that up for Sale'
       },
       {
         width: "100%",
         height: "500px",
         src:
-          "assets/images/homesliders/apartment-apartment-building-architecture-323705.jpg"
+          "assets/images/homesliders/apartment-apartment-building-architecture-323705.jpg",
+          header: 'LAMP welcomes you to a WIN-WIN-WIN market place.',
+        pageContent: 'Welcome to buy the assets which are on lien with a lender, who puts that up for Sale'
       },
       {
         width: "100%",
         height: "500px",
-        src: "assets/images/homesliders/apartment-ceiling-chairs-1571460.jpg"
+        src: "assets/images/homesliders/apartment-ceiling-chairs-1571460.jpg",
+        header: 'LAMP welcomes you to a WIN-WIN-WIN market place.',
+        pageContent: 'Welcome to buy the assets which are on lien with a lender, who puts that up for Sale'
       },
       {
         width: "100%",
         height: "500px",
         src:
-          "assets/images/homesliders/architecture-beautiful-exterior-106399.jpg"
+          "assets/images/homesliders/architecture-beautiful-exterior-106399.jpg",
+          header: 'LAMP welcomes you to a WIN-WIN-WIN market place.',
+        pageContent: 'Welcome to buy the assets which are on lien with a lender, who puts that up for Sale'
       },
       {
         width: "100%",
         height: "500px",
-        src: "assets/images/homesliders/automobile-automotive-car-116675.jpg"
+        src: "assets/images/homesliders/automobile-automotive-car-116675.jpg",
+        header: 'LAMP welcomes you to a WIN-WIN-WIN market place.',
+        pageContent: 'Welcome to buy the assets which are on lien with a lender, who puts that up for Sale'
       },
       {
         width: "100%",
         height: "500px",
-        src: "assets/images/homesliders/care-chair-clean-305567.jpg"
+        src: "assets/images/homesliders/care-chair-clean-305567.jpg",
+        header: 'LAMP welcomes you to a WIN-WIN-WIN market place.',
+        pageContent: 'Welcome to buy the assets which are on lien with a lender, who puts that up for Sale'
       },
       {
         width: "100%",
         height: "500px",
-        src: "assets/images/homesliders/commerce-connection-data-132700.jpg"
+        src: "assets/images/homesliders/commerce-connection-data-132700.jpg",
+        header: 'LAMP welcomes you to a WIN-WIN-WIN market place.',
+        pageContent: 'Welcome to buy the assets which are on lien with a lender, who puts that up for Sale'
       }
     ];
   }
