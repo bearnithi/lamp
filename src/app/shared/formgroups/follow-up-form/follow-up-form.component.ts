@@ -22,6 +22,7 @@ export class FollowUpFormComponent implements OnInit {
   selectedFollowup: any = {};
   productInfo: any = {};
 
+
   constructor(private fb: FormBuilder,
               public location: Location,
               public dialog: MatDialog,
@@ -95,7 +96,151 @@ export class FollowUpFormComponent implements OnInit {
   }
 
   fetchTypes() {
-    this.types = ['Follow-Up', 'Shedule'];
+
+    //this.types = ['Follow-Up', 'Shedule'];
+    let setup = {
+      'Residential-Flat':[{
+        "name":"Physical Visit",
+        "template_content":"<b>Test</b>"
+      },{
+        "name":"Property Inspection",
+        "template_content":""
+      },{
+        "name":"Legal Document Verification",
+        "template_content":""
+      },{
+        "name":"Guide for E-Auction",
+        "template_content":""
+      }],
+      'Residential-House':[{
+        "name":"Physical Visit",
+        "template_content":"<b>Test</b>"
+      },{
+        "name":"Property Inspection",
+        "template_content":""
+      },{
+        "name":"Legal Document Verification",
+        "template_content":""
+      },{
+        "name":"Guide for E-Auction",
+        "template_content":""
+      }],
+      'Commercial-Building':[{
+        "name":"Physical Visit",
+        "template_content":""
+      },{
+        "name":"Property Inspection",
+        "template_content":""
+      },{
+        "name":"Legal Document Verification",
+        "template_content":""
+      },{
+        "name":"Guide for E-Auction",
+        "template_content":""
+      }],
+      'Cars':[
+        {
+          "name":"Physical visit",
+          "template_content":""
+        },{
+          "name":"Vehicle Inspection",
+          "template_content":""
+        },{
+          "name":"Get additional information about the offer",
+          "template_content":""
+        },{
+          "name":"Guide for E-Auction",
+          "template_content":""
+        }
+      ],
+      'LCV':[
+        {
+          "name":"Physical visit",
+          "template_content":""
+        },{
+          "name":"Vehicle Inspection",
+          "template_content":""
+        },{
+          "name":"Get additional information about the offer",
+          "template_content":""
+        },{
+          "name":"Guide for E-Auction",
+          "template_content":""
+        }
+      ],
+      'Machinery':[
+        {
+          "name":"Physical visit",
+          "template_content":""
+        },{
+          "name":"Equipment inspection",
+          "template_content":""
+        },{
+          "name":"Verify machinery document with professional valuer",
+          "template_content":""
+        },{
+          "name":"Verify machinery document without professional valuer",
+          "template_content":""
+        },{
+          "name":"Get additional information about the offer",
+          "template_content":""
+        },{
+          "name":"Guide for E-Auction",
+          "template_content":""
+        }
+      ], 'Equipment':[
+        {
+          "name":"Physical visit",
+          "template_content":""
+        },{
+          "name":"Equipment inspection",
+          "template_content":""
+        },{
+          "name":"Verify equipment document with professional valuer",
+          "template_content":""
+        },{
+          "name":"Verify equipment document without professional valuer",
+          "template_content":""
+        },{
+          "name":"Get additional information about the offer",
+          "template_content":""
+        },{
+          "name":"Guide for E-Auction",
+          "template_content":""
+        }
+      ],
+      'Take-Over':[
+        {
+          "name":"Arrange for physical inspection",
+          "template_content":""
+        },{
+          "name":"Provide document related to asset for inspection",
+          "template_content":""
+        },{
+          "name":"Get questionnaire from potential buyer and answer from lender",
+          "template_content":""
+        },{
+          "name":"Guide for E-Auction",
+          "template_content":""
+        }
+      ],
+      'Stock-lots':[
+        {
+          "name":"Physical visit to inspect/review sample",
+          "template_content":""
+        },{
+          "name":"Get technical details of stock lot",
+          "template_content":""
+        },{
+          "name":"Guide for E-Auction",
+          "template_content":""
+        }
+      ]
+    }
+
+    this.types = setup[this.productInfo.assetType];
+
+
   }
 
   registerFollowup() {
@@ -104,6 +249,10 @@ export class FollowUpFormComponent implements OnInit {
     } else {
       this.addFollowup();
     }
+  }
+
+  onTypeChange(){
+    this.followUpForm.get("message").setValue(this.followUpForm.get("type").value['template_content']);
   }
 
   addFollowup() {

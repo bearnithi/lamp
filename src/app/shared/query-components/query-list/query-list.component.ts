@@ -91,7 +91,7 @@ export class QueryListComponent implements OnInit {
 
   listenLive() {
     this.http.feathersInstance().service('followup').on('created', message => {
-      this.messages.push(message);
+     this.fetchMessages(this.selectedContact);
     });
   }
 
@@ -110,6 +110,7 @@ export class QueryListComponent implements OnInit {
 
       this.http.create('followup', query).then((res) => {
         console.log('msg sent');
+        this.fetchMessages(this.selectedContact);
       });
 
 
