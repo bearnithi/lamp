@@ -1,3 +1,13 @@
 .carousel-item img {
-  filter: brightness(0.8);
+  filter: brightness(0.6);
+}
+
+.carousel-title {
+  font-size: 70px;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 3px 3px 1rem #333;
+  color: #f7f7f7;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
 }

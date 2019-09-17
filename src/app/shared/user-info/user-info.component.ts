@@ -10,6 +10,7 @@ export class UserInfoComponent implements OnInit {
   @Output() edit = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
   @Output() showProperties = new EventEmitter<any>();
+  @Output() approve = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
@@ -23,6 +24,11 @@ export class UserInfoComponent implements OnInit {
   deleteUser(e) {
     e.preventDefault();
     this.delete.emit(true);
+  }
+
+  approveUser(e) {
+    e.preventDefault();
+    this.approve.emit(true);
   }
 
 }

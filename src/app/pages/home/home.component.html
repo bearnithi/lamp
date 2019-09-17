@@ -7,6 +7,98 @@
   <div class="container-fluid">
     <div class="row mt-4 mb-4">
       <div class="col-12">
+        <div class="card">
+          <div class="card-header header-elements-md-inline">
+            <h5 class="card-title">About LAMP</h5>
+          </div>
+
+          <div class="nav-tabs-responsive bg-light border-top">
+            <ul class="nav nav-tabs nav-tabs-bottom flex-nowrap mb-0">
+              <li class="nav-item"><a href="#course-overview" class="nav-link active show" data-toggle="tab"><i
+                    class="icon-menu7 mr-2"></i> About LAMP</a></li>
+              <!-- <li class="nav-item"><a href="#course-attendees" class="nav-link" data-toggle="tab"><i class="icon-people mr-2"></i> Attendees</a></li>
+                  <li class="nav-item"><a href="#course-schedule" class="nav-link" data-toggle="tab"><i class="icon-calendar3 mr-2"></i> Schedule</a></li> -->
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-pane fade active show" id="course-overview">
+              <div class="card-body about">
+                <div class="mt-1 mb-4">
+                  <p class="mb-3">Every Lender, lends money to a borrower, and expects the loan to be repaid with interest. This Loan
+                    is an asset in the books of the Lender. When for some reason the borrower stops the repayment and
+                    interest, the asset becomes a Non-Performing Asset or a Stressed Asset for the Lender. This is a
+                    challenge faced by all the lenders and the lender tries to manage the percentage of such assets to a
+                    manageable minimum. If he fails, his return on investment shrinks and eventually threatens the
+                    business to become a loss-making venture.</p>
+                  <p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and
+                    above it there hung a picture that he had recently cut out of an illustrated magazine and housed in
+                    a nice, gilded frame. It showed a lady fitted out with a fur hat and fur boa who sat upright,
+                    raising a heavy fur muff that covered the whole of her lower arm towards the viewer. Gregor then
+                    turned to look out the window at the dull weather.</p>
+                </div>
+
+
+
+                <!-- <h6 class="font-weight-semibold">What you will learn</h6> -->
+                <p class="mb-3"> An NPA arises due to two main factors:</p>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="mb-4">
+                      <dl>
+                        <dt class="font-size-sm font-weight-bold text-uppercase">
+                          <i class="icon-checkmark3 text-blue mr-2"></i>
+                          A willful default
+                        </dt>
+                        <dt class="font-size-sm font-weight-bold text-uppercase">
+                          <i class="icon-checkmark3 text-blue mr-2"></i>
+                          A failure of borrower’s Business, due to various reasons.
+                        </dt>
+
+                      </dl>
+                    </div>
+                  </div>
+
+
+                </div>
+                <p class="mb-3">Willful default occurs due to lack of financial integrity in the borrower. By lending to
+                  a Willful defaulter the Bank certainly walks into his trap. Willful defaulters can be controlled by
+                  strict regulatory laws. The preventive measures can be proper appraisal of the credit proposal, backed
+                  by huge amount of information from various agencies to rightly track the history of the borrower.</p>
+                <p class="mb-3">But Non-Willful defaulters are forced into default mainly due external economic factors
+                  like Recession, Change in Government Policies, Change in customer needs and moods, and innumerable
+                  other factors.</p>
+                <p class="mb-3">The Willful defaults should be handled by Negative Measures such as legal and punitive
+                  measures. But Non-Willful defaults should also be dealt with by Positive measures. The most important
+                  positive measure is to liquidate the security asset fast, appropriate the money for the loan account
+                  and release the borrowers as soon as possible, so that he can reorganize his life.</p>
+                <p class="mb-3">Unfortunately, in India, all defaulters are treated alike and there is lack of positive
+                  measures.</p>
+                <p class="mb-3">LAMP is an attempt at the positive measure. LAMP will not act punitive but supportive by
+                  introducing professionalism, skill and expertise, on the platform of today’s digital technological
+                  abilities and find a win-win-win solution to the Banker, Borrower and to the Buyer of the asset on
+                  lien. </p>
+                <div class="mb-3 text-teal success-text">LAMP is a special e-Market Place for non-performing assets – Lien Assets Market
+                  Place.</div>
+              </div>
+
+            </div>
+
+            <div class="tab-pane fade" id="course-attendees">
+
+            </div>
+
+            <div class="tab-pane fade" id="course-schedule">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4 mb-4">
+      <div class="col-12">
         <app-content-header header="New Offers"></app-content-header>
         <app-product-carousel [sliders]="newOffers"></app-product-carousel>
       </div>
@@ -30,5 +122,7 @@
         <app-sold-list [soldList]="soldList"></app-sold-list>
       </div>
     </div>
+
+
   </div>
 </section>

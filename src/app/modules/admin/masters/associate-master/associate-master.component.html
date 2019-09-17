@@ -15,7 +15,7 @@
         <section class="associate-list container-fluid">
           <div class="row">
             <div class="col-12">
-              <app-user-info (edit)="edit(userInfo)" (delete)="confirmDelete(userInfo)"
+              <app-user-info (edit)="edit(userInfo)" (approve)="approve(userInfo)" (delete)="confirmDelete(userInfo)"
               *ngFor="let userInfo of users" [userInfo]="userInfo"></app-user-info>
             </div>
           </div>

@@ -10,8 +10,8 @@
     <div class="carousel-item" [ngClass]="{'active': i === 0}" *ngFor="let slider of sliders; let i = index;">
       <img [src]="slider.src" alt="Los Angeles" [attr.width]="slider.width" [attr.height]="slider.height" />
       <div class="carousel-caption">
-        <h1>{{slider.header}}</h1>
-        <p>{{slider.pageContent}}</p>
+        <h1 class="carousel-title">{{slider.header}}</h1>
+        <!-- <p>{{slider.pageContent}}</p> -->
       </div>
     </div>
   </div>

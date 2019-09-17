@@ -14,8 +14,15 @@
 
         <div class="card-actions d-flex">
           <ng-container *ngIf="userInfo.role === 'Lender'">
-            <a href="#" (click)="$event.preventDefault(); showProperties.emit(true)" class="ml-1 mr-1"><i class="fa fa-edit"></i> View Properties</a> |
+            <a href="#" (click)="$event.preventDefault(); showProperties.emit(true)" class="ml-1 mr-1"><i
+                class="fa fa-edit"></i> View Properties</a> |
           </ng-container>
+          <ng-container *ngIf="userInfo.status !== 'APPROVED'">
+            <a href="#" *ngIf="userInfo.role !== 'Admin' || userInfo.role !== 'Buyer'"
+            (click)="approveUser($event)"
+            class="ml-1 mr-1"><i class="fa fa-edit"></i> Approve</a> |
+          </ng-container>
+
 
           <a href="#" (click)="editUser($event)" class="ml-1 mr-1"><i class="fa fa-edit"></i> Edit</a> |
           <a href="#" (click)="deleteUser($event)" class="ml-1 mr-1"><i class="fa fa-trash"></i> Delete</a>

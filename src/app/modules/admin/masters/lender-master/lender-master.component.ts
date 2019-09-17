@@ -33,6 +33,38 @@ export class LenderMasterComponent implements OnInit {
     this.router.navigate(['admin', 'products', userInfo._id]);
   }
 
+  approve(userInfo) {
+    this.store.showLoader.next(true);
+    userInfo.status = 'APPROVED';
+    this.httpHelper.patch('users', userInfo._id, userInfo)
+      .then((response: any) => {
+        this.onSuccess();
+      }).catch((err) => {
+        this.onFailure();
+      });
+}
+
+onSuccess() {
+  this.store.showLoader.next(false);
+  this.showLoader = false;
+  this.store.showGrowl.next({
+    text: 'Lender has been approved successfully',
+    title: 'Success',
+    type: 'success'
+  });
+}
+
+onFailure() {
+  this.store.showLoader.next(false);
+  this.showLoader = false;
+  this.store.showGrowl.next({
+    text: 'Error while creating associate',
+    title: 'Error',
+    type: 'danger'
+  });
+}
+
+
   confirmDelete(userInfo: any) {
     const dialog = this.dialog.open(ConfirmDialogComponent, {
       width: '400px',
