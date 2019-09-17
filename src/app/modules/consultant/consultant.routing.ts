@@ -28,10 +28,10 @@ const CONSULTANT_ROUTES = [
         path: 'follow-up',
         component: ConsultantFollowUpComponent
       },
-      {
-        path: 'product-details',
-        component: ConsultantProductDetailComponent
-      },
+      // {
+      //   path: 'product-details',
+      //   component: ConsultantProductDetailComponent
+      // },
       {
         path: "",
         component: ConsultantDashboardComponent

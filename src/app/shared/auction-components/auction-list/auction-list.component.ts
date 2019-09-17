@@ -11,6 +11,7 @@ export class AuctionListComponent implements OnInit {
   @Input() auctionList: Array<any> = [];
   @Output() edit = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
+  @Output() CloseAuctionpopup = new EventEmitter<any>();
   constructor(private authentication: AuthenticationService) { }
   selectedrole: any;
   ngOnInit() {
@@ -25,5 +26,11 @@ export class AuctionListComponent implements OnInit {
   deleteAuction(deletedata) {
     this.delete.emit(deletedata);
   }
+
+  CloseAuction(data) {
+      this.CloseAuctionpopup.emit(data);
+  }
+
+
 
 }

@@ -4,6 +4,7 @@ import { ConfirmDialogComponent } from 'src/app/shared/dialog-notification-compo
 import { Router } from '@angular/router';
 import { StoreService } from 'src/app/services/store.service';
 import { MatDialog } from '@angular/material';
+import { CloseAuctionComponent } from 'src/app/shared/close-auction/close-auction.component';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -15,6 +16,8 @@ export class AdminDashboardComponent implements OnInit {
   dashboardres: any;
   auctionList: Array<any> = [];
   selectedAuction: any = {};
+  showLoader: boolean;
+  formMessage: any;
   constructor(private httpHelper: HttpHelperService,
     private router: Router,
     private store: StoreService,
@@ -104,6 +107,54 @@ export class AdminDashboardComponent implements OnInit {
         });
 
       }
+    });
+  }
+
+
+  showpopup(Auction: any) {
+    const dialog = this.dialog.open(CloseAuctionComponent, {
+      width: '400px',
+    });
+
+    dialog.afterClosed().subscribe((data: any) => {
+      if (data) {
+        const savedata = {
+          'Amount': data,
+          'AuctionEndDate': new Date(),
+          'Status': 'Closed'
+        }
+        this.httpHelper.patch('auctions', Auction._id, savedata)
+          .then((response: any) => {
+            this.onSuccess();
+          }).catch((err) => {
+            this.onFailure();
+          });
+
+      }
+    });
+  }
+
+
+  onSuccess() {
+    this.store.showLoader.next(false);
+    this.showLoader = false;
+    this.formMessage = 'Added successfully';
+    this.store.showGrowl.next({
+      text: 'Profile updated successfully',
+      title: 'Success',
+      type: 'success'
+    });
+    this.router.navigate(['buyer/buyer-dashboard']);
+  }
+
+  onFailure() {
+    this.store.showLoader.next(false);
+    this.showLoader = false;
+    this.formMessage = 'Unexpected error occured';
+    this.store.showGrowl.next({
+      text: 'Error while updating profile',
+      title: 'Error',
+      type: 'danger'
     });
   }
 

@@ -93,6 +93,7 @@ import { QueryListComponent } from './query-components/query-list/query-list.com
 import { QueryDetailComponent } from './query-components/query-detail/query-detail.component';
 import { QueryContactsComponent } from './query-components/query-contacts/query-contacts.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { CloseAuctionComponent } from './close-auction/close-auction.component';
 
 @NgModule({
   declarations: [
@@ -147,7 +148,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     QueryListComponent,
     QueryDetailComponent,
     QueryContactsComponent,
-    FilterPipe],
+    FilterPipe,
+    CloseAuctionComponent],
 
   imports: [
     CommonModule,
@@ -195,11 +197,13 @@ import { FilterPipe } from './pipes/filter.pipe';
     ProductDetailsComponent,
     FollowUpFormComponent,
     QueryListComponent,
-    QueryDetailComponent
+    QueryDetailComponent,
+    CloseAuctionComponent
   ],
   entryComponents: [
     ConfirmDialogComponent,
-    ProductTeamAssignComponent
+    ProductTeamAssignComponent,
+    CloseAuctionComponent
   ]
 })
 export class SharedModule { }
