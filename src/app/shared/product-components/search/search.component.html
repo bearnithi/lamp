@@ -6,7 +6,7 @@
           <div class="row align-items-center mb-2">
             <div class="col-md-2">
               <select formControlName="assetType" name="propery type" class="form-control input-lg selectpicker">
-                <option selected style="display:none">Property Type</option>
+                <option selected style="display:none">Asset Type</option>
                 <option *ngFor="let property of searchFilters.property" [value]="property.code">
                   {{ property.name}}
                 </option>

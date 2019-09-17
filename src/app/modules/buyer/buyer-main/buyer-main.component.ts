@@ -18,10 +18,12 @@ export class BuyerMainComponent implements OnInit {
       {
         name: 'Assets',
         link: '/buyer/products'
-      }, {
-        name: 'Send Email',
-        link: '/buyer/contact'
-      }];
+      }
+      // , {
+      //   name: 'Send Email',
+      //   link: '/buyer/contact'
+      // }
+    ];
 
   }
 

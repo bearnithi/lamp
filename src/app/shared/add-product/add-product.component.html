@@ -7,7 +7,7 @@
             <div class="row">
               <div class="col-12 col-md-4 col-lg-4">
                 <div class="form-group">
-                  <label>Property Type</label>
+                  <label>Asset Type</label>
                   <select [(ngModel)]="propertyType" class="form-control">
                     <option value="" style="display: none">Select</option>
                     <option *ngFor="let property of properties" value="{{property.name}}">{{property.name}}</option>

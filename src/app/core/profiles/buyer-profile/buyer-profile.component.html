@@ -310,7 +310,7 @@
                     <div class="row">
                       <div class="col-12 col-md-4 col-lg-4">
                         <div class="form-group">
-                          <label>Property Type</label>
+                          <label>Asset Type</label>
                           <select
                             formControlName="propertyType"
                             multiple
@@ -337,14 +337,14 @@
                                 preferenceControl.propertyType.errors.required
                               "
                             >
-                              Property type is required
+                              Asset type is required
                             </div>
                             <div
                               *ngIf="
                                 preferenceControl.propertyType.errors.pattern
                               "
                             >
-                              Property type is invalid
+                              Asset type is invalid
                             </div>
                           </div>
                         </div>

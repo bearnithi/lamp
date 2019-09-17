@@ -9,9 +9,28 @@
       <!-- Content area -->
       <div class="content">
         <div class="row">
-          <div class="col-lg-3" *ngFor="let card of cardStats">
+          <div class="col-lg-4" *ngFor="let card of cardStats">
             <app-stat-card [cardDetail]="card"></app-stat-card>
           </div>
+        </div>
+      </div>
+
+      <div class="row mt-4 mb-4">
+        <div class="col-6">
+          <div class="card mb-0">
+            <div class="card-header">
+              <h6>E-Auctions Coming Up</h6>
+            </div>
+          </div>
+          <app-auction-list [auctionList]="auctionList"></app-auction-list>
+        </div>
+        <div class="col-6">
+          <div class="card mb-0">
+            <div class="card-header">
+              <h6>Sales Concluded</h6>
+            </div>
+          </div>
+          <app-sold-list [soldList]="soldList"></app-sold-list>
         </div>
       </div>
 

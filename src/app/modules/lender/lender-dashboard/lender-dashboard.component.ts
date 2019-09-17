@@ -8,11 +8,15 @@ import { HttpHelperService } from 'src/app/services/http-helper.service';
 })
 export class LenderDashboardComponent implements OnInit {
   cardStats: Array<any>;
+  auctionList: any;
+  soldList: any;
   constructor(private httpHelper: HttpHelperService) { }
 
   ngOnInit() {
     this.fetchCardStats();
     this.fetchDaseboardTitle();
+    this.fetchAuctions();
+    this.fetchSoldItems();
   }
 
   fetchCardStats() {
@@ -21,7 +25,8 @@ export class LenderDashboardComponent implements OnInit {
       desc: 'Properties',
       subdesc: 'Active Properties',
       id: 'members-online',
-      class: 'bg-teal'
+      class: 'bg-teal',
+      link: '/lender/products'
     }, {
       title: '80',
       desc: 'Associates',
@@ -34,13 +39,15 @@ export class LenderDashboardComponent implements OnInit {
       subdesc: 'Active Consultants',
       id: 'today-revenue',
       class: 'bg-blue'
-    }, {
-      title: '250',
-      desc: 'Buyers',
-      subdesc: 'Active Buyers',
-      id: 'buyers',
-      class: 'bg-orange'
-    }]
+    }
+      // , {
+      //   title: '250',
+      //   desc: 'Buyers',
+      //   subdesc: 'Active Buyers',
+      //   id: 'buyers',
+      //   class: 'bg-orange'
+      // }
+    ];
   }
 
 
@@ -58,6 +65,29 @@ export class LenderDashboardComponent implements OnInit {
           currenttitle.title = dashboardCount[key] || 0;
         }
       }
+    });
+  }
+
+  fetchAuctions() {
+    const query = {
+      type: 'auctioninfo',
+      condition: {
+        Status: {
+          $ne: 'Closed'
+        }
+      }, $limit: 10, $sort: { _id: -1 }
+    };
+    this.httpHelper.find('dashboard', { query }).then((res) => {
+      this.auctionList = res;
+    });
+  }
+
+  fetchSoldItems() {
+    const query = {
+      type: 'auctioninfo', condition: { Status: 'Closed' }, $limit: 10, $sort: { _id: -1 }
+    };
+    this.httpHelper.find('dashboard', { query }).then((res) => {
+      this.soldList = res;
     });
   }
 

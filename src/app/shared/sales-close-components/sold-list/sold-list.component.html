@@ -6,7 +6,7 @@
         <th>Bank</th>
         <th>Price</th>
         <th>Closed Date</th>
-        <th>Buyer</th>
+        <th>Status</th>
 
       </tr>
     </thead>
@@ -31,20 +31,20 @@
           </div>
         </td>
         <td>
-          <span class="text-muted">{{ sold.userInfo.bankName }}</span>
+          <span class="text-muted">{{ sold.userInfo?.firstName }}</span>
         </td>
         <td>
           <h6 class="font-weight-semibold mb-0 text-success-600">
-            {{ sold.assetInfo.assetDetails.floorPrice  | currency: 'INR' }}
+            {{ sold.Amount  | currency: 'INR' }}
           </h6>
         </td>
         <td>
           <h6 class="font-weight-semibold mb-0">
-            {{ sold.soldDate }}
+            {{ sold.AuctionEndDate |date }}
           </h6>
         </td>
         <td>
-          <span class="text-muted">{{ sold.userInfo.buyerName }}</span>
+          <span class="badge bg-blue">{{sold.Status}}</span>
         </td>
       </tr>
     </tbody>
