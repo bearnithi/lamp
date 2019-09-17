@@ -2,9 +2,9 @@
   <table class="table text-nowrap">
     <thead>
       <tr class="border">
-        <th>Property</th>
+        <th>Asset</th>
         <th>Bank</th>
-        <th>Price</th>
+        <!-- <th>Price</th> -->
         <th>Auction Date</th>
         <th>Status</th>
         <th *ngIf="selectedrole?.role==='Admin'">Action</th>
@@ -31,13 +31,13 @@
           </div>
         </td>
         <td>
-          <span class="text-muted">{{ auction.userInfo?.bankName }}</span>
+          <b><span class="text-muted">{{ auction.userInfo?.firstName }}</span></b>
         </td>
-        <td>
+        <!-- <td>
           <h6 class="font-weight-semibold mb-0 text-success-600">
             {{ auction.assetInfo.assetDetails.floorPrice | currency: 'INR' }}
           </h6>
-        </td>
+        </td> -->
         <td>
           <h6 class="font-weight-semibold mb-0">
             {{ auction.auctionDate }}

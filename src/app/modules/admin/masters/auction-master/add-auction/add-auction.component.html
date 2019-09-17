@@ -23,7 +23,7 @@
                           <option
                             *ngFor="let lender of lenders"
                             value="{{ lender._id }}"
-                            >{{ lender.bankName }}</option
+                            >{{ lender.firstName }}</option
                           >
                         </select>
 
@@ -41,11 +41,11 @@
                     </div>
                     <div class="col-12 col-md-4 col-lg-4">
                       <div class="form-group">
-                        <label>Property</label>
+                        <label>Asset</label>
 
                         <select formControlName="assetId" class="form-control">
                           <option value="" style="display: none"
-                            >Select Property</option
+                            >Select Asset</option
                           >
                           <option
                             *ngFor="let asset of lenderAsset"
@@ -61,7 +61,7 @@
                           class="error-message"
                         >
                           <div *ngIf="control.assetId.errors.required">
-                            Property is required
+                            Asset is required
                           </div>
                         </div>
                       </div>

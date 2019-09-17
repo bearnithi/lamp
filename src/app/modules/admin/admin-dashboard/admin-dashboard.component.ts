@@ -76,8 +76,24 @@ export class AdminDashboardComponent implements OnInit {
 
 
 
+  // fetchAuctions() {
+  //   this.httpHelper.find('dashboard', { query: { type: 'auctioninfo' } }).then((res) => {
+  //     this.auctionList = res;
+  //   });
+  // }
+
+
+
   fetchAuctions() {
-    this.httpHelper.find('dashboard', { query: { type: 'auctioninfo' } }).then((res) => {
+    const query = {
+      type: 'auctioninfo',
+      condition: {
+        Status: {
+          $ne: 'Closed'
+        }
+      }, $limit: 10, $sort: { _id: -1 }
+    };
+    this.httpHelper.find('dashboard', { query }).then((res) => {
       this.auctionList = res;
     });
   }
