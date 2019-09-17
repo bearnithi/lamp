@@ -73,10 +73,11 @@ const ADMIN_ROUTES = [{
   }, {
     path: 'add-auction/:type',
     component: AddAuctionComponent
-  }, {
-    path: 'product-details',
-    component: ProductDetailsPageComponent
   },
+  // {
+  //   path: 'product-details',
+  //   component: ProductDetailsPageComponent
+  // },
   {
     path: 'my-profile',
     component: AdminProfileComponent

@@ -29,10 +29,10 @@ const ASSOCIATE_ROUTES = [{
     path: 'follow-up',
     component: AssociateFollowUpComponent
   },
-  {
-    path: 'product-details',
-    component: AssociateProductDetailsComponent
-  },
+  // {
+  //   path: 'product-details',
+  //   component: AssociateProductDetailsComponent
+  // },
   {
     path: "",
     component: AssociateDashboardComponent

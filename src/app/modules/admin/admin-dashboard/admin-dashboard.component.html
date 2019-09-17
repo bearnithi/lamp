@@ -21,7 +21,7 @@
                   <h6>E-Auctions Coming Up</h6>
                 </div>
               </div>
-              <app-auction-list [auctionList]="auctionList" (edit)="editAuctionList($event)" (delete)="confirmDelete($event)"></app-auction-list>
+              <app-auction-list [auctionList]="auctionList" (edit)="editAuctionList($event)" (delete)="confirmDelete($event)" (CloseAuctionpopup)="showpopup($event)"></app-auction-list>
         </div>
 
         <!-- <div class="col-6">

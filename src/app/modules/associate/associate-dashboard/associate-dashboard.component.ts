@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpHelperService } from 'src/app/services/http-helper.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-associate-dashboard',
@@ -10,20 +11,26 @@ export class AssociateDashboardComponent implements OnInit {
   cardStats: Array<any>;
   dashboardres: any;
   query: any = {};
-  constructor(private httpHelper: HttpHelperService) { }
+  userInfo: any;
+  auctionList: any;
+
+  constructor(private httpHelper: HttpHelperService,
+    private authentication: AuthenticationService) { }
 
   ngOnInit() {
-  //  this.fetchDaseboard();
+    this.userInfo = this.authentication.getUserInfo()
+    this.fetchDaseboard();
+    this.fetchAuctions();
     this.cardStats = [{
       title: '50',
-      desc: 'Properties',
+      desc: 'total_property',
       subdesc: 'Total Properties',
       id: 'members-online',
       class: 'bg-teal',
       link: '/associate/properties'
     }, {
       title: '20',
-      desc: 'Working Properties',
+      desc: 'working_property',
       subdesc: 'Properties which you are handling',
       id: 'server-load',
       class: 'bg-pink',
@@ -33,7 +40,7 @@ export class AssociateDashboardComponent implements OnInit {
   }
 
   fetchDaseboard() {
-    this.httpHelper.find('dashboard', { query: { type: 'admindashboard' } }).then((res) => {
+    this.httpHelper.find('dashboard', { query: { type: 'associatedashboard', id: this.userInfo._id } }).then((res) => {
       this.changeTitle(res[0]);
     });
   }
@@ -47,4 +54,11 @@ export class AssociateDashboardComponent implements OnInit {
       }
     });
   }
+
+  fetchAuctions() {
+    this.httpHelper.find('dashboard', { query: { type: 'auctioninfo' } }).then((res) => {
+      this.auctionList = res;
+    });
+  }
+
 }

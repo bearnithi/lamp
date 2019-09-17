@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="form-group">
+                    <label>
+                        Amount
+                        <sup class="required-indicator text-danger font-weight-bold font-size-lg">*</sup>
+                    </label>
+                    <input type="text" [formControl]="Amount" class="form-control" placeholder="Enter Amount" />
+                </div>
+            </div>
+            <button type="submit" class="btn bg-blue ml-3" (click)="savedata()">Submit
+            </button>
+        </div>
+    </div>
+</div>

@@ -7,18 +7,26 @@
     <div class="content-wrapper">
       <!-- Content area -->
       <div class="content">
-        <div class="row justify-content-center">
-          <div class="col-lg-3" *ngFor="let card of cardStats">
-            <app-stat-card [cardDetail]="card"></app-stat-card>
+        <div class="row">
+          <div class="col-3">
+            <div class="row">
+              <div class="col-12" *ngFor="let card of cardStats">
+  
+                <app-stat-card [cardDetail]="card"></app-stat-card>
+              </div>
+            </div>
+  
+          </div>
+          <div class="col-9">
+            <app-auction-list [auctionList]="auctionList"></app-auction-list>
           </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-12">
-                  <app-query-list (selectedQuery)="query = $event"></app-query-list>
-                  <app-query-detail [query]="query"></app-query-detail>
-            </div>
-        </div> -->
+  
+        <div class="row">
+  
+        </div>
+      </div>
 
       </div>
     </div>
-  </div>
+  
